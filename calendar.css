@@ -1,0 +1,89 @@
+html{
+	font-family: monaco;
+}
+.header{
+	width: 100%;
+	height: 100px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #333;
+}
+#title{
+	float: left;
+	font-size: 80px;
+	color: lightgray;
+}
+
+#userinfo{
+	float:right;
+	color: lightgray;
+	padding-top: 20px;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.button{
+	border:none;
+	font-family: monaco;
+	padding-top: 4px;
+	margin-bottom: 5px;
+}
+
+.sidenav {
+	margin-top: 100px; 
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+}
+
+.calendar-nav{
+	margin-top: 100px;
+	margin-left: 160px;
+	position: fixed;
+	width: calc(100% - 160px);
+	height: 100px;
+	background-color: #DEE6EC;
+	top: 0;
+	left: 0;
+}
+
+.calendar{
+	margin-top: 200px;
+	margin-left: 160px;
+	position: fixed;
+	width: calc(100%-160px);
+	height: 100px;
+	/*background-color: #DEE6EC;*/
+	top: 0;
+	left: 0;
+}
+
+
+table, th, td{
+	border:1px solid lightgray;
+}
+table{
+	width: 100%;
+	border-collapse: collapse;
+}
+th{
+	width: 1%;
+}
+tr{
+	height: 100px;
+}
+tr.top{
+	height: 50px;
+}
+td{
+	transition: background-color 0.5s ease;
+}
+td:hover{
+	background-color: lightgray;
+}

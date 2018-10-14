@@ -27,11 +27,11 @@ function fill(){
 	let days = weeks[0].getDates();
 	let rows = document.querySelectorAll('tr');
 	// if 7 rows found, remove last row
-	if (rows.length == 7){
-		rows[0].parentNode.removeChild(rows[0].parentNode.lastChild);
-		rows = document.querySelectorAll('tr');
-	}
-	for (let i = 1; i < 6; i++){
+	// if (rows.length == 7){
+	// 	rows[0].parentNode.removeChild(rows[0].parentNode.lastChild);
+	// 	rows = document.querySelectorAll('tr');
+	// }
+	for (let i = 1; i < 7; i++){
 		rows[i].innerHTML = "";
 	}
 
@@ -58,10 +58,10 @@ function fill(){
 			if (i != fir.getDate()){
 				j++;
 				// if an extra row needed, add it
-				if (j == 6){
-					rows[j-1].parentNode.appendChild(document.createElement("tr"));
-					rows = document.querySelectorAll('tr');
-				}
+				// if (j == 6){
+				// 	rows[j-1].parentNode.appendChild(document.createElement("tr"));
+				// 	rows = document.querySelectorAll('tr');
+				// }
 			}
 			
 		}
@@ -77,11 +77,11 @@ function fill(){
 	// load next month in gray
 	for (let i = nex.getDay() + 1; i < 7; i++){
 		console.log(i);
-		rows[rows.length-1].innerHTML += "<td>" + (i - nex.getDay()) + "<br>";
+		rows[j].innerHTML += "<td>" + (i - nex.getDay()) + "<br>";
 
 		// ADD EVENTS HERE
-		rows[rows.length-1].innerHTML += "</td>";
-		rows[rows.length-1].lastChild.style.color = "rgb(150,150,150)";
+		rows[j].innerHTML += "</td>";
+		rows[j].lastChild.style.color = "rgb(150,150,150)";
 	}
 }
 

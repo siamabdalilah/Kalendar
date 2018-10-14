@@ -10,12 +10,24 @@
 		<div id = "title">
 			Kalendar
 		</div>
-		<div id = "userinfo">
+		<!-- Hide this if someone logged in -->
+		<div id = "userlogin">
 			Username: <input class = "inp" type = "text" id="user"/>   Password: <input class = "inp" type = "password" id = "pass"/>  <button class = "button" id = "log">Login</button><br>
 			<button class = "button" id = "reg">Register</button>
 		</div>
+		<!-- Hide this if no one logged in -->
+		<!-- Set user name in this <span> element -->
+		<div id = "userinfo">
+			<span id = "username"></span><br>
+			<button class = "button" id = "logout">Logout</button>
+		</div>
 	</div>
+
+
 	<div class = "sidenav">
+		<button class = "button" id = "addevent">Add Event</button>
+		<div id = categories>
+		</div>
 	</div>
 	
 	<div class = "calendar-nav">
@@ -43,5 +55,24 @@
 			
 		</table>
 	</div>
+
+	<div class = "modal">
+		<div class = "modal-content">
+			<span id = "r">Register new user</span><br><br>
+			Username:<br> <input class = "inp" type = "text" name = "reguser"><br>
+			Password:<br><input class = "inp" type = "password" name = "regpass"><br>
+			Confirm Password:<br><input class = "inp" type = "password" name = "regconf"><br><br>
+			<button class = "button" id = "regbutton">Register</button> <button class = "button" id = "cancel">Cancel</button>
+
+		</div>
+	</div>
+
+	
+    <script type="text/javascript" src = "buttonListeners.js"></script>
 </body>
 </html>
+
+
+
+
+

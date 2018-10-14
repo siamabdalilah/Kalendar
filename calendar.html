@@ -3,6 +3,7 @@
 <head>
 	<title>Kalendar</title>
 	<link rel = "stylesheet" href = "calendar.css"/>
+	<script src = "calendar.min.js"></script>
 </head>
 <body>
 	
@@ -25,50 +26,86 @@
 
 
 	<div class = "sidenav">
-		<button class = "button" id = "addevent">Add Event</button>
+		<button class = "button" id = "addev">Add Event</button>
 		<div id = categories>
+			//ADD CATEGORIES HERE
 		</div>
 	</div>
 	
 	<div class = "calendar-nav">
+		<div id = 'textbox'>
+			<button class = "button" id = "prevm">< Previous Month</button> <span id = "curMonth"></span> <button class = "button" id = "nextm">Next Month ></button>
+		</div>
 	</div>
 
 	<div class = "calendar">
 		<table>
 			<!-- <div class = "rows"> -->
 			<tr class = "top">
+				<th>Sunday</th>
 				<th>Monday</th>
 				<th>Tuesday</th>
 				<th>Wednesday</th>
 				<th>Thursday</th>
 				<th>Friday</th>
 				<th>Saturday</th>
-				<th>Sunday</th>
 			</tr>
-			
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<!-- <tr><td>d</td></tr>
 			<tr><td>d</td></tr>
 			<tr><td>d</td></tr>
 			<tr><td>d</td></tr>
-			<tr><td>d</td></tr>
-			<tr><td>d</td></tr>
+			<tr><td>d</td></tr> -->
 
 			
 		</table>
 	</div>
 
-	<div class = "modal">
+
+
+
+	<!-- MODALS UNDER HERE -->
+
+	<div class = "modal" id = "registernewuser">
 		<div class = "modal-content">
 			<span id = "r">Register new user</span><br><br>
 			Username:<br> <input class = "inp" type = "text" name = "reguser"><br>
 			Password:<br><input class = "inp" type = "password" name = "regpass"><br>
 			Confirm Password:<br><input class = "inp" type = "password" name = "regconf"><br><br>
-			<button class = "button" id = "regbutton">Register</button> <button class = "button" id = "cancel">Cancel</button>
+			<button class = "button" id = "regbutton">Register</button> <button class = "button" id = "cancelreg">Cancel</button>
 
 		</div>
 	</div>
 
+
+	<div class = "modal" id = "addevent">
+		<div class = "modal-content">
+			<span id = "r">Add New Event</span><br><br>
+			Title:<br> <input class = "inp" type = "text" name = "evtite"><br>
+			Date:<br><input class = "inp" type = "date" name = "date"><br>
+			Time:<br><input class = "inp" type = "time" name = "time"><br><br>
+			<button class = "button" id = "submitevent">Add Event</button> <button class = "button" id = "cancelev">Cancel</button>
+
+		</div>
+	</div>
+
+	<div class = "modal" id = "view">
+		<div class = "modal-content">
+			
+
+		</div>
+	</div>
+
+
+
 	
     <script type="text/javascript" src = "buttonListeners.js"></script>
+    <script type="text/javascript" src = "loadmonth.js"></script>
 </body>
 </html>
 

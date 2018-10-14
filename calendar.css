@@ -45,6 +45,9 @@ html{
 	background-color: #DEE6EC;
 
 }
+button:focus{
+	outline: 0;
+}
 
 /*partly taken from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_sidenav_fixed*/
 .sidenav {
@@ -62,6 +65,8 @@ html{
 }
 
 .calendar-nav{
+	text-align: center;
+	font-size: 25px;
 	margin-top: 100px;
 	margin-left: 160px;
 	position: fixed;
@@ -70,6 +75,18 @@ html{
 	background-color: #DEE6EC;
 	top: 0;
 	left: 0;
+}
+
+#textbox{
+	padding-top: 25px;
+
+
+}
+
+#textbox > button{
+	height: 50px;
+	width: 200px;
+	font-size: 17px;
 }
 
 .calendar{
@@ -102,6 +119,7 @@ tr.top{
 }
 td{
 	transition: background-color 0.5s ease;
+	vertical-align: top;
 }
 td:hover{
 	background-color: lightgray;
@@ -128,6 +146,7 @@ td:hover{
 	background-color:#333;/*#fff;*/
 	color: lightgray;
 	position:relative;
+	outline: 0;
 	padding:10px;
 	text-align: center;
 	width: 250px;

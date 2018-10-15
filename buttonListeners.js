@@ -61,9 +61,9 @@ function logout(){
 
 
 function register(){
-	const user = addslashes(document.querySelector('input[name="reguser"]').value);
-	const pass = addslashes(document.querySelector('input[name="regpass"]').value);
-	const conf = addslashes(document.querySelector('input[name="regconf"]').value);
+	const user = document.querySelector('input[name="reguser"]').value;
+	const pass = document.querySelector('input[name="regpass"]').value;
+	const conf = document.querySelector('input[name="regconf"]').value;
 	alert("stuff received");
 
 	if (!(pass === conf)){
@@ -74,7 +74,7 @@ function register(){
 
 	const data = {'username' : user, 'password' : pass};
 
-	fetch(logout.php, {
+	fetch('register.php', {
 		method: 'POST',
         body: JSON.stringify(data),
         headers: { 'content-type': 'application/json' }

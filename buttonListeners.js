@@ -70,7 +70,7 @@ function register(){
 		return;
 	}
 
-	const data = {'username' : user, 'password' = pass};
+	const data = {'username' : user, 'password' : pass};
 
 	fetch(logout.php, {
 		method: 'POST',
@@ -79,7 +79,7 @@ function register(){
 	})
 	.then(response => response.json())
 	.then(data => {
-		if (data.success){
+		if (resp.success){
 			$('input[name="reguser"]').value = "";
 			$('input[name="regpass"]').value = "";
 			$('input[name="regconf"]').value = "";
@@ -88,9 +88,10 @@ function register(){
 			document.querySelector('#userlogin').style.display = "block";
 			document.querySelector('#userinfo').style.display = "none";
 			fill(); //TO BE REPLACED WITH GETEVENTS
+			//ADD TOKEN
 		}
 		else{
-			alert(data.message);
+			alert(resp.message);
 		}
 	}).catch(err => console.log(err));
 
@@ -114,6 +115,7 @@ document.querySelector('#cancelreg').addEventListener("click", cancelreg, false)
 
 document.querySelector('#addev').addEventListener("click", addev, false);
 document.querySelector('#cancelev').addEventListener("click", cancelev, false);
+document.querySelector('#regbutton').addEventListener("click", register, false);
 
 document.querySelector('#log').addEventListener("click", login, false);
 document.querySelector('#logout').addEventListener("click", logout, false);

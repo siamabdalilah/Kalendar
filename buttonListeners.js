@@ -15,11 +15,11 @@ function view(element){
 
 }
 
-function prefill(element){
-	addev();
-	document.querySelector('input[name="date"]').value = document.get
-	document.querySelector('input[name="time"]').value = 
-}
+// function prefill(element){
+	// addev();
+	// document.querySelector('input[name="date"]').value = document.getElementById.getAttribute()
+	//document.querySelector('input[name="time"]').value = 
+
 
 let all = document.querySelectorAll("td");
 all.forEach(element => element.addEventListener());

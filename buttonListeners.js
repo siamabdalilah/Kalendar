@@ -14,6 +14,17 @@ function view(element){
 	let id = element.getAttribute("id");
 
 }
+
+function prefill(element){
+	addev();
+	document.querySelector('input[name="date"]').value = document.get
+	document.querySelector('input[name="time"]').value = 
+}
+
+let all = document.querySelectorAll("td");
+all.forEach(element => element.addEventListener());
+
+
 function login(){
 	const username = document.querySelector("#user").value;
 	const password = document.querySelector("#pass").value;

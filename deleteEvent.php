@@ -31,9 +31,9 @@ if ($event_id_db != $eventID) {
     ));
 }
 
-else {}
+else {
 // deleting event
-$stmt3->prepare("DELETE from events WHERE event_id=?);
+$stmt3->prepare("DELETE from events WHERE event_id=?");
 $stmt3->bind_param(i,$eventID);
 $stmt3->execute;
 $stmt3->close;
@@ -43,3 +43,5 @@ echo json_encode(array(
     "message" => "Event deleted!"
 ));
 }
+
+?>

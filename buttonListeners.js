@@ -30,8 +30,8 @@ function login(){
 			document.querySelector("#user").value = "";
 			document.querySelector("#pass").value = "";
 			document.querySelector('#username').innerHTML = "Welcome, " + username + "<br>";
-			document.querySelector('#userlogin').style.display = "block";
-			document.querySelector('#userinfo').style.display = "none";
+			document.querySelector('#userlogin').style.display = "none";
+			document.querySelector('#userinfo').style.display = "block";
 			document.querySelector('#csrf').value = resp.token;
 			fill(); //TO BE REPLACED WITH GET EVENTS
 		}

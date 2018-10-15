@@ -16,7 +16,7 @@ header("Content-Type: application/json");
 // 	));
 // exit;
 
-if (isset($_SESSION)){
+if (session_status() === PHP_SESSION_ACTIVE){
 	echo json_encode(array(
 		'session' => true,
 		'csrf' => $_SESSION['token'],

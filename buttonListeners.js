@@ -79,7 +79,7 @@ function register(){
         body: JSON.stringify(data),
         headers: { 'content-type': 'application/json', 'Accept': 'application/json' }
 	})
-	.then(response => response.json()).
+	.then(response => response.json())
 	.then(data => {
 		if (resp.success){
 			$('input[name="reguser"]').value = "";

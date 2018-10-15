@@ -10,10 +10,7 @@ function addev(){
 function cancelev(){
 	document.querySelector('#addevent').style.display = "none";
 }
-// function view(element){
-// 	let id = element.getAttribute("id");
 
-// }
 function login(){
 	const username = document.querySelector("#user").value;
 	const password = document.querySelector("#pass").value;

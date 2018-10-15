@@ -105,10 +105,11 @@ document.addEventListener("DOMContentLoaded", function(){
 	.then(response => response.json())
 	.then(res => {
 		if (res.session){
-			document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
-			document.querySelector('#userlogin').style.display = "none";
-			document.querySelector('#userinfo').style.display = "block";
-			document.querySelector('#csrf').value = res.csrf;
+			alert("ok");
+			// document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
+			// document.querySelector('#userlogin').style.display = "none";
+			// document.querySelector('#userinfo').style.display = "block";
+			// document.querySelector('#csrf').value = res.csrf;
 		}
 	}).catch(err => {console.log(err); alert("Something went wrong")});
 }, false);

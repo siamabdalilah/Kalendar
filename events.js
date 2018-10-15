@@ -1,11 +1,11 @@
 function addEvent(){
 	const title = document.querySelector("input[name='evtitle']").value;
-	const time = document.querySelector("input[name='date']").value + " " + document.querySelector("input[name='time']") + ":00";
+	const time = document.querySelector("input[name='date']").value + " " + document.querySelector("input[name='time']").value + ":00";
 	const tag = 'Personal';//document.querySelector("input[name='tag']").value;
 
 	const data = {'title' : title, 'time' : time, 'tag' : tag, 'token' : document.querySelector("#csrf").value}
-	alert("working");
-	fetch("addEvent.php", {
+	alert(time);
+	fetch('addEvent.php', {
 		method: 'POST',
         body: JSON.stringify(data),
         headers: { 'content-type': 'application/json' }

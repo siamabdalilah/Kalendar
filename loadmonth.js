@@ -85,6 +85,11 @@ function decmonth(){
 	fill();
 }
 
+function getEventsCurrentMonth() {
+	const month;
+
+	let
+}
 
 
 

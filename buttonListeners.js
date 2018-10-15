@@ -55,6 +55,7 @@ function logout(){
 			document.querySelector('#username').innerHTML = "";
 			document.querySelector('#userlogin').style.display = "block";
 			document.querySelector('#userinfo').style.display = "none";
+			document.querySelector('#csrf').value = "";
 			fill();
 		}
 

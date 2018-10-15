@@ -51,7 +51,7 @@ function logout(){
 	})
 	.then(response => response.json())
 	.then(res =>{
-		if (res.response){
+		if (res.success){
 			document.querySelector('#username').innerHTML = "";
 			document.querySelector('#userlogin').style.display = "block";
 			document.querySelector('#userinfo').style.display = "none";

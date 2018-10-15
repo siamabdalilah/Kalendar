@@ -80,7 +80,7 @@ function register(){
         headers: { 'content-type': 'application/json', 'Accept': 'application/json' }
 	})
 	.then(response => response.json())
-	.then(data => {
+	.then(resp => {
 		if (resp.success){
 			$('input[name="reguser"]').value = "";
 			$('input[name="regpass"]').value = "";

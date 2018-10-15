@@ -8,17 +8,17 @@ echo json_encode(array(
 	));
 exit;
 
-if (isset($_SESSION)){
-	echo json_encode(array(
-		'session' => true,
-		'csrf' => $_SESSION['token'],
-		'user' => $_SESSION['username']
-	));
-}
-else{
-	echo json_encode(array('session' => false));
-}
+// if (isset($_SESSION)){
+// 	echo json_encode(array(
+// 		'session' => true,
+// 		'csrf' => $_SESSION['token'],
+// 		'user' => $_SESSION['username']
+// 	));
+// }
+// else{
+// 	echo json_encode(array('session' => false));
+// }
 
-exit;
+// exit;
 
 ?>

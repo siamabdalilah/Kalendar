@@ -3,8 +3,8 @@ function addEvent(){
 	const time = document.querySelector("input[name='date']").value + " " + document.querySelector("input[name='time']") + ":00";
 	const tag = 'Personal';//document.querySelector("input[name='tag']").value;
 
-	const data = {'title' : title, 'time' : time, 'tag' : tag}
-
+	const data = {'title' : title, 'time' : time, 'tag' : tag, 'token' : document.querySelector("#csrf").value}
+	alert("working");
 	fetch("addEvent.php", {
 		method: 'POST',
         body: JSON.stringify(data),

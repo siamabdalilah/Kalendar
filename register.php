@@ -6,6 +6,8 @@ header("Content-Type: application/json");
 
 
 $json_str = file_get_contents('php://input');
+// echo json.encode(array('success'=>false));
+// exit;
 $json_obj = json_decode($json_str, true);
 
 $username = $json_obj['username'];
@@ -23,7 +25,7 @@ $stmt->close();
 
 if ($cnt == 1){
 	echo json_encode(array(
-		"success" => false;
+		"success" => false,
 		"message" => "Username already exists"
 	));
 	exit;
@@ -34,8 +36,8 @@ $stmt = $mysqli->prepare("insert into table set (username, password) values ( ? 
 
 if (!$stmt){
 	echo json_encode(array(
-		"success" => false;
-		"message" => $stmt->errno;
+		"success" => false,
+		"message" => $stmt->errno
 	));
 	exit;
 }
@@ -50,8 +52,8 @@ $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(32));
 
 echo json_encode(array(
 	"success" => true,
-	"token" => $_SESSION['token']
-	"message" = "You are registered"
+	"token" => $_SESSION['token'],
+	"message" => "You are registered"
 ));
 
 

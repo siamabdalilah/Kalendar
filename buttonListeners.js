@@ -34,7 +34,7 @@ function login(){
 			document.querySelector('#username').innerHTML = "Welcome, " + username + "<br>";
 			document.querySelector('#userlogin').style.display = "block";
 			document.querySelector('#userinfo').style.display = "none";
-			fill();
+			fill(); //TO BE REPLACED WITH GET EVENTS
 		}
 		else{
 			alert("Wrong Username/Password. Please try again.")
@@ -52,7 +52,6 @@ function logout(){
 	.then(response => response.json())
 	.then(res =>{
 		if (res.response){
-			
 			document.querySelector('#username').innerHTML = "";
 			document.querySelector('#userlogin').style.display = "block";
 			document.querySelector('#userinfo').style.display = "none";
@@ -64,7 +63,41 @@ function logout(){
 }
 
 
+function register(){
+	const user = addslashes($('input[name="reguser"]').value);
+	const pass = addslashes($('input[name="regpass"]').value);
+	const conf = addslashes($('input[name="regconf"]').value);
 
+	if (!(pass === conf)){
+		alert("Passwords don't match");
+		return;
+	}
+
+	const data = {'username' : user, 'password' = pass};
+
+	fetch(logout.php, {
+		method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'content-type': 'application/json' }
+	})
+	.then(response => response.json())
+	.then(data => {
+		if (data.success){
+			$('input[name="reguser"]').value = "";
+			$('input[name="regpass"]').value = "";
+			$('input[name="regconf"]').value = "";
+			document.querySelector('#registernewuser').style.display = "none";
+			document.querySelector('#username').innerHTML = "Welcome, " + username + "<br>";
+			document.querySelector('#userlogin').style.display = "block";
+			document.querySelector('#userinfo').style.display = "none";
+			fill(); //TO BE REPLACED WITH GETEVENTS
+		}
+		else{
+			alert(data.message);
+		}
+	})
+
+}
 
 
 

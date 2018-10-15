@@ -42,7 +42,7 @@ if (!$stmt){
 	exit;
 }
 
-$stmt->bind_param($username, $hash);
+$stmt->bind_param('ss', $username, $hash);
 $stmt->execute();
 $stmt->close();
 

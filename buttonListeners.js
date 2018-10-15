@@ -87,8 +87,8 @@ function register(){
 			document.querySelector('input[name="regconf"]').value = "";
 			document.querySelector('#registernewuser').style.display = "none";
 			document.querySelector('#username').innerHTML = "Welcome, " + username + "<br>";
-			document.querySelector('#userlogin').style.display = "block";
-			document.querySelector('#userinfo').style.display = "none";
+			document.querySelector('#userlogin').style.display = "none";
+			document.querySelector('#userinfo').style.display = "block";
 			fill(); //TO BE REPLACED WITH GETEVENTS
 			//ADD TOKEN
 		}

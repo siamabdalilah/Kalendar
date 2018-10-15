@@ -37,7 +37,7 @@ $stmt = $mysqli->prepare("insert into table set (username, password) values ( ? 
 if (!$stmt){
 	echo json_encode(array(
 		"success" => false,
-		"message" => $stmt->errno
+		"message" => "fml"//$stmt->errno
 	));
 	exit;
 }

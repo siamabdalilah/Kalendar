@@ -85,14 +85,28 @@ function decmonth(){
 	fill();
 }
 
-function getEventsCurrentMonth() {
-	const month;
+// function getEventsCurrentMonth() {
+// 	const month;
 
-	let
-}
+// 	let
+// }
 
 
-
+document.addEventListener("DOMContentLoaded", function(){
+	fetch('checklog.php',{
+		method: 'POST',
+		headers: { 'content-type': 'application/json' }
+	})
+	.then(response => response.json)
+	.then(res => {
+		if (res.session){
+			document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
+			document.querySelector('#userlogin').style.display = "none";
+			document.querySelector('#userinfo').style.display = "block";
+			document.querySelector('#csrf').value = res.csrf;
+		}
+	}).catch(err => {console.log(err); alert("Something went wrong")});
+}, false);
 document.addEventListener("DOMContentLoaded", fill, false);
 document.querySelector('#prevm').addEventListener("click", decmonth, false);
 document.querySelector('#nextm').addEventListener("click", incmonth, false);

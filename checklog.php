@@ -3,8 +3,8 @@ require 'database.php';
 header("Content-Type: application/json"); 
 echo json_encode(array(
 		'session' => true,
-		'csrf' => $_SESSION['token'],
-		'user' => $_SESSION['username']
+		'csrf' => 'fml'//$_SESSION['token'],
+		'user' => 'fml'//$_SESSION['username']
 	));
 exit;
 

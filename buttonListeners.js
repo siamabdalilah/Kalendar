@@ -82,9 +82,9 @@ function register(){
 	.then(response => response.json())
 	.then(resp => {
 		if (resp.success){
-			$('input[name="reguser"]').value = "";
-			$('input[name="regpass"]').value = "";
-			$('input[name="regconf"]').value = "";
+			document.querySelector('input[name="reguser"]').value = "";
+			document.querySelector('input[name="regpass"]').value = "";
+			document.querySelector('input[name="regconf"]').value = "";
 			document.querySelector('#registernewuser').style.display = "none";
 			document.querySelector('#username').innerHTML = "Welcome, " + username + "<br>";
 			document.querySelector('#userlogin').style.display = "block";

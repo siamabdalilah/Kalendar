@@ -1,6 +1,11 @@
 <?php
 require 'database.php';
 session_start();
+echo json.encode(array(
+		"success": false,
+		"message" : "Invalid time format";
+	))
+	exit;
 
 header("Content-Type: application/json"); 
 

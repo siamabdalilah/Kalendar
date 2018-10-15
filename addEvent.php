@@ -1,6 +1,11 @@
 <?php
 require 'database.php';
 session_start();
+echo json.encode(array(
+		"success": false,
+		"message" : "Invalid time format";
+	))
+	exit;
 
 header("Content-Type: application/json"); 
 
@@ -19,7 +24,6 @@ if(!preg_match( "\d{4}-(10|11|12|\d)-(0\d|1\d|2\d|30) (\d|11|12):([0-5]\d|):00",
 	))
 	exit;
 }
-
 
 
 if (!(token === $_SESSION['token'])){

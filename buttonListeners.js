@@ -95,7 +95,7 @@ function register(){
 		else{
 			alert(data.message);
 		}
-	})
+	}).catch(err => console.log(err));
 
 }
 

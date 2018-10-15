@@ -32,7 +32,7 @@ if ($cnt == 1){
 }
 
 $hash = password_hash(htmlentities($password), PASSWORD_BCRYPT);
-$stmt = $mysqli->prepare("insert into table set (username, password) values ( ? , ? )");
+$stmt = $mysqli->prepare("insert into users set (username, password) values ( ? , ? )");
 
 if (!$stmt){
 	echo json_encode(array(

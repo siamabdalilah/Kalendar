@@ -20,8 +20,6 @@ if(!preg_match( "\d{4}-(10|11|12|\d)-(0\d|1\d|2\d|30) (\d|11|12):([0-5]\d|):00",
 	exit;
 }
 
-const data = {'title' : title, 'time' : time, 'category': 'personal', 'token' : document.querySeletor("#csrf").value} 
-
 if (!(token === $_SESSION['token'])){
 	echo json_encode(array(
 		"success" : false,

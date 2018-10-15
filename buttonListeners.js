@@ -64,13 +64,14 @@ function register(){
 	const user = document.querySelector('input[name="reguser"]').value;
 	const pass = document.querySelector('input[name="regpass"]').value;
 	const conf = document.querySelector('input[name="regconf"]').value;
-	alert("stuff received");
+	alert(user + " " + pass);
+	// alert("stuff received");
 
 	if (!(pass === conf)){
 		alert("Passwords don't match");
 		return;
 	}
-	alert("Passwords matched");
+	// alert("Passwords matched");
 
 	const data = {'username' : user, 'password' : pass};
 
@@ -86,7 +87,7 @@ function register(){
 			document.querySelector('input[name="regpass"]').value = "";
 			document.querySelector('input[name="regconf"]').value = "";
 			document.querySelector('#registernewuser').style.display = "none";
-			document.querySelector('#username').innerHTML = "Welcome, " + username + "<br>";
+			document.querySelector('#username').innerHTML = "Welcome, " + user + "<br>";
 			document.querySelector('#userlogin').style.display = "none";
 			document.querySelector('#userinfo').style.display = "block";
 			fill(); //TO BE REPLACED WITH GETEVENTS

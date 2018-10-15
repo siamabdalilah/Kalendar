@@ -16,7 +16,7 @@ function addEvent(){
 			document.querySelector("input[name='evtitle']").value = "";
 			document.querySelector("input[name='date']").value = "";
 			document.querySelector("input[name='time']").value = "";
-			document.querySelector("input[name='tag']").value = "";
+			//document.querySelector("input[name='tag']").value = "";
 			
 		}
 		else{

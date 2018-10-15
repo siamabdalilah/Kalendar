@@ -85,11 +85,11 @@ function decmonth(){
 	fill();
 }
 
-// function getEventsCurrentMonth() {
-// 	const month;
+function getEventsCurrentMonth() {
+	const month;
 
-// 	let
-// }
+	let
+}
 
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		method: 'POST',
 		headers: { 'content-type': 'application/json' }
 	})
-	.then(response => response.json)
+	.then(response => response.json())
 	.then(res => {
 		if (res.session){
 			document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";

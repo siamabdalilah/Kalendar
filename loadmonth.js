@@ -26,11 +26,6 @@ function fill(){
 	let weeks = month.getWeeks();
 	let days = weeks[0].getDates();
 	let rows = document.querySelectorAll('tr');
-	// if 7 rows found, remove last row
-	// if (rows.length == 7){
-	// 	rows[0].parentNode.removeChild(rows[0].parentNode.lastChild);
-	// 	rows = document.querySelectorAll('tr');
-	// }
 	for (let i = 1; i < 7; i++){
 		rows[i].innerHTML = "";
 	}
@@ -40,8 +35,8 @@ function fill(){
 		if (days[i].valueOf() === fir.valueOf()){
 			break;
 		}
-
-		rows[1].innerHTML += "<td>" + days[i].getDate() + "<br>";
+		let dat = days[i].getDate();
+		rows[1].innerHTML += "<td id = 'p" + dat + "'>" + dat + "<br>";
 
 		// ADD EVENTS HERE. OKAY MAYBE NOT SUCH A GOOD IDEA
 		rows[1].innerHTML += "</td>";
@@ -57,16 +52,12 @@ function fill(){
 		if ((month.getDateObject(i).getDay())% 7 == 0){
 			if (i != fir.getDate()){
 				j++;
-				// if an extra row needed, add it
-				// if (j == 6){
-				// 	rows[j-1].parentNode.appendChild(document.createElement("tr"));
-				// 	rows = document.querySelectorAll('tr');
-				// }
 			}
 			
 		}
 
-		rows[j].innerHTML += "<td>" + month.getDateObject(i).getDate() + "<br>";
+		let dat = month.getDateObject(i).getDate();
+		rows[j].innerHTML += "<td id ='d" + dat + "'>" + dat + "<br>";
 
 		// ADD EVENT HERE
 
@@ -76,8 +67,8 @@ function fill(){
 
 	// load next month in gray
 	for (let i = nex.getDay() + 1; i < 7; i++){
-		console.log(i);
-		rows[j].innerHTML += "<td>" + (i - nex.getDay()) + "<br>";
+		let dat = i - nex.getDay();
+		rows[j].innerHTML += "<td id = 'n" + dat + "'>" + dat + "<br>";
 
 		// ADD EVENTS HERE
 		rows[j].innerHTML += "</td>";

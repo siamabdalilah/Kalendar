@@ -1,5 +1,5 @@
 <?php
-// login_ajax.php
+// login.php
 
 header("Content-Type: application/json"); // Since we are sending a JSON response here (not an HTML document), set the MIME Type to application/json
 
@@ -17,20 +17,23 @@ $password = $json_obj['password'];
 
 $mysqli = new msqli('localhost', '.....', '.....', '....');
 
-    $password_db = $mysqli->prepare("SELECT COUNT(*), id, hash FROM users WHERE username=?");
+    $stmt = $mysqli->prepare("SELECT COUNT(*), username, password FROM users WHERE username=?");
 
     if (!$password_query){
         echo "failed password";
       printf("Failed: %s\n", $mysqli->error);	
       exit;
-      } 
-      $password_query->bind_param('s', $user);
-      $password_query->execute();
-      $password_query->bind_result($cnt, $id, $hashing);
-      $password_query->fetch();
+      }
+
+      $stmt->bind_param('s', $user);
+
+      $stmt->execute();
+      $stmt->bind_result($cnt, $id, $hash);
+      $stmt->fetch();
+
       $passwordguess = $_POST['password'];
 
-      if ($cnt == 1 && password_verify($passwordguess, $hashing)){
+      if ($cnt == 1 && password_verify($passwordguess, $hash)){
         session_start();
         $_SESSION['username'] = $username;
         $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(32)); 

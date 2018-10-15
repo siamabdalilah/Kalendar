@@ -15,10 +15,7 @@ function login(){
 	const username = document.querySelector("#user").value;
 	const password = document.querySelector("#pass").value;
 	const data = {'username' : username, 'password': password};
-	// document.querySelector('#username').innerHTML = "Welcome, " + username + "<br>";
-	// 			document.querySelector('#userlogin').style.display = "none";
-	// 			document.querySelector('#userinfo').style.display = "block";
-
+	
 	fetch("login.php", {
 		method: 'POST',
         body: JSON.stringify(data),

@@ -61,15 +61,16 @@ function logout(){
 
 
 function register(){
-	const user = addslashes($('input[name="reguser"]').value);
-	const pass = addslashes($('input[name="regpass"]').value);
-	const conf = addslashes($('input[name="regconf"]').value);
+	const user = addslashes(document.querySelector('input[name="reguser"]').value);
+	const pass = addslashes(document.querySelector('input[name="regpass"]').value);
+	const conf = addslashes(document.querySelector('input[name="regconf"]').value);
 	alert("stuff received");
 
 	if (!(pass === conf)){
 		alert("Passwords don't match");
 		return;
 	}
+	alert("Passwords matched");
 
 	const data = {'username' : user, 'password' : pass};
 

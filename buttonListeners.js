@@ -18,19 +18,21 @@ function login(){
 	// document.querySelector('#username').innerHTML = "Welcome, " + username + "<br>";
 	// 			document.querySelector('#userlogin').style.display = "none";
 	// 			document.querySelector('#userinfo').style.display = "block";
+
 	fetch("login.php", {
 		method: 'POST',
         body: JSON.stringify(data),
         headers: { 'content-type': 'application/json' }
     })
 	.then (response => response.json())
-	.then(data => {
-		if (data.success){
+	.then(resp => {
+		if (resp.success){
 			document.querySelector("#user").value = "";
 			document.querySelector("#pass").value = "";
 			document.querySelector('#username').innerHTML = "Welcome, " + username + "<br>";
 			document.querySelector('#userlogin').style.display = "block";
 			document.querySelector('#userinfo').style.display = "none";
+			document.querySelector('#csrf').value = resp.token;
 			fill(); //TO BE REPLACED WITH GET EVENTS
 		}
 		else{
@@ -44,7 +46,8 @@ function logout(){
 	// 		document.querySelector('#userlogin').style.display = "block";
 	// 		document.querySelector('#userinfo').style.display = "none";
 	fetch("logout.php",{
-		method: 'POST'
+		method: 'POST',
+		headers: { 'content-type': 'application/json' }
 	})
 	.then(response => response.json())
 	.then(res =>{
@@ -64,14 +67,11 @@ function register(){
 	const user = document.querySelector('input[name="reguser"]').value;
 	const pass = document.querySelector('input[name="regpass"]').value;
 	const conf = document.querySelector('input[name="regconf"]').value;
-	alert(user + " " + pass);
-	// alert("stuff received");
 
 	if (!(pass === conf)){
 		alert("Passwords don't match");
 		return;
 	}
-	// alert("Passwords matched");
 
 	const data = {'username' : user, 'password' : pass};
 
@@ -90,6 +90,7 @@ function register(){
 			document.querySelector('#username').innerHTML = "Welcome, " + user + "<br>";
 			document.querySelector('#userlogin').style.display = "none";
 			document.querySelector('#userinfo').style.display = "block";
+			document.querySelector('#csrf').value = resp.token;
 			fill(); //TO BE REPLACED WITH GETEVENTS
 			//ADD TOKEN
 		}

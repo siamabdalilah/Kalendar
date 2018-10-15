@@ -13,7 +13,12 @@ $password = $json_obj['password'];
 
 $stmt = $mysqli->prepare("SELECT COUNT(*), username, password FROM users WHERE username=?");
 
-
+if (!$stmt){
+  echo json.encode(array(
+    'success' => false,
+    'message' => $stmt->errno
+  ));
+}
 
 $stmt->bind_param('s', $username);
 
@@ -22,23 +27,23 @@ $stmt->bind_result($cnt, $id, $hash);
 $stmt->fetch();
 $stmt->close();
 
-$passwordguess = $_POST['password'];
 
-if ($cnt == 1 && password_verify($passwordguess, $hash)){
+if ($cnt == 1 && password_verify($password, $hash)){
   session_start();
   $_SESSION['username'] = $username;
   $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(32)); 
 
   echo json_encode(array(
     "success" => true,
-    "token" => $_SESSION['token'];
+    "token" => $_SESSION['token'],
+    "message" => "You have been logged in"
   ));
   exit;
 }
 else{
   echo json_encode(array(
     "success" => false,
-    // "message" => "Incorrect Username or Password"
+    "message" => "Incorrect Username or Password"
   ));
   exit;
 }

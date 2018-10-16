@@ -26,48 +26,44 @@ if (!preg_match('/(0[1-9]|1[0-2])-(\d{4})/m', $startMonth) || !preg_match('/(0[1
 	exit;
 }
 
+
+if(htmlentities($title) === ""){
+	echo json_encode(array(
+		"success" => false,
+		"message" => "Invalid title"
+	));
+	exit;
+}
+
+
+
+if (!($token === $_SESSION['token'])){
+	echo json_encode(array(
+		"success" => false,
+		"message" => "Illegal token"
+	));
+	exit;
+}
+
+
+$stmt = $mysqli->prepare('insert into events (title, tags, username, startmonthy, startdate, starttime ) values (?,?,?,?,?,?)');
+if (!$stmt){
+	echo json_encode(array(
+		"success" => false,
+		"message" => "Invalid insert query"
+	));
+	exit;
+}
+
+$stmt->bind_param('ssssss', $title, $category, $_SESSION['username'], $startMonth, $startDate, $startTime);
+$stmt->execute();
+$stmt->close();
+
 echo json_encode(array(
 	"success" => true,
 	"message" => "Event Added"
 ));
+
 exit;
-// if(htmlentities($title) === ""){
-// 	echo json_encode(array(
-// 		"success" => false,
-// 		"message" => "Invalid title"
-// 	));
-// 	exit;
-// }
-
-
-
-// if (!($token === $_SESSION['token'])){
-// 	echo json_encode(array(
-// 		"success" => false,
-// 		"message" => "Illegal token"
-// 	));
-// 	exit;
-// }
-
-
-// $stmt = $mysqli->prepare('insert into events (title, tags, username, startmonthy, startdate, starttime ) values (?,?,?,?,?,?)');
-// if (!$stmt){
-// 	echo json_encode(array(
-// 		"success" => false,
-// 		"message" => "Invalid insert query"
-// 	));
-// 	exit;
-// }
-
-// $stmt->bind_param('ssssss', $title, $category, $_SESSION['username'], $startMonth, $startDate, $startTime);
-// $stmt->execute();
-// $stmt->close();
-
-// echo json_encode(array(
-// 	"success" => true,
-// 	"message" => "Event Added"
-// ));
-
-// exit;
 
 ?>

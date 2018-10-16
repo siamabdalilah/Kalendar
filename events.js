@@ -18,7 +18,7 @@ function addEvent(){
 
 
 
-
+	alert(monthy + " " + datOfMonth);
 
 
 

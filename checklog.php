@@ -17,7 +17,7 @@ session_start();
 // 	));
 // exit;
 
-if (isset($_SESSION['username')){
+if (isset($_SESSION['username']){
 	echo json_encode(array(
 		'session' => true,
 		'csrf' => $_SESSION['token'],

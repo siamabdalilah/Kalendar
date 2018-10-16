@@ -97,7 +97,7 @@ function decmonth(){
 // }
 
 
-document.querySelector('.header').addEventListener("click", function(){
+document.addEventListener("DOMContentLoaded", function(){
 	fetch('checklog.php',{
 		method: 'POST',
 		headers: { 'content-type': 'application/json' }
@@ -111,7 +111,7 @@ document.querySelector('.header').addEventListener("click", function(){
 			document.querySelector('#userinfo').style.display = "block";
 			document.querySelector('#csrf').value = res.csrf;
 		}
-		
+
 	}).catch(err => {console.log(err); alert("Something went wrong")});
 }, false);
 document.addEventListener("DOMContentLoaded", fill, false);

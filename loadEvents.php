@@ -3,35 +3,50 @@ require 'database.php';
 
 header("Content-Type: application/json");
 session_start();
- 
+
 
 $json_str = file_get_contents('php://input');
 $json_obj = json_decode($json_str, true);
 
-$stmt1 = $mysqli->prepare("SELECT * from events where monthyear=$match");
+$monthy = $json_obj["monthy"];
+
+$stmt1 = $mysqli->prepare("SELECT * from events where startmonthy=$monthy and username = $_SESSION['username'] order by startdate, starttime asc");
 if (!$stmt) {
 	echo json_encode(array(
 		"success" => false,
-		"message" => "Query Prep Failed: %s\n", $mysqli->error;
+		"message" => "Query Prep Failed"
 	))
 }
+
+
 $stmt1->execute();
-$stmt1->bind_result($events);
+$stmt1->bind_result($id, $tag, $u, $title, $startdate, $startmonthy, $starttime);
 
 $monthsEvents = array();
 
-int i =0;
+$monthsEvents[$startdate]
+
+
 while ($stmt1->fetch()){
-	$monthsEvents[i] = htmlentities($monthyear);
-	i++
+	if (!array_key_exists($startdate, $monthsEvents)){
+		monthsEvents[$startdate] = array();
+	}
+	array_push($monthsEvents[$startdate], array(
+		'id' => $id, 
+		'tag' => $tag,
+		'title' => $title,
+		'startTime' => $startTime
+	));
 }
 
 $stmt1->close();
 
+
+
+
 echo json_encode(array(
 "sucess" => true,
-"message" => "Collected month's events"
-
+"events" => $monthEvents
 ));
 exit;
- ?>
+?>

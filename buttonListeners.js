@@ -30,6 +30,7 @@ function login(){
 			document.querySelector('#userlogin').style.display = "none";
 			document.querySelector('#userinfo').style.display = "block";
 			document.querySelector('#csrf').value = resp.token;
+			alert(resp.message);
 			fill(); //TO BE REPLACED WITH GET EVENTS
 		}
 		else{

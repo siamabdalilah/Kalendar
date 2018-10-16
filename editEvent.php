@@ -16,7 +16,7 @@ $starttime = $json_obj['starttime'];
 $category = $json_obj['tags'];
 
 
-$stmt = $mysqli->prepare("UPDATE events SET title=?, startdate=?, startmonthy=?, starttime=?, tags=?  WHERE eventid=?");
+$stmt = $mysqli->prepare("UPDATE events SET title=?, startdate=?, startmonthy=?, starttime=?, tags=?  WHERE event_id=?");
 
     if(!$stmt){
       printf("Query Prep Failed: %s\n", $mysqli->error);

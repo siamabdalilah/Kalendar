@@ -97,7 +97,7 @@ function decmonth(){
 // }
 
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener("click", function(){
 	fetch('checklog.php',{
 		method: 'POST',
 		headers: { 'content-type': 'application/json' }
@@ -106,10 +106,10 @@ document.addEventListener("DOMContentLoaded", function(){
 	.then(res => {
 		if (res.session){
 			alert("ok");
-			document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
-			document.querySelector('#userlogin').style.display = "none";
-			document.querySelector('#userinfo').style.display = "block";
-			document.querySelector('#csrf').value = res.csrf;
+			// document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
+			// document.querySelector('#userlogin').style.display = "none";
+			// document.querySelector('#userinfo').style.display = "block";
+			// document.querySelector('#csrf').value = res.csrf;
 		}
 	}).catch(err => {console.log(err); alert("Something went wrong")});
 }, false);

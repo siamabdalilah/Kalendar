@@ -87,18 +87,14 @@ function decmonth(){
 
 function getEventsCurrentMonth() {
 
+
 	const mon = month.month;
 	let s = "/\d{4}-(10|11|12|\d)-(0\d|1\d|2\d|30)";
 	let match = s.group(1)+s.group(2);
 
-
-	
-
-	
-
-
-	
 }
+
+
 
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -109,11 +105,13 @@ document.addEventListener("DOMContentLoaded", function(){
 	.then(response => response.json())
 	.then(res => {
 		if (res.session){
+			// alert("ok");
 			document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
 			document.querySelector('#userlogin').style.display = "none";
 			document.querySelector('#userinfo').style.display = "block";
 			document.querySelector('#csrf').value = res.csrf;
 		}
+
 	}).catch(err => {console.log(err); alert("Something went wrong")});
 }, false);
 document.addEventListener("DOMContentLoaded", fill, false);

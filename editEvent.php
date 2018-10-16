@@ -9,7 +9,12 @@ session_start();
 $json_str = file_get_contents('php://input');
 $json_obj = json_decode($json_str, true);
 
-$eventid = 
+$title = $json_obj['title'];
+$monthy = $json_obj['startdate'];
+$startdate = $json_obj['startmonthy'];
+$starttime = $json_obj['starttime'];
+$category = $json_obj['tags'];
+
 
 $stmt = $mysqli->prepare("UPDATE events SET title=?, startdate=?, startmonthy=?, starttime=?, tags=?  WHERE eventid=?");
 
@@ -18,11 +23,12 @@ $stmt = $mysqli->prepare("UPDATE events SET title=?, startdate=?, startmonthy=?,
       exit;
     }
 
-    $stmt->bind_param('ssssi',$_POST['title'],$_POST['dateof'],$_POST['datetimeofevent'],$_POST['tag'], $eventid);
+    $stmt->bind_param('sssssi',$title,$monthy,$startdate,$starttime, $category, $eventid);
 
     $stmt->execute();
 
     $stmt->close();
+
     echo json_encode(array(
         "success" => true,
     ));

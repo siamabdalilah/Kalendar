@@ -34,7 +34,7 @@ function addEvent(){
         body: JSON.stringify(data),
         headers: { 'content-type': 'application/json' }
     })
-	.then (response => response.json())
+	.then(response => response.json())
 	.then(resp => {
 		if (resp.success){
 			document.querySelector("input[name='evtitle']").value = "";
@@ -47,7 +47,7 @@ function addEvent(){
 			alert(resp.message);
 		}
 		
-	}).catch(err => alert("Something went wrong. Please try again."));
+	}).catch(err => console.log(err));
 
 }
 document.querySelector("#submitevent").addEventListener("click", addEvent,false);

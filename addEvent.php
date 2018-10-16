@@ -46,6 +46,9 @@ if (!($token === $_SESSION['token'])){
 }
 
 
+
+
+
 $stmt = $mysqli->prepare('insert into events (title, tags, username, startmonthy, startdate, starttime ) values (?,?,?,?,?,?)');
 if (!$stmt){
 	echo json_encode(array(
@@ -55,14 +58,19 @@ if (!$stmt){
 	exit;
 }
 
+
+
 $stmt->bind_param('ssssss', $title, $category, $_SESSION['username'], $startMonth, $startDate, $startTime);
 $stmt->execute();
 $stmt->close();
+
+
 
 echo json_encode(array(
 	"success" => true,
 	"message" => "Event Added"
 ));
+exit;
 
 exit;
 

@@ -2,7 +2,7 @@ function addEvent(){
 	const title = document.querySelector("input[name='evtitle']").value;
 	const date = document.querySelector("input[name='date']").value;
 	const time = document.querySelector("input[name='time']").value + ":00";
-	const tag = 'Personal';//document.querySelector("input[name='tag']").value;
+	const tag = document.querySelector("input[name='tag']").value;
 
 
 	if (title == ""){
@@ -41,7 +41,7 @@ function addEvent(){
 			document.querySelector("input[name='date']").value = "";
 			document.querySelector("input[name='time']").value = "";
 			document.querySelector('#addevent').style.display = "none";
-			//document.querySelector("input[name='tag']").value = "";
+			document.querySelector("input[name='tag']").value = "";
 			
 		}
 		else{

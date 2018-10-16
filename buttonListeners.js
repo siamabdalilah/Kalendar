@@ -108,11 +108,6 @@ function register(){
 
 
 
-
-
-
-
-
 document.querySelector('#reg').addEventListener("click", showreg, false);
 document.querySelector('#cancelreg').addEventListener("click", cancelreg, false);
 

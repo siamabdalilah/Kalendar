@@ -51,7 +51,7 @@ function addEvent(){
 
 }
 
-function editEvent{
+function editEvent(){
 	const title = document.querySelector("input[name='evtitle']").value;
 	const date = document.querySelector("input[name='date']").value;
 	const time = document.querySelector("input[name='time']").value + ":00";
@@ -83,7 +83,7 @@ function editEvent{
 	}).catch(err => console.log(err));
 }
 
-function deleteEvent{
+function deleteEvent(){
 	const title = document.querySelector("input[name='evtitle']").value;
 	const date = document.querySelector("input[name='date']").value;
 	const time = document.querySelector("input[name='time']").value + ":00";

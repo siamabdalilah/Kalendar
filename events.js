@@ -2,7 +2,7 @@ function addEvent(){
 	const title = document.querySelector("input[name='evtitle']").value;
 	const date = document.querySelector("input[name='date']").value;
 	const time = document.querySelector("input[name='time']").value + ":00";
-	const tag = document.querySelector("input[name='tag']").value;
+	const tag = document.querySelector("select").value;
 
 
 	if (title == ""){

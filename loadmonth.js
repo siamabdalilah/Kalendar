@@ -97,7 +97,7 @@ function decmonth(){
 // }
 
 
-document.addEventListener("click", function(){
+document.querySelector('#header').addEventListener("click", function(){
 	fetch('checklog.php',{
 		method: 'POST',
 		headers: { 'content-type': 'application/json' }

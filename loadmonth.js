@@ -105,11 +105,11 @@ document.querySelector('.header').addEventListener("click", function(){
 	.then(response => response.json())
 	.then(res => {
 		if (res.session){
-			alert("ok");
-			// document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
-			// document.querySelector('#userlogin').style.display = "none";
-			// document.querySelector('#userinfo').style.display = "block";
-			// document.querySelector('#csrf').value = res.csrf;
+			// alert("ok");
+			document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
+			document.querySelector('#userlogin').style.display = "none";
+			document.querySelector('#userinfo').style.display = "block";
+			document.querySelector('#csrf').value = res.csrf;
 		}
 		else{
 			alert("fml");

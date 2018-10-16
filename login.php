@@ -2,7 +2,15 @@
 require 'database.php';
 
 header("Content-Type: application/json"); 
-
+session_start();
+if (isset($_SESSION['username'])){
+  session_destroy();
+  echo json_encode(array(
+    "success" => false,
+    "message" => "Something went wrong"
+  ));
+  exit;
+}
 
 $json_str = file_get_contents('php://input');
 $json_obj = json_decode($json_str, true);
@@ -29,7 +37,7 @@ $stmt->close();
 
 
 if ($cnt == 1 && password_verify($password, $hash)){
-  session_start();
+  
   $_SESSION['username'] = $username;
   $_SESSION['token'] = bin2hex(openssl_random_pseudo_bytes(32)); 
 

@@ -85,16 +85,16 @@ function decmonth(){
 	fill();
 }
 
-// function getEventsCurrentMonth() {
-
-// 	const mon = month.month;
-// 	let s = "/\d{4}-(10|11|12|\d)-(0\d|1\d|2\d|30) (\d|1\d|2[0-3]):([0-5]\d|):00/m";
-
-// 	const month;
+function getEventsCurrentMonth() {
 
 
-// 	let
-// }
+	const mon = month.month;
+	let s = "/\d{4}-(10|11|12|\d)-(0\d|1\d|2\d|30)";
+	let match = s.group(1)+s.group(2);
+
+}
+
+
 
 
 document.addEventListener("DOMContentLoaded", function(){

@@ -2,6 +2,7 @@
 require 'database.php';
 
 header("Content-Type: application/json");
+ini_set("session.cookie_httponly", 1);
 session_start();
  
 
@@ -15,7 +16,9 @@ $startTime = $json_obj["time"];
 $category = $json_obj['tag'];
 $token = $json_obj['token'];
 
+
 if (!preg_match('/(0[1-9]|1[0-2])-(\d{4})/m', $startMonth) || !preg_match('/(0[1-9]|[1-2]\d|3[0-1])/m', $startDate) || !preg_match('/(\d|1\d|2[0-3]):([0-5]\d|):00/m', $startTime)){
+	
 	echo json_encode(array(
 		"success" => false,
 		"message" => "Invalid timegvgvg format"

@@ -1,6 +1,7 @@
 <?php
 require 'database.php';
 header("Content-Type: application/json"); 
+session_start();
 
 
 // echo json_encode(array(
@@ -16,7 +17,7 @@ header("Content-Type: application/json");
 // 	));
 // exit;
 
-if (session_status() === PHP_SESSION_ACTIVE){
+if (isset($_SESSION['username')){
 	echo json_encode(array(
 		'session' => true,
 		'csrf' => $_SESSION['token'],
@@ -24,6 +25,7 @@ if (session_status() === PHP_SESSION_ACTIVE){
 	));
 }
 else{
+	session_destroy();
 	echo json_encode(array('session' => false));
 }
 

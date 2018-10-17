@@ -41,7 +41,6 @@ while ($stmt->fetch()){
 		'id' => $id, 
 		'tag' => $tag,
 		'title' => $title,
-		'startMonthy' => $startmonthy,
 		'startTime' => $starttime
 	));
 }

@@ -10,7 +10,7 @@ require 'database.php';
 
 $monthy = '10-2018';//$json_obj["monthy"];
 
-$stmt1 = $mysqli->prepare("SELECT * from events where startmonthy=$monthy and username = 'ani' order by startdate, starttime asc");
+$stmt = $mysqli->prepare("SELECT * from events where startmonthy=$monthy and username = 'ani' order by startdate, starttime asc");
 if (!$stmt) {
 	echo json_encode(array(
 		"success" => false,
@@ -20,8 +20,8 @@ if (!$stmt) {
 }
 
 
-$stmt1->execute();
-$stmt1->bind_result($id, $tag, $u, $title, $startdate, $startmonthy, $starttime);
+$stmt->execute();
+$stmt->bind_result($id, $tag, $u, $title, $startdate, $startmonthy, $starttime);
 
 $monthsEvents = array();
 
@@ -39,7 +39,7 @@ while ($stmt1->fetch()){
 	));
 }
 
-$stmt1->close();
+$stmt->close();
 
 
 

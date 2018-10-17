@@ -115,7 +115,7 @@ function populate(){
 	.then(res => res.json())
 	.then(response => {
 		if (response.success){
-			console.log(response);
+			// console.log(response);
 			const entries = Object.entries(response.events);
 			for (const [date, day] of entries){
 				let id = "#d" + date;
@@ -123,10 +123,11 @@ function populate(){
 				//console.log(cell);
 
 				const ent = Object.entries(day);
-				console.log(ent);
-				for (const [id, tag, title, startTime] of ent){
+				// console.log(ent);
+				for (const [index, object] of ent){
 					// console.log(String(startTime));
-					cell.innerHTML += "&bull; " + startTime + ": " + title + "<br>"; 
+					// cell.innerHTML += "&bull; " + startTime + ": " + title + "<br>"; 
+					console.log(object);
 				}
 			}
 			// response.events.forEach(function(day, date) {

@@ -41,7 +41,7 @@ function login(){
 			alert("Wrong Username/Password. Please try again.")
 		}
 	})
-	.catch(err => alert("Something went wrong. Please try again."));
+	.catch(err => {alert("Something went wrong. Please try again."); console.log(err);});
 }
 function logout(){
 	// document.querySelector('#username').innerHTML = "";

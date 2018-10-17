@@ -133,17 +133,18 @@ function loadEvents(){
 
 function populate(){
 	const monthy = (month.month+1) + "-" + month.year;
+	console.log(eventList);
 
-	const entries = Object.entries(eventList.monthy);
-	for (const [date, day] of entries){
-		let id = "#d" + date;
-		let cell = document.querySelector(id);
+	// const entries = Object.entries(eventList.monthy);
+	// for (const [date, day] of entries){
+	// 	let id = "#d" + date;
+	// 	let cell = document.querySelector(id);
 
-		const ent = Object.entries(day);
-		for (const [index, object] of ent){
-			cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
-		}
-	}
+	// 	const ent = Object.entries(day);
+	// 	for (const [index, object] of ent){
+	// 		cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
+	// 	}
+	// }
 	
 }
 

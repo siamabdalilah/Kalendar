@@ -1,14 +1,14 @@
 <?php
 require 'database.php';
 
-header("Content-Type: application/json");
-session_start();
+// header("Content-Type: application/json");
+// session_start();
 
 
-$json_str = file_get_contents('php://input');
-$json_obj = json_decode($json_str, true);
+// $json_str = file_get_contents('php://input');
+// $json_obj = json_decode($json_str, true);
 
-$monthy = $json_obj["monthy"];
+$monthy = '10-2018';$json_obj["monthy"];
 
 $stmt = $mysqli->prepare("SELECT * from events where startmonthy= ? and username = ? order by startdate, starttime asc");
 if (!$stmt) {
@@ -19,7 +19,7 @@ if (!$stmt) {
 	exit;
 }
 
-$stmt->bind_param('ss',$monthy, $_SESSION['username']);
+$stmt->bind_param('ss',$monthy, 'ani');
 
 $stmt->execute();
 $stmt->bind_result($id, $tag, $u, $title, $startdate, $startmonthy, $starttime);

@@ -1,3 +1,7 @@
+let eventList;
+
+
+
 function showreg(){
 	document.querySelector('#registernewuser').style.display = "block";
 }
@@ -115,38 +119,26 @@ function populate(){
 	.then(res => res.json())
 	.then(response => {
 		if (response.success){
-			// console.log(response);
+			eventList = response.events;
 			const entries = Object.entries(response.events);
 			for (const [date, day] of entries){
 				let id = "#d" + date;
 				let cell = document.querySelector(id);
-				//console.log(cell);
 
 				const ent = Object.entries(day);
-				// console.log(ent);
 				for (const [index, object] of ent){
-					// console.log(String(startTime));
 					cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
-					// console.log(object);
 				}
 			}
-			// response.events.forEach(function(day, date) {
-			// 	console.log(date);
-			// 	let id = "#d" + date;
-			// 	let cell = $(id);
-			// 	console.log(id);
-
-			// 	day.forEach(event => {
-			// 		cell.innerHTML += "&bull; " + event.startTime + ": " + event.title + "<br>"; 
-			// 	});
- 		// 	});
 		}
 	})
 	.catch(err =>{alert("There was an error"); console.log(err)});
 }
 
 
-
+function printEvent(){
+	console.log(events);
+}
 
 
 

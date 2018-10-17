@@ -10,6 +10,8 @@ $json_obj = json_decode($json_str, true);
 
 $monthy = $json_obj["monthy"];
 
+file_put_contents('data.txt', $monthy);
+
 $stmt = $mysqli->prepare("SELECT * from events where startmonthy= ? and username = 'ani' order by startdate, starttime asc");
 if (!$stmt) {
 	echo json_encode(array(

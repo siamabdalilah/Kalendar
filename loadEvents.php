@@ -29,7 +29,7 @@ $monthsEvents = array();
 
 while ($stmt1->fetch()){
 	if (!array_key_exists($startdate, $monthsEvents)){
-		monthsEvents[$startdate] = array();
+		$monthsEvents[$startdate] = array();
 	}
 	array_push($monthsEvents[$startdate], array(
 		'id' => $id, 

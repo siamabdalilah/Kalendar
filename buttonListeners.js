@@ -119,7 +119,7 @@ function populate(){
 			for (const [date, day] of entries){
 				let id = "#d" + date;
 				let cell = $(id);
-				console.log(id);
+				console.log(cell);
 
 				const ent = Object.entries(day);
 				for (const [id, tag, title, startTime] of ent){

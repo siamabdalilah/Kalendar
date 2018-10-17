@@ -102,8 +102,10 @@ function register(){
 
 function populate(){
 
+
 	const monthy = (month.month+1) + "-" + month.year;
 	const data = {'monthy' : monthy};
+	alert("monnthy");
 	
 	fetch('loadEvents.php', {
 		method: 'POST',

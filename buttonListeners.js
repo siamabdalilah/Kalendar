@@ -115,9 +115,11 @@ function populate(){
 	.then(res => res.json())
 	.then(response => {
 		if (response.success){
-			response.events.forEach((day, date) => {
+			response.events.forEach(function(day, date) {
+				console.log(date);
 				let id = "#d" + date;
 				let cell = $(id);
+				console.log(id);
 
 				day.forEach(event => {
 					cell.innerHTML += "&bull; " + event.startTime + ": " + event.title + "<br>"; 

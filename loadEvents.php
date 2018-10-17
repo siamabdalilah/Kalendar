@@ -15,7 +15,8 @@ if (!$stmt) {
 	echo json_encode(array(
 		"success" => false,
 		"message" => "Query Prep Failed"
-	))
+	));
+	exit;
 }
 
 

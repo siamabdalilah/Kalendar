@@ -50,15 +50,12 @@ $stmt->close();
 
 
 
-$content = json_encode(array(
+echo json_encode(array(
 "success" => true,
 "events" => $monthsEvents
 ), JSON_FORCE_OBJECT);
 
 // file_put_contents('test.txt', $content);
 
-
-
-echo $content;
 exit;
 ?>

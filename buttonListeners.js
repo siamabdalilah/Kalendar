@@ -112,20 +112,19 @@ function populate(){
 		body: JSON.stringify(data),
 		headers: { 'content-type': 'application/json' }
 	})
-	.then(res => {res.json(); console.log("fml");})
-	// .then(response => {
-	// 	if (response.success){
-	// 		response.events.forEach((day, date) => {
-	// 			let id = "#d" + date;
-	// 			let cell = $(id);
+	.then(res => res.json())
+	.then(response => {
+		if (response.success){
+			response.events.forEach((day, date) => {
+				let id = "#d" + date;
+				let cell = $(id);
 
-	// 			day.forEach(event => {
-	// 				cell.innerHTML += "&bull; " + event.startTime + ": " + event.title + "<br>"; 
-	// 			});
- // 			});
-	// 	}
-	// })
-	.then(response => console.log(response.monthy))
+				day.forEach(event => {
+					cell.innerHTML += "&bull; " + event.startTime + ": " + event.title + "<br>"; 
+				});
+ 			});
+		}
+	})
 	.catch(err =>{alert("There was an error"); console.log(err)});
 }
 

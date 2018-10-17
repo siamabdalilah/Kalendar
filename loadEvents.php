@@ -56,7 +56,7 @@ $content = json_encode(array(
 ), JSON_FORCE_OBJECT);
 
 // file_put_contents('test.txt', $content);
-file_put_contents('test.txt', $content);
+
 
 
 echo $content;

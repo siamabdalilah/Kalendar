@@ -133,9 +133,10 @@ function loadEvents(){
 
 function populate(){
 	const monthy = (month.month+1) + "-" + month.year;
-	//console.log(eventList[monthy]);
+	console.log(eventList[monthy]);
 
 	const entries = Object.entries(eventList[monthy]);
+	console.log(entries);
 	for (const [date, day] of entries){
 		let id = "#d" + date;
 		let cell = document.querySelector(id);

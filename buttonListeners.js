@@ -115,16 +115,26 @@ function populate(){
 	.then(res => res.json())
 	.then(response => {
 		if (response.success){
-			response.events.forEach(function(day, date) {
-				console.log(date);
+			const entries = Object.entries(response.events);
+			for (const [date, day] of entries){
 				let id = "#d" + date;
 				let cell = $(id);
-				console.log(id);
 
-				day.forEach(event => {
+				const ent = Object.entries(day);
+				for (const [id, tag, title, startTime] of day){
 					cell.innerHTML += "&bull; " + event.startTime + ": " + event.title + "<br>"; 
-				});
- 			});
+				}
+			}
+			// response.events.forEach(function(day, date) {
+			// 	console.log(date);
+			// 	let id = "#d" + date;
+			// 	let cell = $(id);
+			// 	console.log(id);
+
+			// 	day.forEach(event => {
+			// 		cell.innerHTML += "&bull; " + event.startTime + ": " + event.title + "<br>"; 
+			// 	});
+ 		// 	});
 		}
 	})
 	.catch(err =>{alert("There was an error"); console.log(err)});

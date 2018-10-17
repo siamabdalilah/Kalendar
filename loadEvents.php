@@ -27,7 +27,7 @@ $monthsEvents = array();
 
 
 
-while ($stmt1->fetch()){
+while ($stmt->fetch()){
 	if (!array_key_exists($startdate, $monthsEvents)){
 		$monthsEvents[$startdate] = array();
 	}

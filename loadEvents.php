@@ -55,7 +55,7 @@ echo json_encode(array(
 "events" => $monthsEvents
 ));
 
-// file_put_contents('test.txt', $content);
+file_put_contents('test.txt', $content);
 
 exit;
 ?>

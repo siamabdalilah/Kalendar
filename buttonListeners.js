@@ -105,7 +105,7 @@ function populate(){
 
 	const monthy = (month.month+1) + "-" + month.year;
 	const data = {'monthy' : monthy};
-	alert("monnthy");
+	alert(monthy);
 	
 	fetch('loadEvents.php', {
 		method: 'POST',

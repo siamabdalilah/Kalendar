@@ -34,7 +34,7 @@ while ($stmt->fetch()){
 	}
 
 	if (!array_key_exists($startdate, $monthsEvents[$starmonthy])){
-		$monthsEvents[$starmonthy][$startdate] = array();
+		$monthsEvents[$startmonthy][$startdate] = array();
 		echo (array_key_exists($startdate, $monthsEvents[$starmonthy]));
 	}
 

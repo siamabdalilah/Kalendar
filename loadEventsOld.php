@@ -19,6 +19,7 @@ if (!$stmt) {
 	exit;
 }
 
+$monthy = '10-2018';
 $stmt->bind_param('s',$monthy);
 echo $monthy;
 

@@ -126,8 +126,8 @@ function populate(){
 				// console.log(ent);
 				for (const [index, object] of ent){
 					// console.log(String(startTime));
-					// cell.innerHTML += "&bull; " + startTime + ": " + title + "<br>"; 
-					console.log(object);
+					cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
+					// console.log(object);
 				}
 			}
 			// response.events.forEach(function(day, date) {

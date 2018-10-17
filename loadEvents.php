@@ -20,6 +20,7 @@ if (!$stmt) {
 }
 
 //$stmt->bind_param('s',$_SESSION['username']);
+$monthy = '10-2018';
 
 $stmt->execute();
 $stmt->bind_result($id, $tag, $u, $title, $startdate, $startmonthy, $starttime);

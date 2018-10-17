@@ -114,6 +114,7 @@ function loadEvents(){
 	.then(response => {
 		if (response.success){
 			eventList = response.events;
+			console.log(response.events);
 
 			// const entries = Object.entries(response.events);
 			// for (const [date, day] of entries){

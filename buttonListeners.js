@@ -104,13 +104,7 @@ function register(){
 
 }
 
-function populate(){
-
-
-	const monthy = (month.month+1) + "-" + month.year;
-	const data = {'monthy' : monthy};
-	
-	
+function loadEvents(){
 	fetch('loadEvents.php', {
 		method: 'POST',
 		body: JSON.stringify(data),
@@ -120,6 +114,7 @@ function populate(){
 	.then(response => {
 		if (response.success){
 			eventList = response.events;
+
 			const entries = Object.entries(response.events);
 			for (const [date, day] of entries){
 				let id = "#d" + date;
@@ -136,8 +131,20 @@ function populate(){
 }
 
 
-function printEvent(){
-	console.log(eventList);
+function populate(){
+	const monthy = (month.month+1) + "-" + month.year;
+
+	const entries = Object.entries(eventList.monthy);
+	for (const [date, day] of entries){
+		let id = "#d" + date;
+		let cell = document.querySelector(id);
+
+		const ent = Object.entries(day);
+		for (const [index, object] of ent){
+			cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
+		}
+	}
+	
 }
 
 

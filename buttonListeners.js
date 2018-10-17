@@ -137,7 +137,7 @@ function populate(){
 
 
 function printEvent(){
-	console.log(events);
+	console.log(eventList);
 }
 
 

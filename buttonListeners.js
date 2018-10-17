@@ -31,7 +31,7 @@ function login(){
 			document.querySelector('#userinfo').style.display = "block";
 			document.querySelector('#csrf').value = resp.token;
 			
-			fill(); //TO BE REPLACED WITH GET EVENTS
+			populate(); //TO BE REPLACED WITH GET EVENTS
 		}
 		else{
 			alert("Wrong Username/Password. Please try again.")
@@ -99,6 +99,33 @@ function register(){
 	}).catch(err => console.log(err));
 
 }
+
+function populate(){
+
+	const monthy = (month.month+1) + "-" + month.year;
+	const data = {'monthy' : monthy};
+	
+	fetch('loadEvents.php', {
+		method: 'POST',
+		body: JSON.stringify(data);
+		headers: { 'content-type': 'application/json' }
+	})
+	.then(res => res.json());
+	.then(response => {
+		if (response.success){
+			response.events.forEach((day, date) => {
+				let id = "#d" + date;
+				let cell = $(id);
+
+				day.forEach(event => {
+					cell.innerHTML += "&bull; " + event.startTime + ": " + event.title + "<br>"; 
+				});
+ 			});
+		}
+	})
+	.catch(err =>{alert("There was an error"); console.log(err)});
+}
+
 
 
 

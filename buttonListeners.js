@@ -122,7 +122,7 @@ function populate(){
 
 				const ent = Object.entries(day);
 				for (const [id, tag, title, startTime] of ent){
-					cell.innerHTML += "&bull; " + event.startTime + ": " + event.title + "<br>"; 
+					cell.innerHTML += "&bull; " + startTime + ": " + title + "<br>"; 
 				}
 			}
 			// response.events.forEach(function(day, date) {

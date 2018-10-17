@@ -35,7 +35,7 @@ while ($stmt1->fetch()){
 		'id' => $id, 
 		'tag' => $tag,
 		'title' => $title,
-		'startTime' => $startTime
+		'startTime' => $starttime
 	));
 }
 

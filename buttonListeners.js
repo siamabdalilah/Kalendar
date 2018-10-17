@@ -121,7 +121,7 @@ function populate(){
 				let cell = $(id);
 
 				const ent = Object.entries(day);
-				for (const [id, tag, title, startTime] of day){
+				for (const [id, tag, title, startTime] of ent){
 					cell.innerHTML += "&bull; " + event.startTime + ": " + event.title + "<br>"; 
 				}
 			}

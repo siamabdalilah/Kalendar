@@ -10,7 +10,7 @@ require 'database.php';
 
 //$monthy = $json_obj["monthy"];
 
-$stmt = $mysqli->prepare("SELECT * from events where startmonthy= ?' and username = 'siam' order by startdate, starttime asc");
+$stmt = $mysqli->prepare("SELECT * from events where startmonthy= ? and username = 'siam' order by startdate, starttime asc");
 if (!$stmt) {
 	echo json_encode(array(
 		"success" => false,

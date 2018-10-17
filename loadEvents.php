@@ -48,6 +48,6 @@ $stmt1->close();
 echo json_encode(array(
 "success" => true,
 "events" => $monthEvents
-));
+), JSON_FORCE_OBJECT);
 exit;
 ?>

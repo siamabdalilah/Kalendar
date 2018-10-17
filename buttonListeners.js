@@ -109,7 +109,7 @@ function loadEvents(){
 	fetch('loadEvents.php', {
 		method: 'POST',
 		//body: JSON.stringify(data),
-		headers: { 'content-type': 'application/json' }
+		headers: { 'content-type': 'application/json', 'Accept' : 'application/json'}
 	})
 	.then(res => res.json())
 	.catch(err =>{alert("There was an error"); console.log(err)});

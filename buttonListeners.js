@@ -112,24 +112,25 @@ function loadEvents(){
 		headers: { 'content-type': 'application/json' }
 	})
 	.then(res => res.json())
-	.then(response => {
-		if (response.success){
-			eventList = response.events;
-			console.log(response.events);
-
-			// const entries = Object.entries(response.events);
-			// for (const [date, day] of entries){
-			// 	let id = "#d" + date;
-			// 	let cell = document.querySelector(id);
-
-			// 	const ent = Object.entries(day);
-			// 	for (const [index, object] of ent){
-			// 		cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
-			// 	}
-			// }
-		}
-	})
 	.catch(err =>{alert("There was an error"); console.log(err)});
+	// .then(response => {
+	// 	if (response.success){
+	// 		eventList = response.events;
+	// 		console.log(response.events);
+
+	// 		// const entries = Object.entries(response.events);
+	// 		// for (const [date, day] of entries){
+	// 		// 	let id = "#d" + date;
+	// 		// 	let cell = document.querySelector(id);
+
+	// 		// 	const ent = Object.entries(day);
+	// 		// 	for (const [index, object] of ent){
+	// 		// 		cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
+	// 		// 	}
+	// 		// }
+	// 	}
+	// })
+	// .catch(err =>{alert("There was an error"); console.log(err)});
 }
 
 

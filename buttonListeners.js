@@ -118,6 +118,7 @@ function populate(){
 			response.events.forEach((day, date) => {
 				let id = "#d" + date;
 				let cell = $(id);
+				console.log(id);
 
 				day.forEach(event => {
 					cell.innerHTML += "&bull; " + event.startTime + ": " + event.title + "<br>"; 

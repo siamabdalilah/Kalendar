@@ -20,6 +20,7 @@ if (!$stmt) {
 }
 
 $stmt->bind_param('s',$monthy);
+echo $monthy;
 
 $stmt->execute();
 $stmt->bind_result($id, $tag, $u, $title, $startdate, $startmonthy, $starttime);

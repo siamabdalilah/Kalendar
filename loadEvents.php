@@ -53,7 +53,7 @@ $stmt->close();
 echo json_encode(array(
 "success" => true,
 "events" => $monthsEvents
-), JSON_FORCE_OBJECT);
+));
 
 // file_put_contents('test.txt', $content);
 

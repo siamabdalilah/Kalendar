@@ -35,6 +35,7 @@ function login(){
 			document.querySelector('#userinfo').style.display = "block";
 			document.querySelector('#csrf').value = resp.token;
 			
+			loadEvents();
 			populate(); //TO BE REPLACED WITH GET EVENTS
 		}
 		else{

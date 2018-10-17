@@ -30,15 +30,15 @@ $monthsEvents = array();
 
 while ($stmt->fetch()){
 	echo '1';
-	if (!array_key_exists($startmonthy, $monthsEvents)){
-		$monthsEvents[$startmonthy] = array();
-	}
+	// if (!array_key_exists($startmonthy, $monthsEvents)){
+	// 	$monthsEvents[$startmonthy] = array();
+	// }
 
 	// if (!array_key_exists($startdate, $monthsEvents[$starmonthy])){
 	// 	$monthsEvents[$starmonthy][$startdate] = array();
 	// }
 
-	array_push($monthsEvents[$startmonthy][$startdate], array(
+	array_push($monthsEvents[$startmonthy], array(
 		'id' => $id, 
 		'tag' => $tag,
 		'title' => $title,

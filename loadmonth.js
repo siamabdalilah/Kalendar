@@ -114,7 +114,7 @@ function populate(){
 				let cell = $(id);
 
 				day.forEach(event => {
-					cell.innerHTML += "&bull; " + event.startTime + ": " + event.title; 
+					cell.innerHTML += "&bull; " + event.startTime + ": " + event.title + "<br>"; 
 				});
  			});
 		}

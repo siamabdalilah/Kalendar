@@ -123,7 +123,7 @@ function populate(){
 
 				const ent = Object.entries(day);
 				for (const [id, tag, title, startTime] of ent){
-					console.log(String(startTime);
+					console.log(String(startTime));
 					cell.innerHTML += "&bull; " + startTime + ": " + title + "<br>"; 
 				}
 			}

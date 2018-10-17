@@ -115,16 +115,16 @@ function loadEvents(){
 		if (response.success){
 			eventList = response.events;
 
-			const entries = Object.entries(response.events);
-			for (const [date, day] of entries){
-				let id = "#d" + date;
-				let cell = document.querySelector(id);
+			// const entries = Object.entries(response.events);
+			// for (const [date, day] of entries){
+			// 	let id = "#d" + date;
+			// 	let cell = document.querySelector(id);
 
-				const ent = Object.entries(day);
-				for (const [index, object] of ent){
-					cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
-				}
-			}
+			// 	const ent = Object.entries(day);
+			// 	for (const [index, object] of ent){
+			// 		cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
+			// 	}
+			// }
 		}
 	})
 	.catch(err =>{alert("There was an error"); console.log(err)});

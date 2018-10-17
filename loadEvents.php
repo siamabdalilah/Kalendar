@@ -8,9 +8,9 @@ require 'database.php';
 // $json_str = file_get_contents('php://input');
 // $json_obj = json_decode($json_str, true);
 
-$monthy = '10-2018';$json_obj["monthy"];
+$monthy = '10-2018';//$json_obj["monthy"];
 
-$stmt = $mysqli->prepare("SELECT * from events where startmonthy= ? and username = ? order by startdate, starttime asc");
+$stmt = $mysqli->prepare("SELECT * from events where startmonthy= ? and username = 'ani' order by startdate, starttime asc");
 if (!$stmt) {
 	echo json_encode(array(
 		"success" => false,
@@ -19,7 +19,7 @@ if (!$stmt) {
 	exit;
 }
 
-$stmt->bind_param('ss',$monthy, 'ani');
+$stmt->bind_param('s',$monthy);
 
 $stmt->execute();
 $stmt->bind_result($id, $tag, $u, $title, $startdate, $startmonthy, $starttime);

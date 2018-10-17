@@ -105,7 +105,7 @@ function populate(){
 
 	const monthy = (month.month+1) + "-" + month.year;
 	const data = {'monthy' : monthy};
-	alert(monthy);
+	
 	
 	fetch('loadEvents.php', {
 		method: 'POST',
@@ -123,6 +123,7 @@ function populate(){
 
 				const ent = Object.entries(day);
 				for (const [id, tag, title, startTime] of ent){
+					console.log(startTime);
 					cell.innerHTML += "&bull; " + startTime + ": " + title + "<br>"; 
 				}
 			}

@@ -112,7 +112,7 @@ function populate(){
 		body: JSON.stringify(data),
 		headers: { 'content-type': 'application/json' }
 	})
-	.then(res => {res.json(); console.log("fml")})
+	.then(res => {res.json(); console.log("fml");})
 	// .then(response => {
 	// 	if (response.success){
 	// 		response.events.forEach((day, date) => {
@@ -125,7 +125,7 @@ function populate(){
  // 			});
 	// 	}
 	// })
-	.then(response => console.log(response.monthy));
+	.then(response => console.log(response.monthy))
 	.catch(err =>{alert("There was an error"); console.log(err)});
 }
 

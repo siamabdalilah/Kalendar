@@ -38,7 +38,7 @@ while ($stmt->fetch()){
 	// 	$monthsEvents[$starmonthy][$startdate] = array();
 	// }
 
-	array_push($monthsEvents[$startmonthy], array(
+	array_push($monthsEvents[$startmonthy][$startdate], array(
 		'id' => $id, 
 		'tag' => $tag,
 		'title' => $title,

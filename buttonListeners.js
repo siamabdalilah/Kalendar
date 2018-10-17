@@ -118,7 +118,7 @@ function populate(){
 			const entries = Object.entries(response.events);
 			for (const [date, day] of entries){
 				let id = "#d" + date;
-				let cell = $(id);
+				let cell = document.querySelector(id);
 				console.log(cell);
 
 				const ent = Object.entries(day);

@@ -31,7 +31,7 @@ $monthsEvents = array();
 while ($stmt->fetch()){
 	$monthkey = (string)$startmonthy;
 	$monthkey = "m" + $monthkey;
-	echo $monthkey
+	echo $monthkey;
 	if (!array_key_exists($monthkey, $monthsEvents)){
 		$monthsEvents[$monthkey] = array();
 	}

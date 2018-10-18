@@ -139,17 +139,17 @@ function populate(){
 	alert(monthy);
 	// console.log(eventList[monthy]);
 
-	const entries = Object.entries(eventList[monthy]);
-	console.log(entries);
-	for (const [date, day] of entries){
-		let id = "#d" + date;
-		let cell = document.querySelector(id);
+	// const entries = Object.entries(eventList[monthy]);
+	// console.log(entries);
+	// for (const [date, day] of entries){
+	// 	let id = "#d" + date;
+	// 	let cell = document.querySelector(id);
 
-		const ent = Object.entries(day);
-		for (const [index, object] of ent){
-			cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
-		}
-	}
+	// 	const ent = Object.entries(day);
+	// 	for (const [index, object] of ent){
+	// 		cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
+	// 	}
+	// }
 	
 }
 

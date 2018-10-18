@@ -43,9 +43,11 @@ function login(){
 			// populate(); //TO BE REPLACED WITH GET EVENTS
 		}
 	})
-	.then(() => loadEvents())
-	.then(() => populate())
-	.catch(err => {alert("Something went wrong. Please try again."); console.log(err);});
+	// .then(() => loadEvents())
+	// .then(() => populate())
+	.catch(err => {alert("Something went wrong. Please try again."); console.log(err); return;});
+	loadEvents();
+	populate();
 }
 function logout(){
 	// document.querySelector('#username').innerHTML = "";

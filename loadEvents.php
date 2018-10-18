@@ -5,13 +5,13 @@ header("Content-Type: application/json");
 session_start();
 
 
-if (!isset($_SESSION['username'])){
-	echo json_encode(array(
-		"success" => false,
-		"message" => "No user logged in"
-	));
-	exit;
-}
+// if (!isset($_SESSION['username'])){
+// 	echo json_encode(array(
+// 		"success" => false,
+// 		"message" => "No user logged in"
+// 	));
+// 	exit;
+// }
 
 $stmt = $mysqli->prepare("SELECT * from events where username = ? order by startmonthy, startdate, starttime asc");
 if (!$stmt) {

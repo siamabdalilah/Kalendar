@@ -138,10 +138,6 @@ function loadEvents(){
 	})
 	.catch(err =>{alert("There was an error"); console.log(err)});
 
-	while(true){
-		populate().catch(() => {continue;});
-		break;
-	}
 	
 	
 }
@@ -153,7 +149,7 @@ function populate(){
 		monthy = '0' + monthy;
 	}
 
-	const entries = Object.entries(eventList[monthy]);
+	const entries = Object.entries(eventList[monthy]).catch(populate());
 	for (const [date, day] of entries){
 		let id = "#d" + date;
 		let cell = document.querySelector(id);

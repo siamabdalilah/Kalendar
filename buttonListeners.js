@@ -138,6 +138,7 @@ function populate(){
 	let monthy = (month.month+1) + "-";
 	if (month.month + 1 < 10){
 		monthy = '0' + monthy + month.year;
+		console.log(monthy);
 	}
 	
 	// alert(monthy);

@@ -134,10 +134,10 @@ function loadEvents(){
 			// }
 		}
 	})
+	.then(() => populate())
 	.catch(err =>{alert("There was an error"); console.log(err)});
 
-	sleep(0.01);
-	populate();
+	
 }
 
 

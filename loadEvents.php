@@ -6,7 +6,7 @@ session_start();
 
 
 $json_str = file_get_contents('php://input');
-$json_obj = json_decode($json_str, true);
+//$json_obj = json_decode($json_str, true);
 
 // $monthy = $json_obj["monthy"];
 

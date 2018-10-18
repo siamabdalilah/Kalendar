@@ -116,7 +116,7 @@ function loadEvents(){
 	.then(response => {
 		if (response.success){
 			eventList = response.events;
-			console.log(response.events);
+			// console.log(response.events);
 
 			// const entries = Object.entries(response.events);
 			// for (const [date, day] of entries){
@@ -135,17 +135,12 @@ function loadEvents(){
 
 
 function populate(){
-	let monthy = (month.month+1) + "-";
+	let monthy = (month.month+1) + "-" + month.year;
 	if (month.month + 1 < 10){
-		monthy = '0' + monthy + month.year;
-		console.log(monthy);
+		monthy = '0' + monthy;
 	}
-	
-	// alert(monthy);
-	// console.log(eventList[monthy]);
 
 	const entries = Object.entries(eventList[monthy]);
-	// console.log(entries);
 	for (const [date, day] of entries){
 		let id = "#d" + date;
 		let cell = document.querySelector(id);

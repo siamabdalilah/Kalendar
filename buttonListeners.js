@@ -112,44 +112,44 @@ function loadEvents(){
 		headers: { 'content-type': 'application/json', 'Accept' : 'application/json'}
 	})
 	.then(res => res.json())
-	.catch(err =>{alert("There was an error"); console.log(err)});
-	// .then(response => {
-	// 	if (response.success){
-	// 		eventList = response.events;
-	// 		console.log(response.events);
-
-	// 		// const entries = Object.entries(response.events);
-	// 		// for (const [date, day] of entries){
-	// 		// 	let id = "#d" + date;
-	// 		// 	let cell = document.querySelector(id);
-
-	// 		// 	const ent = Object.entries(day);
-	// 		// 	for (const [index, object] of ent){
-	// 		// 		cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
-	// 		// 	}
-	// 		// }
-	// 	}
-	// })
 	// .catch(err =>{alert("There was an error"); console.log(err)});
+	.then(response => {
+		if (response.success){
+			eventList = response.events;
+			console.log(response.events);
+
+			// const entries = Object.entries(response.events);
+			// for (const [date, day] of entries){
+			// 	let id = "#d" + date;
+			// 	let cell = document.querySelector(id);
+
+			// 	const ent = Object.entries(day);
+			// 	for (const [index, object] of ent){
+			// 		cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
+			// 	}
+			// }
+		}
+	})
+	.catch(err =>{alert("There was an error"); console.log(err)});
 }
 
 
 function populate(){
 	const monthy = (month.month+1) + "-" + month.year;
-	alert(monthy);
+	// alert(monthy);
 	// console.log(eventList[monthy]);
 
-	// const entries = Object.entries(eventList[monthy]);
+	const entries = Object.entries(eventList[monthy]);
 	// console.log(entries);
-	// for (const [date, day] of entries){
-	// 	let id = "#d" + date;
-	// 	let cell = document.querySelector(id);
+	for (const [date, day] of entries){
+		let id = "#d" + date;
+		let cell = document.querySelector(id);
 
-	// 	const ent = Object.entries(day);
-	// 	for (const [index, object] of ent){
-	// 		cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
-	// 	}
-	// }
+		const ent = Object.entries(day);
+		for (const [index, object] of ent){
+			cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
+		}
+	}
 	
 }
 

@@ -10,7 +10,7 @@ session_start();
 
 // $monthy = $json_obj["monthy"];
 
-$stmt = $mysqli->prepare("SELECT * from events where username = 'siam' order by startmonthy, startdate, starttime asc");
+$stmt = $mysqli->prepare("SELECT * from events where username = ? order by startmonthy, startdate, starttime asc");
 if (!$stmt) {
 	echo json_encode(array(
 		"success" => false,
@@ -19,7 +19,7 @@ if (!$stmt) {
 	exit;
 }
 
-//$stmt->bind_param('s',$_SESSION['username']);
+$stmt->bind_param('s',$_SESSION['username']);
 
 $stmt->execute();
 $stmt->bind_result($id, $tag, $u, $title, $startdate, $startmonthy, $starttime);
@@ -30,7 +30,7 @@ $monthsEvents = array();
 
 while ($stmt->fetch()){
 	$monthkey = (string)$startmonthy;
-	$monthkey = "m".$monthkey;
+	// $monthkey = "m".$monthkey;
 
 	if (!array_key_exists($monthkey, $monthsEvents)){
 		$monthsEvents[$monthkey] = array();
@@ -38,7 +38,7 @@ while ($stmt->fetch()){
 
 	if (!array_key_exists($startdate, $monthsEvents[$monthkey])){
 		$monthsEvents[$monthkey][$startdate] = array();
-		//echo (array_key_exists($startdate, $monthsEvents[$startmonthy]));
+		
 	}
 
 	array_push($monthsEvents[$monthkey][$startdate], array(

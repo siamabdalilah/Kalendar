@@ -135,7 +135,11 @@ function loadEvents(){
 
 
 function populate(){
-	const monthy = (month.month+1) + "-" + month.year;
+	let monthy = (month.month+1) + "-";
+	if (month.month + 1 < 10){
+		monthy = '0' + monthy + month.year;
+	}
+	
 	// alert(monthy);
 	// console.log(eventList[monthy]);
 

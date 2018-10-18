@@ -149,7 +149,7 @@ function populate(){
 		monthy = '0' + monthy;
 	}
 
-	const entries = Object.entries(eventList[monthy]).catch(populate());
+	const entries = Object.entries(eventList[monthy]);
 	for (const [date, day] of entries){
 		let id = "#d" + date;
 		let cell = document.querySelector(id);

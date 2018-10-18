@@ -27,21 +27,24 @@ function login(){
     })
 	.then (response => response.json())
 	.then(resp => {
-		if (resp.success){
+		if (!resp.success){
+			alert("Wrong Username/Password. Please try again.");
+			return;
+		}
+		else{
 			document.querySelector("#user").value = "";
 			document.querySelector("#pass").value = "";
 			document.querySelector('#username').innerHTML = "Welcome, " + username + "<br>";
 			document.querySelector('#userlogin').style.display = "none";
 			document.querySelector('#userinfo').style.display = "block";
 			document.querySelector('#csrf').value = resp.token;
-			
-			loadEvents();
-			populate(); //TO BE REPLACED WITH GET EVENTS
-		}
-		else{
-			alert("Wrong Username/Password. Please try again.")
+
+			// loadEvents();
+			// populate(); //TO BE REPLACED WITH GET EVENTS
 		}
 	})
+	.then(() => loadEvents())
+	.then(() => populate())
 	.catch(err => {alert("Something went wrong. Please try again."); console.log(err);});
 }
 function logout(){

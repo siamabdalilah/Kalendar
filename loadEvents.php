@@ -5,10 +5,13 @@ header("Content-Type: application/json");
 session_start();
 
 
-//$json_str = file_get_contents('php://input');
-//$json_obj = json_decode($json_str, true);
-
-// $monthy = $json_obj["monthy"];
+if (!isset('$_SESSION['username']')){
+	echo json_encode(array(
+		"success" => false,
+		"message" => "No user logged in"
+	));
+	exit;
+}
 
 $stmt = $mysqli->prepare("SELECT * from events where username = ? order by startmonthy, startdate, starttime asc");
 if (!$stmt) {
@@ -30,7 +33,6 @@ $monthsEvents = array();
 
 while ($stmt->fetch()){
 	$monthkey = (string)$startmonthy;
-	// $monthkey = "m".$monthkey;
 
 	if (!array_key_exists($monthkey, $monthsEvents)){
 		$monthsEvents[$monthkey] = array();

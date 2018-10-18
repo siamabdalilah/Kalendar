@@ -5,7 +5,7 @@ header("Content-Type: application/json");
 session_start();
 
 
-if (!isset('$_SESSION['username']')){
+if (!isset($_SESSION['username'])){
 	echo json_encode(array(
 		"success" => false,
 		"message" => "No user logged in"

@@ -47,6 +47,7 @@ function login(){
 	// .then(() => populate())
 	.catch(err => {alert("Something went wrong. Please try again."); console.log(err); return;});
 	loadEvents();
+	console.log(eventList);
 	populate();
 }
 function logout(){

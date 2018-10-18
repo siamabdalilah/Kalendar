@@ -136,6 +136,7 @@ function loadEvents(){
 
 function populate(){
 	const monthy = (month.month+1) + "-" + month.year;
+	alert(monthy);
 	// console.log(eventList[monthy]);
 
 	const entries = Object.entries(eventList[monthy]);

@@ -5,14 +5,6 @@ header("Content-Type: application/json");
 session_start();
 
 
-// if (!isset($_SESSION['username'])){
-// 	echo json_encode(array(
-// 		"success" => false,
-// 		"message" => "No user logged in"
-// 	));
-// 	exit;
-// }
-
 $stmt = $mysqli->prepare("SELECT * from events where username = ? order by startmonthy, startdate, starttime asc");
 if (!$stmt) {
 	echo json_encode(array(
@@ -47,7 +39,6 @@ while ($stmt->fetch()){
 		"id" => $id, 
 		"tag" => $tag,
 		"title" => $title,
-		//'startDate' => $startdate,
 		"startTime" => $starttime
 	));
 }
@@ -60,8 +51,6 @@ $content = json_encode(array(
 	"success" => true,
 	"events" => $monthsEvents
 ), JSON_FORCE_OBJECT);
-
-// file_put_contents('test.txt', $content);
 
 echo $content;
 

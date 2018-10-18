@@ -47,8 +47,6 @@ function login(){
 	// .then(() => populate())
 	.catch(err => {alert("Something went wrong. Please try again."); console.log(err); return;});
 	loadEvents();
-	//console.log(eventList);
-	//populate();
 }
 function logout(){
 	// document.querySelector('#username').innerHTML = "";
@@ -138,8 +136,8 @@ function loadEvents(){
 	})
 	.catch(err =>{alert("There was an error"); console.log(err)});
 
-	
-	
+	populate();
+		
 }
 
 
@@ -149,7 +147,7 @@ function populate(){
 		monthy = '0' + monthy;
 	}
 
-	const entries = Object.entries(eventList[monthy]);
+	const entries = Object.entries(eventList[monthy]).catch(populate());
 	for (const [date, day] of entries){
 		let id = "#d" + date;
 		let cell = document.querySelector(id);

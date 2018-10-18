@@ -139,7 +139,7 @@ function loadEvents(){
 	.catch(err =>{alert("There was an error"); console.log(err)});
 
 	while(true){
-		populate().catch(continue);
+		populate().catch(() => {continue;});
 		break;
 	}
 	

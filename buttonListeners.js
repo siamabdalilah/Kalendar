@@ -57,6 +57,7 @@ function logout(){
 			document.querySelector('#userinfo').style.display = "none";
 			document.querySelector('#status').style.display = "none"
 			document.querySelector('#csrf').value = "";
+			eventList = null;
 			fill();
 		}
 

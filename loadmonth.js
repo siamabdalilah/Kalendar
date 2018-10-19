@@ -82,7 +82,7 @@ function populate(){
 	}
 
 	let flag = false;
-	const entries = Object.entries(eventList[monthy]).catch(() => {flag = true;});
+	const entries = Object.entries(eventList[monthy]);
 	if (flag) return;
 	for (const [date, day] of entries){
 		let id = "#d" + date;

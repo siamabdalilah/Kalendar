@@ -47,7 +47,9 @@ function addEvent(){
 			alert(resp.message);
 		}
 		
-	}).catch(err => console.log(err));
+	})
+	.then(() => loadEvents())
+	.catch(err => console.log(err));
 
 }
 

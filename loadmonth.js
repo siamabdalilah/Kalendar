@@ -81,7 +81,9 @@ function populate(){
 		monthy = '0' + monthy;
 	}
 
-	const entries = Object.entries(eventList[monthy]);
+	let flag = false;
+	const entries = Object.entries(eventList[monthy]).catch(() => {flag = true;});
+	if (flag) return;
 	for (const [date, day] of entries){
 		let id = "#d" + date;
 		let cell = document.querySelector(id).querySelector('span');
@@ -116,7 +118,7 @@ function prev(){
 function gotoMonth(event){
 	month = new Month(navYear, parseInt(event.target.id.substring(1,event.target.id.size)));
 	fill();
-	populate().catch();
+	populate();
 }
 
 

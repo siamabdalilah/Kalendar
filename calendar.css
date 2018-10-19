@@ -73,7 +73,7 @@ button:focus{
 	cursor: pointer;
 }
 #monthview table, th, td{
-	border:1px solid lightgray;
+	border:1px solid brown;
 }
 #categories{
 	text-align: left;

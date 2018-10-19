@@ -17,15 +17,6 @@ function addEvent(){
 	let dateOfMonth = vals[2];
 
 
-
-	alert(monthy + " " + dateOfMonth);
-
-
-
-
-
-
-
 	const data = {'title' : title, 'monthy' : monthy, 'date' : dateOfMonth,
 		'time' : time, 'tag' : tag, 'token' : document.querySelector("#csrf").value};
 	
@@ -48,7 +39,7 @@ function addEvent(){
 		}
 		
 	})
-	.then(() => loadEvents())
+	.then(() => {fill(); loadEvents();})
 	.catch(err => console.log(err));
 
 }

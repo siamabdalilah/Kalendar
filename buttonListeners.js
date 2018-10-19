@@ -100,7 +100,6 @@ function register(){
 			document.querySelector('#userinfo').style.display = "block";
 			document.querySelector('#status').style.display = "block";
 			document.querySelector('#csrf').value = resp.token;
-			fill(); //TO BE REPLACED WITH GETEVENTS. is this needed?
 		}
 		else{
 			alert(resp.message);

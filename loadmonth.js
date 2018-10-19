@@ -38,7 +38,7 @@ function fill(){
 			break;
 		}
 		let dat = days[i].getDate();
-		rows[1].innerHTML += "<td id = 'p" + dat + "'><span class = 'list'>" + dat 
+		rows[1].innerHTML += "<td id = 'p" + dat + "'>" + dat 
 			+ "<br><span class = 'list'></span></td>";
 
 		// rows[1].innerHTML += "</td>";
@@ -59,19 +59,17 @@ function fill(){
 		}
 
 		let dat = month.getDateObject(i).getDate();
-		rows[j].innerHTML += "<td id ='d" + dat + "'>" + dat + "<br>";
+		rows[j].innerHTML += "<td id ='d" + dat + "'>" + dat 
+			+ "<br><span class = 'list'></span></td>";
 
-
-		rows[j].innerHTML += "</td>";
 	}
 
 	// load next month in gray
 	for (let i = nex.getDay() + 1; i < 7; i++){
 		let dat = i - nex.getDay();
-		rows[j].innerHTML += "<td id = 'n" + dat + "'>" + dat + "<br>";
+		rows[j].innerHTML += "<td id = 'n" + dat + "'>" + dat 
+			+ "<br><br><span class = 'list'></span></td>";
 
-		// ADD EVENTS HERE
-		rows[j].innerHTML += "</td>";
 		rows[j].lastChild.style.color = "rgb(150,150,150)";
 	}
 }
@@ -130,6 +128,4 @@ for (let i = 0; i < 12; i++){
 	let id = '#m' + i;
 	document.querySelector(id).addEventListener("click", function (e) {gotoMonth(e)}, false);
 }
-document.querySelectorAll("input[type='checkbox']").forEach(element =>{
-	element.addEventListener("click", populate, false);
-});
+

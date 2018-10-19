@@ -153,3 +153,7 @@ document.querySelector('#regbutton').addEventListener("click", register, false);
 
 document.querySelector('#log').addEventListener("click", login, false);
 document.querySelector('#logout').addEventListener("click", logout, false);
+
+document.querySelectorAll("input[type='checkbox']").forEach(element =>{
+	element.addEventListener("click", populate, false);
+});

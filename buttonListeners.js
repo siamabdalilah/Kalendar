@@ -126,8 +126,8 @@ function populate(){
 
 	const entries = Object.entries(eventList[monthy]);
 	for (const [date, day] of entries){
-		let id = "#d" + date + " span";
-		let cell = document.querySelector(id);
+		let id = "#d" + date;
+		let cell = document.querySelector(id).querySelector('span');
 
 		const ent = Object.entries(day);
 		for (const [index, object] of ent){

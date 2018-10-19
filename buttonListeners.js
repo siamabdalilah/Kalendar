@@ -98,6 +98,7 @@ function register(){
 			document.querySelector('#username').innerHTML = "Welcome, " + user + "<br>";
 			document.querySelector('#userlogin').style.display = "none";
 			document.querySelector('#userinfo').style.display = "block";
+			document.querySelector('#status').style.display = "block";
 			document.querySelector('#csrf').value = resp.token;
 			fill(); //TO BE REPLACED WITH GETEVENTS. is this needed?
 		}
@@ -123,26 +124,6 @@ function loadEvents(){
 	.catch(err =>{alert("There was an error"); console.log(err)});
 }
 
-
-// function populate(){
-// 	let monthy = (month.month+1) + "-" + month.year;
-// 	if (month.month + 1 < 10){
-// 		monthy = '0' + monthy;
-// 	}
-
-// 	const entries = Object.entries(eventList[monthy]);
-// 	for (const [date, day] of entries){
-// 		let id = "#d" + date;
-// 		let cell = document.querySelector(id).querySelector('span');
-
-// 		const ent = Object.entries(day);
-// 		for (const [index, object] of ent){
-// 			cell.innerHTML += "<span class = '" + object.tag + "'>&bull; " 
-// 				+ object.startTime + ": " + object.title + "</span><br>"; 
-// 		}
-// 	}
-	
-// }
 
 
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang = "en">
 <head>
 	<title>Kalendar</title>
 	<link rel = "stylesheet" href = "calendar.css"/>
@@ -27,9 +27,36 @@
 
 
 	<div class = "sidenav">
-		<button class = "button" id = "addev">Add Event</button>
-		<div id = categories>
-			//ADD CATEGORIES HERE
+		<div id = "monthnav">
+			<button class = "button" id = "left"> < </button> <span id = "y"></span> <button class = "button" id = "right"> > </button>
+		</div>
+		<div id = "monthview">
+			<table id = 'mv'>
+				<tr>
+					<td id = 'm0'>Jan</td><td id = 'm1'>Feb</td><td id = 'm2'>Mar</td><td id = 'm3'>Apr</td>
+				</tr>
+				<tr>
+					<td id = 'm4'>Jun</td><td id = 'm5'>Jul</td><td id = 'm6'>Aug</td><td id = 'm7'>Apr</td>
+				</tr>
+				<tr>
+					<td id = 'm8'>Sep</td><td id = 'm9'>Oct</td><td id = 'm10'>Nov</td><td id = 'm11'>Dec</td>
+				</tr>
+			</table>
+		</div>
+		<br>
+		<div id = 'status'>
+			<button class = "button" id = "addev">Add Event</button>
+			<br>
+			<br>
+			<div id = categories>
+				Tags:<br>
+
+				<input type = 'checkbox' id = 'Personal' checked/> <span class = 'Personal'>Personal</span><br>
+				<input type = 'checkbox' id = 'Work'/> <span class = 'Work'>Work</span> <br>
+				<input type = 'checkbox' id = 'Holiday'/> <span class = 'Holiday'>Holiday</span> <br>
+				<input type = 'checkbox' id = 'Other'/> <span class = 'Other'>Other</span>
+
+			</div>
 		</div>
 	</div>
 	
@@ -40,8 +67,7 @@
 	</div>
 
 	<div class = "calendar">
-		<table>
-			<!-- <div class = "rows"> -->
+		<table id = "caltable">
 			<tr class = "top">
 				<th>Sunday</th>
 				<th>Monday</th>

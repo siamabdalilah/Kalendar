@@ -1,5 +1,7 @@
-let currmonth=9; let curryear=2018;
-let month = new Month(curryear, currmonth);
+let currDate = new Date();
+let month = new Month(currDate.getFullYear(), currDate.getMonth());
+let navYear = currDate.getFullYear();
+
 
 const monthsOfYear = {
 	0 : "January",
@@ -25,7 +27,7 @@ function fill(){
 
 	let weeks = month.getWeeks();
 	let days = weeks[0].getDates();
-	let rows = document.querySelectorAll('tr');
+	let rows = document.querySelector('#caltable').querySelectorAll('tr');
 	for (let i = 1; i < 7; i++){
 		rows[i].innerHTML = "";
 	}
@@ -36,10 +38,10 @@ function fill(){
 			break;
 		}
 		let dat = days[i].getDate();
-		rows[1].innerHTML += "<td id = 'p" + dat + "'>" + dat + "<br>";
+		rows[1].innerHTML += "<td id = 'p" + dat + "'><span class = 'list'>" + dat 
+			+ "<br><span class = 'list'></span></td>";
 
-		// ADD EVENTS HERE. OKAY MAYBE NOT SUCH A GOOD IDEA
-		rows[1].innerHTML += "</td>";
+		// rows[1].innerHTML += "</td>";
 		rows[1].lastChild.style.color = "rgb(150,150,150)";
 	}
 
@@ -59,8 +61,6 @@ function fill(){
 		let dat = month.getDateObject(i).getDate();
 		rows[j].innerHTML += "<td id ='d" + dat + "'>" + dat + "<br>";
 
-		// ADD EVENT HERE
-
 
 		rows[j].innerHTML += "</td>";
 	}
@@ -74,8 +74,6 @@ function fill(){
 		rows[j].innerHTML += "</td>";
 		rows[j].lastChild.style.color = "rgb(150,150,150)";
 	}
-
-	//populate();
 }
 
 function incmonth(){
@@ -86,35 +84,52 @@ function decmonth(){
 	month = month.prevMonth();
 	fill();
 }
+function next(){
+	navYear++;
+	document.querySelector('#y').innerHTML = navYear;
+}
+function prev(){
+	navYear--;
+	document.querySelector('#y').innerHTML = navYear;
+}
+function gotoMonth(event){
+	month = new Month(navYear, parseInt(event.target.id.substring(1,event.target.id.size)));
+	fill();
+	populate().catch();
+}
 
 
 
 
 
 
+// document.addEventListener("DOMContentLoaded", function(){
+	// document.querySelector('#y').innerHTML = navYear;
+// 	fetch('checklog.php',{
+// 		method: 'POST',
+// 		headers: { 'content-type': 'application/json' }
+// 	})
+// 	.then(response => response.json())
+// 	.then(res => {
+// 		if (res.session){
+// 			// alert("ok");
+// 			document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
+// 			document.querySelector('#userlogin').style.display = "none";
+// 			document.querySelector('#userinfo').style.display = "block";
+// 			document.querySelector('#csrf').value = res.csrf;
+// 		}
 
-document.addEventListener("DOMContentLoaded", function(){
-	fetch('checklog.php',{
-		method: 'POST',
-		headers: { 'content-type': 'application/json' }
-	})
-	.then(response => response.json())
-	.then(res => {
-		if (res.session){
-			// alert("ok");
-			document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
-			document.querySelector('#userlogin').style.display = "none";
-			document.querySelector('#userinfo').style.display = "block";
-			document.querySelector('#csrf').value = res.csrf;
-		}
-
-	}).catch(err => {console.log(err); alert("Something went wrong")});
-}, false);
+// 	}).catch(err => {console.log(err); alert("Something went wrong")});
+// }, false);
 document.addEventListener("DOMContentLoaded", fill, false);
 document.querySelector('#prevm').addEventListener("click", decmonth, false);
 document.querySelector('#nextm').addEventListener("click", incmonth, false);
-
-
-
-
-
+document.querySelector('#left').addEventListener('click', prev, false);
+document.querySelector('#right').addEventListener('click', next, false);
+for (let i = 0; i < 12; i++){
+	let id = '#m' + i;
+	document.querySelector(id).addEventListener("click", function (e) {gotoMonth(e)}, false);
+}
+document.querySelectorAll("input[type='checkbox']").forEach(element =>{
+	element.addEventListener("click", populate, false);
+});

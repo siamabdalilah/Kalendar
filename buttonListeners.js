@@ -36,22 +36,15 @@ function login(){
 			document.querySelector("#pass").value = "";
 			document.querySelector('#username').innerHTML = "Welcome, " + username + "<br>";
 			document.querySelector('#userlogin').style.display = "none";
+			document.querySelector('#status').style.display = "block"
 			document.querySelector('#userinfo').style.display = "block";
 			document.querySelector('#csrf').value = resp.token;
-
-			// loadEvents();
-			// populate(); //TO BE REPLACED WITH GET EVENTS
 		}
 	})
-	// .then(() => loadEvents())
-	// .then(() => populate())
 	.catch(err => {alert("Something went wrong. Please try again."); console.log(err); return;});
 	loadEvents();
 }
 function logout(){
-	// document.querySelector('#username').innerHTML = "";
-	// 		document.querySelector('#userlogin').style.display = "block";
-	// 		document.querySelector('#userinfo').style.display = "none";
 	fetch("logout.php",{
 		method: 'POST',
 		headers: { 'content-type': 'application/json' }
@@ -62,6 +55,7 @@ function logout(){
 			document.querySelector('#username').innerHTML = "";
 			document.querySelector('#userlogin').style.display = "block";
 			document.querySelector('#userinfo').style.display = "none";
+			document.querySelector('#status').style.display = "none"
 			document.querySelector('#csrf').value = "";
 			fill();
 		}
@@ -99,8 +93,7 @@ function register(){
 			document.querySelector('#userlogin').style.display = "none";
 			document.querySelector('#userinfo').style.display = "block";
 			document.querySelector('#csrf').value = resp.token;
-			fill(); //TO BE REPLACED WITH GETEVENTS
-			//ADD TOKEN
+			fill(); //TO BE REPLACED WITH GETEVENTS. is this needed?
 		}
 		else{
 			alert(resp.message);
@@ -112,32 +105,16 @@ function register(){
 function loadEvents(){
 	fetch('loadEvents.php', {
 		method: 'POST',
-		//body: JSON.stringify(data),
 		headers: { 'content-type': 'application/json', 'Accept' : 'application/json'}
 	})
 	.then(res => res.json())
-	// .catch(err =>{alert("There was an error"); console.log(err)});
 	.then(response => {
 		if (response.success){
 			eventList = response.events;
-			// console.log(response.events);
-
-			// const entries = Object.entries(response.events);
-			// for (const [date, day] of entries){
-			// 	let id = "#d" + date;
-			// 	let cell = document.querySelector(id);
-
-			// 	const ent = Object.entries(day);
-			// 	for (const [index, object] of ent){
-			// 		cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
-			// 	}
-			// }
 		}
 	})
 	.then(() => populate())
 	.catch(err =>{alert("There was an error"); console.log(err)});
-
-	
 }
 
 
@@ -149,12 +126,13 @@ function populate(){
 
 	const entries = Object.entries(eventList[monthy]);
 	for (const [date, day] of entries){
-		let id = "#d" + date;
+		let id = "#d" + date + " span";
 		let cell = document.querySelector(id);
 
 		const ent = Object.entries(day);
 		for (const [index, object] of ent){
-			cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
+			cell.innerHTML += "<span class = '" + object.tag + "'>&bull; " 
+				+ object.startTime + ": " + object.title + "</span><br>"; 
 		}
 	}
 	

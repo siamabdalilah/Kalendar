@@ -29,7 +29,7 @@ function login(){
 	.then(resp => {
 		if (!resp.success){
 			alert("Wrong Username/Password. Please try again.");
-			return;
+			return false;
 		}
 		else{
 			document.querySelector("#user").value = "";
@@ -39,10 +39,15 @@ function login(){
 			document.querySelector('#status').style.display = "block"
 			document.querySelector('#userinfo').style.display = "block";
 			document.querySelector('#csrf').value = resp.token;
+			return true;
+		}
+	})
+	.then(flag => {
+		if (flag){
+			loadEvents();
 		}
 	})
 	.catch(err => {alert("Something went wrong. Please try again."); console.log(err); return;});
-	loadEvents();
 }
 function logout(){
 	fetch("logout.php",{

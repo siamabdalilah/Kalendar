@@ -82,7 +82,7 @@ function populate(){
 	}
 
 	let flag = false;
-	const entries;
+	let entries = null;
 	try{
 		entries = Object.entries(eventList[monthy]);
 	}catch(err){

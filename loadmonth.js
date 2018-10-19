@@ -96,8 +96,11 @@ function populate(){
 
 		const ent = Object.entries(day);
 		for (const [index, object] of ent){
-			cell.innerHTML += "<span class = '" + object.tag + "'>&bull; " 
-				+ object.startTime + ": " + object.title + "</span><br>"; 
+			if (document.querySelector('input[id="' + object.tag + '"]').checked){
+				cell.innerHTML += "<span class = '" + object.tag + "'>&bull; " 
+					+ object.startTime + ": " + object.title + "</span><br>"; 
+			}
+			
 		}
 	}
 	

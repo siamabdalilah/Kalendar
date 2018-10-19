@@ -72,9 +72,9 @@ button:focus{
 .sidenav td{
 	cursor: pointer;
 }
-#monthview table, th, td{
+/*#monthview table, th, td{
 	border:1px solid brown;
-}
+}*/
 #categories{
 	text-align: left;
 }

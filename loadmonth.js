@@ -145,6 +145,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
 			document.querySelector('#userlogin').style.display = "none";
 			document.querySelector('#userinfo').style.display = "block";
+			document.querySelector('#status').style.display = "block"
 			document.querySelector('#csrf').value = res.csrf;
 			loadEvents();
 		}

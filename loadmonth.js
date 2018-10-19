@@ -1,3 +1,4 @@
+let eventList;
 let currDate = new Date();
 let month = new Month(currDate.getFullYear(), currDate.getMonth());
 let navYear = currDate.getFullYear();
@@ -74,13 +75,35 @@ function fill(){
 	}
 }
 
+function populate(){
+	let monthy = (month.month+1) + "-" + month.year;
+	if (month.month + 1 < 10){
+		monthy = '0' + monthy;
+	}
+
+	const entries = Object.entries(eventList[monthy]);
+	for (const [date, day] of entries){
+		let id = "#d" + date;
+		let cell = document.querySelector(id).querySelector('span');
+
+		const ent = Object.entries(day);
+		for (const [index, object] of ent){
+			cell.innerHTML += "<span class = '" + object.tag + "'>&bull; " 
+				+ object.startTime + ": " + object.title + "</span><br>"; 
+		}
+	}
+	
+}
+
 function incmonth(){
 	month = month.nextMonth();
 	fill();
+	populate();
 }
 function decmonth(){
 	month = month.prevMonth();
 	fill();
+	populate();
 }
 function next(){
 	navYear++;
@@ -101,24 +124,25 @@ function gotoMonth(event){
 
 
 
-// document.addEventListener("DOMContentLoaded", function(){
-	// document.querySelector('#y').innerHTML = navYear;
-// 	fetch('checklog.php',{
-// 		method: 'POST',
-// 		headers: { 'content-type': 'application/json' }
-// 	})
-// 	.then(response => response.json())
-// 	.then(res => {
-// 		if (res.session){
-// 			// alert("ok");
-// 			document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
-// 			document.querySelector('#userlogin').style.display = "none";
-// 			document.querySelector('#userinfo').style.display = "block";
-// 			document.querySelector('#csrf').value = res.csrf;
-// 		}
+document.addEventListener("DOMContentLoaded", function(){
+	document.querySelector('#y').innerHTML = navYear;
+	fetch('checklog.php',{
+		method: 'POST',
+		headers: { 'content-type': 'application/json' }
+	})
+	.then(response => response.json())
+	.then(res => {
+		if (res.session){
+			// alert("ok");
+			document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
+			document.querySelector('#userlogin').style.display = "none";
+			document.querySelector('#userinfo').style.display = "block";
+			document.querySelector('#csrf').value = res.csrf;
+			loadEvents();
+		}
 
-// 	}).catch(err => {console.log(err); alert("Something went wrong")});
-// }, false);
+	}).catch(err => {console.log(err); alert("Something went wrong")});
+}, false);
 document.addEventListener("DOMContentLoaded", fill, false);
 document.querySelector('#prevm').addEventListener("click", decmonth, false);
 document.querySelector('#nextm').addEventListener("click", incmonth, false);

@@ -1,4 +1,4 @@
-let eventList;
+// let eventList;
 
 
 
@@ -124,25 +124,25 @@ function loadEvents(){
 }
 
 
-function populate(){
-	let monthy = (month.month+1) + "-" + month.year;
-	if (month.month + 1 < 10){
-		monthy = '0' + monthy;
-	}
+// function populate(){
+// 	let monthy = (month.month+1) + "-" + month.year;
+// 	if (month.month + 1 < 10){
+// 		monthy = '0' + monthy;
+// 	}
 
-	const entries = Object.entries(eventList[monthy]);
-	for (const [date, day] of entries){
-		let id = "#d" + date;
-		let cell = document.querySelector(id).querySelector('span');
+// 	const entries = Object.entries(eventList[monthy]);
+// 	for (const [date, day] of entries){
+// 		let id = "#d" + date;
+// 		let cell = document.querySelector(id).querySelector('span');
 
-		const ent = Object.entries(day);
-		for (const [index, object] of ent){
-			cell.innerHTML += "<span class = '" + object.tag + "'>&bull; " 
-				+ object.startTime + ": " + object.title + "</span><br>"; 
-		}
-	}
+// 		const ent = Object.entries(day);
+// 		for (const [index, object] of ent){
+// 			cell.innerHTML += "<span class = '" + object.tag + "'>&bull; " 
+// 				+ object.startTime + ": " + object.title + "</span><br>"; 
+// 		}
+// 	}
 	
-}
+// }
 
 
 
@@ -161,5 +161,8 @@ document.querySelector('#log').addEventListener("click", login, false);
 document.querySelector('#logout').addEventListener("click", logout, false);
 
 document.querySelectorAll("input[type='checkbox']").forEach(element =>{
-	element.addEventListener("click", populate, false);
+	element.addEventListener("click", function(){
+		fill();
+		populate();
+	}, false);
 });

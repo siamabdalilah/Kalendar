@@ -150,6 +150,7 @@ th{
 td{
 	transition: background-color 0.5s ease;
 	vertical-align: top;
+	overflow: ellipsis;
 }
 td:hover{
 	background-color: lightgray;

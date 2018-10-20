@@ -132,9 +132,6 @@ function gotoMonth(event){
 
 
 
-
-
-
 document.addEventListener("DOMContentLoaded", function(){
 	document.querySelector('#y').innerHTML = navYear;
 	fetch('checklog.php',{

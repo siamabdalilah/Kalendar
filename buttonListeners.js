@@ -1,7 +1,4 @@
-let eventList;
-
-
-
+// Listeners for general buttons
 function showreg(){
 	document.querySelector('#registernewuser').style.display = "block";
 }
@@ -29,19 +26,25 @@ function login(){
 	.then(resp => {
 		if (!resp.success){
 			alert("Wrong Username/Password. Please try again.");
-			return;
+			return false;
 		}
 		else{
 			document.querySelector("#user").value = "";
 			document.querySelector("#pass").value = "";
 			document.querySelector('#username').innerHTML = "Welcome, " + username + "<br>";
 			document.querySelector('#userlogin').style.display = "none";
+			document.querySelector('#status').style.display = "block"
 			document.querySelector('#userinfo').style.display = "block";
 			document.querySelector('#csrf').value = resp.token;
+			return true;
+		}
+	})
+	.then(flag => {
+		if (flag){
+			loadEvents();
 		}
 	})
 	.catch(err => {alert("Something went wrong. Please try again."); console.log(err); return;});
-	loadEvents();
 }
 function logout(){
 	fetch("logout.php",{
@@ -54,8 +57,9 @@ function logout(){
 			document.querySelector('#username').innerHTML = "";
 			document.querySelector('#userlogin').style.display = "block";
 			document.querySelector('#userinfo').style.display = "none";
+			document.querySelector('#status').style.display = "none"
 			document.querySelector('#csrf').value = "";
-			eventList() = null;
+			eventList = null;
 			fill();
 		}
 
@@ -91,15 +95,13 @@ function register(){
 			document.querySelector('#username').innerHTML = "Welcome, " + user + "<br>";
 			document.querySelector('#userlogin').style.display = "none";
 			document.querySelector('#userinfo').style.display = "block";
+			document.querySelector('#status').style.display = "block";
 			document.querySelector('#csrf').value = resp.token;
-			fill(); //TO BE REPLACED WITH GETEVENTS
-			//ADD TOKEN
 		}
 		else{
 			alert(resp.message);
 		}
 	}).catch(err => console.log(err));
-
 }
 
 function loadEvents(){
@@ -115,36 +117,11 @@ function loadEvents(){
 	})
 	.then(() => populate())
 	.catch(err =>{alert("There was an error"); console.log(err)});
-
-	
-}
-
-
-function populate(){
-	let monthy = (month.month+1) + "-" + month.year;
-	if (month.month + 1 < 10){
-		monthy = '0' + monthy;
-	}
-
-	const entries = Object.entries(eventList[monthy]);
-	for (const [date, day] of entries){
-		let id = "#d" + date;
-		let cell = document.querySelector(id);
-
-		const ent = Object.entries(day);
-		for (const [index, object] of ent){
-			cell.innerHTML += "&bull; " + object.startTime + ": " + object.title + "<br>"; 
-		}
-	}
-	
 }
 
 
 
-
-
-
-
+// Listeners for events
 document.querySelector('#reg').addEventListener("click", showreg, false);
 document.querySelector('#cancelreg').addEventListener("click", cancelreg, false);
 
@@ -154,3 +131,10 @@ document.querySelector('#regbutton').addEventListener("click", register, false);
 
 document.querySelector('#log').addEventListener("click", login, false);
 document.querySelector('#logout').addEventListener("click", logout, false);
+
+document.querySelectorAll("input[type='checkbox']").forEach(element =>{
+	element.addEventListener("click", function(){
+		fill();
+		populate();
+	}, false);
+});

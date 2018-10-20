@@ -21,7 +21,7 @@ if (!preg_match('/(0[1-9]|1[0-2])-(\d{4})/m', $startMonth) || !preg_match('/(0[1
 
 	echo json_encode(array(
 		"success" => false,
-		"message" => "Invalid timegvgvg format"
+		"message" => "Invalid timeg format"
 	));
 	exit;
 }

@@ -1,3 +1,5 @@
+// Functions for updating events
+
 function addEvent(){
 	const title = document.querySelector("input[name='evtitle']").value;
 	const date = document.querySelector("input[name='date']").value;
@@ -15,15 +17,6 @@ function addEvent(){
 	let vals = date.split('-');
 	let monthy = vals[1] + '-' + vals[0];
 	let dateOfMonth = vals[2];
-
-
-
-	alert(monthy + " " + dateOfMonth);
-
-
-
-
-
 
 
 	const data = {'title' : title, 'monthy' : monthy, 'date' : dateOfMonth,
@@ -47,8 +40,9 @@ function addEvent(){
 			alert(resp.message);
 		}
 		
-	}).catch(err => console.log(err));
-
+	})
+	.then(() => {fill(); loadEvents();})
+	.catch(err => console.log(err));
 }
 
 function editEvent(){
@@ -113,7 +107,17 @@ function deleteEvent(){
 			alert(resp.message);
 	}
 	}).catch(err => console.log(err));
+}
 
+function populateEventView(m, d){
+	let monthy = m.month + "-" + m.year;
+	const entr = Object.entries(eventList[monthy][d]);
+	let cell = document.querySelector('#events')
+	for (const [id, object] of entr){
+		cell.innerHtml += "<div class='evcontent " + object.tag + "'>&bull; " 
+					+ object.startTime.substring(0, object.startTime.size - 3) 
+					+ ": " + object.title + "</div>"; 
+	}
 }
 
 document.querySelector("#submitevent").addEventListener("click", addEvent,false);

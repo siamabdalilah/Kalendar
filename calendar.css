@@ -52,6 +52,7 @@ button:focus{
 /*partly taken from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_sidenav_fixed*/
 .sidenav {
 	margin-top: 100px; 
+	color: lightgray;
     height: 100%;
     width: 160px;
     text-align: center;
@@ -62,6 +63,35 @@ button:focus{
     left: 0;
     background-color: #111;
     overflow-x: hidden;
+}
+
+.sidenav td:hover{
+	color: #111;
+	background-color: white;
+}
+.sidenav td{
+	cursor: pointer;
+}
+/*#monthview table, th, td{
+	border:1px solid brown;
+}*/
+#categories{
+	text-align: left;
+}
+.Personal{
+	color: #3AC73F;
+}
+.Work{
+	color: #6F73E9;
+}
+.Holiday{
+	color: #429DEC;
+}
+.Other{
+	color: #ffE83E;
+}
+#status{
+	display: none;
 }
 
 .calendar-nav{
@@ -107,14 +137,17 @@ table, th, td{
 table{
 	width: 100%;
 	border-collapse: collapse;
+	table-layout: fixed;
 }
 th{
 	width: 1%;
 }
-tr{
+
+#caltable tr{
 	height: 100px;
+	overflow: scroll;
 }
-tr.top{
+#caltable tr.top{
 	height: 50px;
 }
 td{
@@ -124,7 +157,13 @@ td{
 td:hover{
 	background-color: lightgray;
 }
-
+.list{
+	height: 75px;
+	font-size: 10px;
+	overflow-x: scroll;
+	overflow-y: scroll;
+	white-space: nowrap;
+}
 
 
 /*source: https://www.w3schools.com/w3css/4/w3.css*/

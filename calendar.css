@@ -162,7 +162,7 @@ td:hover{
 	font-size: 10px;
 	overflow: hidden;
 	text-overflow: scroll;
-	white-space: pre-wrap;
+	white-space: nowrap;
 }
 
 

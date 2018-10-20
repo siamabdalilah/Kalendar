@@ -40,7 +40,7 @@ function fill(){
 		}
 		let dat = days[i].getDate();
 		rows[1].innerHTML += "<td id = 'p" + dat + "'>" + dat 
-			+ "<br><span class = 'list'></span></td>";
+			+ "<div class = 'list'></div></td>";
 
 		// rows[1].innerHTML += "</td>";
 		rows[1].lastChild.style.color = "rgb(150,150,150)";
@@ -92,7 +92,7 @@ function populate(){
 	if (flag) return;
 	for (const [date, day] of entries){
 		let id = "#d" + date;
-		let cell = document.querySelector(id).querySelector('span');
+		let cell = document.querySelector(id).querySelector('div');
 
 		const ent = Object.entries(day);
 		for (const [index, object] of ent){

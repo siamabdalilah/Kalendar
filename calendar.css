@@ -160,8 +160,9 @@ td:hover{
 .list{
 	height: 80px;
 	font-size: 10px;
-	overflow: hidden;
-	text-overflow: scroll;
+	overflow-x: scroll;
+	overflow-y: scroll;
+	/*text-overflow: scroll;*/
 	white-space: nowrap;
 }
 

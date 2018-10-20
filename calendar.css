@@ -142,11 +142,10 @@ table{
 th{
 	width: 1%;
 }
-#caltable{
 
-}
 #caltable tr{
 	height: 100px;
+	overflow: scroll;
 }
 #caltable tr.top{
 	height: 50px;

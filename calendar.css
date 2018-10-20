@@ -80,18 +80,28 @@ button:focus{
 }
 .Personal{
 	color: #3AC73F;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
 }
 .Work{
 	color: #6F73E9;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
 }
 .Holiday{
 	color: #429DEC;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
 }
 .Other{
 	color: #ffE83E;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
 }
 #status{
 	display: none;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
 }
 
 .calendar-nav{
@@ -159,8 +169,8 @@ td:hover{
 }
 .list{
 	font-size: 10px;
-	overflow: hidden;
-	text-overflow: scroll;
+/*	overflow-x: hidden;
+	text-overflow: ellipsis;*/
 	white-space: nowrap;
 }
 

@@ -158,6 +158,7 @@ td:hover{
 	background-color: lightgray;
 }
 .list{
+	height: 80px;
 	font-size: 10px;
 	overflow: hidden;
 	text-overflow: scroll;

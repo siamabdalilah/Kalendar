@@ -1,3 +1,5 @@
+// Functions for updating events
+
 function addEvent(){
 	const title = document.querySelector("input[name='evtitle']").value;
 	const date = document.querySelector("input[name='date']").value;

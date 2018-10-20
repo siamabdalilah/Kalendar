@@ -22,7 +22,7 @@ $stmt->bind_result($id, $tag, $u, $title, $startdate, $startmonthy, $starttime);
 $monthsEvents = array();
 
 
-
+// return all events for that user
 while ($stmt->fetch()){
 	$monthkey = (string)$startmonthy;
 

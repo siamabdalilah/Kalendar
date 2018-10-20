@@ -1,7 +1,4 @@
-// let eventList;
-
-
-
+// Listeners for general buttons
 function showreg(){
 	document.querySelector('#registernewuser').style.display = "block";
 }
@@ -105,7 +102,6 @@ function register(){
 			alert(resp.message);
 		}
 	}).catch(err => console.log(err));
-
 }
 
 function loadEvents(){
@@ -125,11 +121,7 @@ function loadEvents(){
 
 
 
-
-
-
-
-
+// Listeners for events
 document.querySelector('#reg').addEventListener("click", showreg, false);
 document.querySelector('#cancelreg').addEventListener("click", cancelreg, false);
 

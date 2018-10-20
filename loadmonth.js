@@ -1,4 +1,4 @@
-let eventList;
+let eventList; // object to store all events
 let currDate = new Date();
 let month = new Month(currDate.getFullYear(), currDate.getMonth());
 let navYear = currDate.getFullYear();
@@ -42,7 +42,6 @@ function fill(){
 		rows[1].innerHTML += "<td id = 'p" + dat + "'>" + dat 
 			+ "<div class = 'list'></div></td>";
 
-		// rows[1].innerHTML += "</td>";
 		rows[1].lastChild.style.color = "rgb(150,150,150)";
 	}
 
@@ -76,6 +75,7 @@ function fill(){
 }
 
 function populate(){
+	// get the monthy object to match the data in the json object
 	let monthy = (month.month+1) + "-" + month.year;
 	if (month.month + 1 < 10){
 		monthy = '0' + monthy;
@@ -89,6 +89,7 @@ function populate(){
 		flag = true;
 	}
 	
+	// Add events of current month
 	if (flag) return;
 	for (const [date, day] of entries){
 		let id = "#d" + date;
@@ -106,6 +107,7 @@ function populate(){
 	
 }
 
+// functions for navigation buttons
 function incmonth(){
 	month = month.nextMonth();
 	fill();
@@ -132,8 +134,10 @@ function gotoMonth(event){
 
 
 
+// event listeners
 document.addEventListener("DOMContentLoaded", function(){
 	document.querySelector('#y').innerHTML = navYear;
+	// Check to see if a user is logged in already. If yes, reload his data
 	fetch('checklog.php',{
 		method: 'POST',
 		headers: { 'content-type': 'application/json' }
@@ -141,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function(){
 	.then(response => response.json())
 	.then(res => {
 		if (res.session){
-			// alert("ok");
 			document.querySelector('#username').innerHTML = "Welcome, " + res.user + "<br>";
 			document.querySelector('#userlogin').style.display = "none";
 			document.querySelector('#userinfo').style.display = "block";

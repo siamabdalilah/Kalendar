@@ -61,7 +61,7 @@ function fill(){
 
 		let dat = month.getDateObject(i).getDate();
 		rows[j].innerHTML += "<td id ='d" + dat + "'>" + dat 
-			+ "<br><span class = 'list'></span></td>";
+			+ "<div class = 'list'></div></td>";
 
 	}
 
@@ -69,7 +69,7 @@ function fill(){
 	for (let i = nex.getDay() + 1; i < 7; i++){
 		let dat = i - nex.getDay();
 		rows[j].innerHTML += "<td id = 'n" + dat + "'>" + dat 
-			+ "<br><br><span class = 'list'></span></td>";
+			+ "<div class = 'list'></div></td>";
 
 		rows[j].lastChild.style.color = "rgb(150,150,150)";
 	}

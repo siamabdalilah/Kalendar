@@ -160,9 +160,9 @@ td:hover{
 }
 .list{
 	font-size: 10px;
-	background-image : linear-gradient(to bottom, 
-                    rgba(255,255,255, 0), 
-                    rgba(255,255,255, 1) 90%);
+	overflow: hidden;
+	text-overflow: scroll;
+	
 }
 
 

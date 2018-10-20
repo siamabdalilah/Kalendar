@@ -137,12 +137,13 @@ table, th, td{
 table{
 	width: 100%;
 	border-collapse: collapse;
+	table-layout: fixed;
 }
 th{
 	width: 1%;
 }
 #caltable{
-	table-layout: fixed;
+
 }
 #caltable tr{
 	height: 100px;

@@ -99,7 +99,7 @@ function populate(){
 		for (const [index, object] of ent){
 			if (document.querySelector('input[id="' + object.tag + '"]').checked){
 				cell.innerHTML += "<span class = '" + object.tag + "'>&bull; " 
-					+ object.startTime + ": " + object.title + "</span><br>"; 
+					+ object.startTime.substring(0, object.startTime.size - 3) + ": " + object.title + "</span><br>"; 
 			}
 			
 		}

@@ -153,11 +153,11 @@ th{
 }
 td{
 	transition: background-color 0.5s ease;
-	/*width: fixed;
+	/*width: fixed;*/
 	vertical-align: top;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	white-space: nowrap;*/
+	white-space: nowrap;
 }
 td:hover{
 	background-color: lightgray;

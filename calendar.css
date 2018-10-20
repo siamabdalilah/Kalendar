@@ -144,6 +144,7 @@ th{
 }
 
 #caltable tr{
+	position: fixed;
 	height: 100px;
 	overflow: scroll;
 }

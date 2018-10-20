@@ -137,7 +137,6 @@ table, th, td{
 table{
 	width: 100%;
 	border-collapse: collapse;
-	table-layout: fixed;
 }
 th{
 	width: 1%;
@@ -162,7 +161,6 @@ td:hover{
 	font-size: 10px;
 	overflow-x: scroll;
 	overflow-y: scroll;
-	/*text-overflow: scroll;*/
 	white-space: nowrap;
 }
 

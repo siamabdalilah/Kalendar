@@ -137,9 +137,9 @@ function deleteEvent(e){
 	})
 	.catch(err => console.log(err));
 
-	let id = '#' + e.target.getAttribute('date');
-		console.log(document.querySelector(id));
-		document.querySelector(id).click();
+	let idd = '#' + e.target.getAttribute('date');
+		console.log(document.querySelector(idd));
+		document.querySelector(idd).click();
 }
 
 

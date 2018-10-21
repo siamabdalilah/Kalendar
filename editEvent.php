@@ -17,6 +17,8 @@ $description = $json_obj['description']
 $endttime = $json_obj['endttime']
 $enddate = $json_obj['enddate']
 $category = $json_obj['tags'];
+$eventid = $json_obj['eventid'];
+$token = $json_obj['token'];
 
 if (!($token === $_SESSION['token'])){
     echo json_encode(array(
@@ -27,15 +29,15 @@ if (!($token === $_SESSION['token'])){
 }
 
 
-$stmt = $mysqli->prepare("UPDATE events SET title=?, startdate=?, startmonthy=?, starttime=?, startdate=?
-    description=?, endttime=?, enddate=?, category=?, tags=?  WHERE event_id=?");
+$stmt = $mysqli->prepare("UPDATE events SET title=?, startdate=?, startmonthy=?, starttime=?,
+    description=?, endttime=?, enddate=?, category=?  WHERE event_id=?");
 
     if(!$stmt){
       printf("Query Prep Failed: %s\n", $mysqli->error);
       exit;
     }
 
-    $stmt->bind_param('ssssssssi',$title,$monthy,$startdate,$starttime, $description, $endtime, $category, $eventid);
+    $stmt->bind_param('sssssssi',$title,$startdate,$monthy,$starttime, $description, $endtime, $enddate, $category, $eventid);
 
     $stmt->execute();
 

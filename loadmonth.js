@@ -119,39 +119,6 @@ function populate(){
 		}
 	});
 	addCellListeners();
-
-
-
-
-	// let monthy = (month.month+1) + "-" + month.year;
-	// if (month.month + 1 < 10){
-	// 	monthy = '0' + monthy;
-	// }
-
-	// let flag = false;
-	// let entries = null;
-	// try{
-	// 	entries = Object.entries(eventList[monthy]);
-	// }catch(err){
-	// 	flag = true;
-	// }
-	
-	// // Add events of current month
-	// if (flag) return;
-	// for (const [date, day] of entries){
-	// 	let id = "#d" + date;
-	// 	let cell = document.querySelector(id).querySelector('div');
-
-	// 	const ent = Object.entries(day);
-	// 	for (const [index, object] of ent){
-	// 		if (document.querySelector('input[id="' + object.tag + '"]').checked){
-	// 			cell.innerHTML += "<span class = '" + object.tag + "'>&bull; " 
-	// 				+ object.startTime.substring(0, object.startTime.length - 3) + ": " + object.title + "</span><br>"; 
-	// 		}
-			
-	// 	}
-	// }
-	// addCellListeners();
 	
 }
 

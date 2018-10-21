@@ -99,7 +99,7 @@ function populate(){
 			monthy = '0' + monthy;
 		}
 		let date = cell.id.substring(1, cell.id.length);
-		let cellin = cell.querSelector('div');
+		let cellin = cell.querySelector('div');
 
 		if (eventList[monthy] !== undefined && eventList[monthy][date] !== undefined){
 			const entries = Object.entries(eventList[monthy][date]);

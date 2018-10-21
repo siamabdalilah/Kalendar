@@ -113,7 +113,7 @@ function addCellListeners(){
 		element.addEventListener("click", function(e){
 			populateEventView(e.target);
 		}, false);
-		element.parent.addEventListener("click", function(e){
+		element.parentNode.addEventListener("click", function(e){
 			populateEventView(e.target);
 		}, false);
 	});

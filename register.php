@@ -1,6 +1,9 @@
 <?php
 
 require 'database.php';
+ini_set("session.cookie_httponly", 1);
+
+
 
 header("Content-Type: application/json"); 
 

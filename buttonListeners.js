@@ -119,35 +119,6 @@ function loadEvents(){
 	.catch(err =>{alert("There was an error"); console.log(err)});
 }
 
-
-
-// Listeners for events
-document.querySelector('#reg').addEventListener("click", showreg, false);
-document.querySelector('#cancelreg').addEventListener("click", cancelreg, false);
-
-document.querySelector('#addev').addEventListener("click", addev, false);
-document.querySelector('#cancelev').addEventListener("click", cancelev, false);
-document.querySelector('#regbutton').addEventListener("click", register, false);
-
-document.querySelector('#log').addEventListener("click", login, false);
-document.querySelector('#logout').addEventListener("click", logout, false);
-
-document.querySelectorAll("input[type='checkbox']").forEach(element =>{
-	element.addEventListener("click", function(){
-		fill();
-		populate();
-	}, false);
-});
-
-document.querySelector('#back').addEventListener("click", function(){
-	document.querySelector('#view').style.display = "none";
-}, false);
-
-document.querySelector('#canceledit').addEventListener("click", function(){
-	document.querySelector('#edit').style.display = "none";
-}, false);
-
-
 function export(){
 	
 	// Some parts taken from: 
@@ -185,10 +156,45 @@ function export(){
 		}
 	}
 
-	//dcs
 
-	element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent());
+	element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(csvinput));
+	element.setAttribute('download', "calendar.csv");
+	element.style.display = 'none';
+	document.body.appendChild(element);
+	element.click();
+	document.body.removeChild(element);
 }
+
+
+
+// Listeners for events
+document.querySelector('#reg').addEventListener("click", showreg, false);
+document.querySelector('#cancelreg').addEventListener("click", cancelreg, false);
+
+document.querySelector('#addev').addEventListener("click", addev, false);
+document.querySelector('#cancelev').addEventListener("click", cancelev, false);
+document.querySelector('#regbutton').addEventListener("click", register, false);
+
+document.querySelector('#log').addEventListener("click", login, false);
+document.querySelector('#logout').addEventListener("click", logout, false);
+
+document.querySelectorAll("input[type='checkbox']").forEach(element =>{
+	element.addEventListener("click", function(){
+		fill();
+		populate();
+	}, false);
+});
+
+document.querySelector('#back').addEventListener("click", function(){
+	document.querySelector('#view').style.display = "none";
+}, false);
+
+document.querySelector('#canceledit').addEventListener("click", function(){
+	document.querySelector('#edit').style.display = "none";
+}, false);
+
+document.querySelector("#downloadcsv").addEventListener("click", export, false);
+
 
 
 

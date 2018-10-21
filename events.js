@@ -131,7 +131,8 @@ function deleteEvent(e){
 		}
 		else{
 			alert(resp.message);
-	}
+		}
+	})
 	.then(() => {
 		fill();
 		loadEvents();
@@ -140,7 +141,7 @@ function deleteEvent(e){
 		let id = '#' + e.target.date;
 		document.querySelector(id).click();
 	})
-	}).catch(err => console.log(err));
+	.catch(err => console.log(err));
 }
 
 // function populateEventView(e){

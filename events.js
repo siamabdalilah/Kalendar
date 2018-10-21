@@ -136,17 +136,18 @@ function deleteEvent(e){
 	.then(() => {
 		fill();
 		loadEvents();
+		document.querySelector('#view').style.display ="none";
 	})
 	.catch(err => console.log(err));
 
 	
-	let ddd = new Date();
-		let ddd2 = null;
-		do{
-			ddd2 = new Date();
-		}while(ddd2-ddd<400);
-		document.querySelector(idd).click();
-		console.log(document.querySelector(idd));
+	// let ddd = new Date();
+	// 	let ddd2 = null;
+	// 	do{
+	// 		ddd2 = new Date();
+	// 	}while(ddd2-ddd<400);
+	// 	document.querySelector(idd).click();
+	// 	console.log(document.querySelector(idd));
 }
 
 

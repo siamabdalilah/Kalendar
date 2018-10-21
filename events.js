@@ -137,39 +137,13 @@ function deleteEvent(e){
 		loadEvents();
 	})
 	.then(() =>{
-		let id = '#' + e.target.date;
+		let id = '#' + e.target.class;
 		document.querySelector(id).click();
 	})
 	.catch(err => console.log(err));
 }
 
-// function populateEventView(e){
-// 	let id = e.target.id;
-
-// 	let type = id[0];
-// 	let m = new Month(month.year, month.day);
-// 	if (type ==='n'){
-// 		m = m.prevMonth();
-// 	}
-// 	else if(type === 'p'){
-// 		m = m.nextMonth();
-// 	}
-
-// 	let monthy = m.month + "-" + m.year;
-// 	if (eventList[monthy][d] === null){
-// 		// DO SOMETHING
-// 		return;
-// 	}
-// 	const entr = Object.entries(eventList[monthy][d]);
-// 	let cell = document.querySelector('#events')
-// 	for (const [id, object] of entr){
-// 		cell.innerHtml += "<div class='evcontent " + object.tag + "'>&bull; " 
-// 					+ object.startTime.substring(0, object.startTime.length - 3) 
-// 					+ ": " + object.title + "</div>"; 
-// 	}
-// }
 
 document.querySelector("#submitevent").addEventListener("click", addEvent,false);
 document.querySelector('#editevent').addEventListener("click", editEvent, false);
-//document.querySelector("#editevent").addEventListener("click", editEvent, false);
-//document.querySelector("#deleteevent").addEventListener("click". deleteEvent, false);
+

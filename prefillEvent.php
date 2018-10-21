@@ -8,13 +8,13 @@ $json_str = file_get_contents('php://input');
 $json_obj = json_decode($json_str, true);
 
 
-$id = $json_obj['id'];
-$title = $json_obj['title'];
-$startMonth = $json_obj['monthy'];
-$startDate = $json_obj['date'];
-$startTime = $json_obj["time"];
-$category = $json_obj['tag'];
-$token = $json_obj['token'];
+$id = addslashes($json_obj['id']);
+$title = addslashes($json_obj['title']);
+$startMonth = addslashes($json_obj['monthy']);
+$startDate = addslashes($json_obj['date']);
+$startTime = addslashes($json_obj["time"]);
+$category = addslashes($json_obj['tag']);
+$token = addslashes($json_obj['token']);
 
 
  $stmt = mysqli->prepare("SELECT COUNT(*), title, tags, startmonthy, starttime, startdate from events where event_id = id  ");

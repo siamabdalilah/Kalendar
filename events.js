@@ -61,14 +61,27 @@ function editEvent(){
 	const title = document.querySelector("input[name='evtitle']").value;
 	const date = document.querySelector("input[name='date']").value;
 	const time = document.querySelector("input[name='time']").value + ":00";
-	const tag = document.querySelector("select").value;
+	const tag = document.querySelector("select[id=tagg]").value;
+	const desc = document.querySelector("#desc").innerHTML;
+	const endTime = document.querySelector('input[name="endtime"]').value;
+	const endDate = document.querySelector('input[name="enddate"]').value
+
+
+	if (title == ""){
+		alert("Title cannot be empty");
+		return;
+	}
+	if (date == ""){
+		alert("Invalid Date");
+		return;
+	}
 
 	let vals = date.split('-');
 	let monthy = vals[1] + '-' + vals[0];
 	let dateOfMonth = vals[2];
 
 	const data = {'title' : title, 'monthy' : monthy, 'date' : dateOfMonth,
-		'time' : time, 'tag' : tag, 'token' : document.querySelector("#csrf").value};
+		'time' : time, 'endTime' : endTime, 'endDate' = endDate, 'tag' : tag, 'token' : document.querySelector("#csrf").value};
 
 	fetch('editEvent.php', {
 		method: 'POST',
@@ -81,7 +94,10 @@ function editEvent(){
 			document.querySelector("input[name='evtitle']").value = "";
 			document.querySelector("input[name='date']").value = "";
 			document.querySelector("input[name='time']").value = "";
-			document.querySelector('#editevent').style.display = "none";
+			document.querySelector('#addevent').style.display = "none";
+			document.querySelector("#desc").innerHTML = "";
+			document.querySelector('input[name="endtime"]').value = "";
+			document.querySelector('input[name="enddate"]').value = "";
 		}
 		else{
 			alert(resp.message);
@@ -149,5 +165,5 @@ function deleteEvent(){
 
 document.querySelector("#submitevent").addEventListener("click", addEvent,false);
 document.querySelector('#editevent').addEventListener("click", editEvent, false);
-// document.querySelector("#editevent").addEventListener("click", editEvent, false);
+document.querySelector("#editevent").addEventListener("click", editEvent, false);
 // document.querySelector("#deleteevent").addEventListener("click". deleteEvent, false);

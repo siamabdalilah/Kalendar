@@ -80,7 +80,7 @@ function editEvent(){
 	let monthy = vals[1] + '-' + vals[0];
 	let dateOfMonth = vals[2];
 
-	const data = {'title' : title, 'monthy' : monthy, 'startdate' : dateOfMonth,
+	const data = {'title' : title, 'monthy' : monthy, 'startdate' : date,
 		'starttime' : time, 'description' : desc, 'endtime' : endTime, 'enddate' : endDate, 'tag' : tag, 'eventid' : id, 'token' : document.querySelector("#csrf").value};
 
 	fetch('editEvent.php', {
@@ -104,7 +104,7 @@ function editEvent(){
 	}
 	})
 	.then(() => {
-		document.querySelector('#edit').style.display = none;
+		document.querySelector('#edit').style.display = "none";
 		loadEvents();
 	})
 	.catch(err => console.log(err));

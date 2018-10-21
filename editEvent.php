@@ -1,4 +1,4 @@
-<?
+<?php
 require 'database.php';
 
 header("Content-Type: application/json");
@@ -9,16 +9,20 @@ session_start();
 $json_str = file_get_contents('php://input');
 $json_obj = json_decode($json_str, true);
 
+
 $title = $json_obj['title'];
-$monthy = $json_obj['startdate'];
-$startdate = $json_obj['startmonthy'];
+$monthy = $json_obj['monthy'];
+$startdate = $json_obj['date'];
 $starttime = $json_obj['starttime'];
-$description = $json_obj['description']
-$endttime = $json_obj['endttime']
-$enddate = $json_obj['enddate']
-$category = $json_obj['tags'];
+$description = $json_obj['description'];
+$endttime = $json_obj['endttime'];
+$enddate = $json_obj['enddate'];
+$category = $json_obj['tag'];
 $eventid = $json_obj['eventid'];
 $token = $json_obj['token'];
+
+
+
 
 if (!($token === $_SESSION['token'])){
     echo json_encode(array(
@@ -29,8 +33,11 @@ if (!($token === $_SESSION['token'])){
 }
 
 
+
+
+
 $stmt = $mysqli->prepare("UPDATE events SET title=?, startdate=?, startmonthy=?, starttime=?,
-    description=?, endttime=?, enddate=?, tags=?  WHERE event_id=?");
+    description=?, endtime=?, enddate=?, tags=?  WHERE event_id=?");
 
 if(!$stmt){
     echo json_encode(array(
@@ -41,6 +48,7 @@ if(!$stmt){
 }
 
 
+
 $stmt->bind_param('ssssssssi',$title,$startdate,$monthy,$starttime, $description, $endtime, $enddate, $category, $eventid);
 
 $stmt->execute();
@@ -49,6 +57,9 @@ $stmt->close();
 
 echo json_encode(array(
     "success" => true,
+    "message" => "Success!"
 ));
 exit;
-?>
+
+
+ ?>

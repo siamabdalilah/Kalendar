@@ -136,5 +136,6 @@ function deleteEvent(){
 // }
 
 document.querySelector("#submitevent").addEventListener("click", addEvent,false);
+document.querySelector('#editevent').addEventListener("click", editEvent, false);
 // document.querySelector("#editevent").addEventListener("click", editEvent, false);
 // document.querySelector("#deleteevent").addEventListener("click". deleteEvent, false);

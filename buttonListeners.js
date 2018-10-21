@@ -146,6 +146,6 @@ document.querySelector('#back').addEventListener("click", function(){
 document.querySelector('#canceledit').addEventListener("click", function(){
 	document.querySelector('#edit').style.display = "none";
 }, false);
-document.querySelector('#editevent').addEventListener("click", editEvent, false);
+
 
 

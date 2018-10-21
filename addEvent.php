@@ -13,6 +13,9 @@ $title = $json_obj['title'];
 $startMonth = $json_obj['monthy'];
 $startDate = $json_obj['date'];
 $startTime = $json_obj["time"];
+$endTime = $json_obj['endtime'];
+$endDate = $json_obj['enddate'];
+$description = $json_obj['description'];
 $category = $json_obj['tag'];
 $token = $json_obj['token'];
 
@@ -49,7 +52,7 @@ if (!($token === $_SESSION['token'])){
 
 
 
-$stmt = $mysqli->prepare('insert into events (title, tags, username, startmonthy, startdate, starttime ) values (?,?,?,?,?,?)');
+$stmt = $mysqli->prepare('insert into events (title, tags, username, startmonthy, startdate, starttime, endtime, enddate, description ) values (?,?,?,?,?,?, ?, ?, ?)');
 if (!$stmt){
 	echo json_encode(array(
 		"success" => false,
@@ -60,7 +63,7 @@ if (!$stmt){
 
 
 
-$stmt->bind_param('ssssss', $title, $category, $_SESSION['username'], $startMonth, $startDate, $startTime);
+$stmt->bind_param('sssssssss', $title, $category, $_SESSION['username'], $startMonth, $startDate, $startTime, $endTime, $endDate, $description);
 $stmt->execute();
 $stmt->close();
 

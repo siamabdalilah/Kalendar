@@ -18,6 +18,14 @@ $endttime = $json_obj['endttime']
 $enddate = $json_obj['enddate']
 $category = $json_obj['tags'];
 
+if (!($token === $_SESSION['token'])){
+    echo json_encode(array(
+        "success" => false,
+        "message" => "Illegal token"
+    ));
+    exit;
+}
+
 
 $stmt = $mysqli->prepare("UPDATE events SET title=?, startdate=?, startmonthy=?, starttime=?, startdate=?
     description=?, endttime=?, enddate=?, category=?, tags=?  WHERE event_id=?");
@@ -27,7 +35,7 @@ $stmt = $mysqli->prepare("UPDATE events SET title=?, startdate=?, startmonthy=?,
       exit;
     }
 
-    $stmt->bind_param('sssssi',$title,$monthy,$startdate,$starttime, $category, $eventid);
+    $stmt->bind_param('ssssssssi',$title,$monthy,$startdate,$starttime, $description, $endtime, $category, $eventid);
 
     $stmt->execute();
 

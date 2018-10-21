@@ -155,26 +155,28 @@ function populateEventView(e){
 	let cell = document.querySelector('#events')
 	cell.innerHTML = "";
 	for (const [id, object] of entr){
-		cell.innerHTML += "<div id = 'e" + object.id +
-					// "description = '" + object.description + "' endtime = '" + object.endtime +
-					// "' enddate = '" + object.enddate +
-					"' class='evcontent " + object.tag + "'>&bull; " 
-					+ object.startTime.substring(0, object.startTime.length - 3) 
-					+ ": " + object.title + "<br>";
-		if (object.endDate != ""){
-			cell.innerHTML += "End Date: " + object.endDate;
-		}
-		if (object.endTime != ""){
-			cell.innerHTML += ", End Time: " + object.endTime;
-		}
-		if (object.description != ""){
-			cell.innerHTML += "<br>Description: " + object.description;
-		}
-		cell.innerHTML += "<br><button name='editevent' class = 'button' id = 'e" + object.id + "'> Edit</button> "
-		cell.innerHTML += "<button name = 'deleteevent' class = 'button' id = 'e" + object.id + "'>Delete</button></div><br><br>";
+		if (document.querySelector('input[id="' + object.tag + '"]').checked){
+			cell.innerHTML += "<div id = 'e" + object.id +
+						// "description = '" + object.description + "' endtime = '" + object.endtime +
+						// "' enddate = '" + object.enddate +
+						"' class='evcontent " + object.tag + "'>&bull; " 
+						+ object.startTime.substring(0, object.startTime.length - 3) 
+						+ ": " + object.title + "<br>";
+			if (object.endDate != ""){
+				cell.innerHTML += "End Date: " + object.endDate;
+			}
+			if (object.endTime != ""){
+				cell.innerHTML += ", End Time: " + object.endTime;
+			}
+			if (object.description != ""){
+				cell.innerHTML += "<br>Description: " + object.description;
+			}
+			cell.innerHTML += "<br><button name='editevent' class = 'button' id = 'e" + object.id + "'> Edit</button> "
+			cell.innerHTML += "<button name = 'deleteevent' class = 'button' id = 'e" + object.id + "'>Delete</button></div><br><br>";
 
-		cell.querySelector('button[name="editevent"]').addEventListener("click", function(e){editEvent(e);}, false);
-		cell.querySelector('button[name="deleteevent"]').addEventListener("click", function(e){deleteEvent(e);}, false);
+			cell.querySelector('button[name="editevent"]').addEventListener("click", function(e){editEvent(e);}, false);
+			cell.querySelector('button[name="deleteevent"]').addEventListener("click", function(e){deleteEvent(e);}, false);
+		}
 	}
 }
 

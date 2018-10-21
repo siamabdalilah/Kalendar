@@ -82,7 +82,7 @@ function populate(){
 	if (eventList === undefined || eventList === null){
 		return;
 	}
-	let dates = document.querySelectorAll('#caltable').querySelector('td');
+	let dates = document.querySelector('#caltable').querySelectorAll('td');
 
 	dates.forEach(cell => {
 		let m = new Month(month.year, month.month);

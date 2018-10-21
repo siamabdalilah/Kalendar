@@ -36,7 +36,7 @@ $stmt3->execute();
 $stmt3->close();
 
 echo json_encode(array(
-    "success" => sucess,
+    "success" => true,
     "message" => "Sucessfully deleted event!"
 ));
 exit;

@@ -189,8 +189,8 @@ td:hover{
 	outline: 0;
 	max-height: 400px;
 	overflow: hidden;
-	white-space: nowrap;
-	overflow-y: scroll
+	white-space: pre-wrap;
+	overflow-y: scroll;
 	padding:10px;
 	text-align: center;
 	width: 250px;

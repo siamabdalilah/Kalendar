@@ -195,7 +195,8 @@ function populateEventView(e){
 				document.querySelector('input[name="editenddate"').value = obj.endDate;
 				document.querySelector('input[name="editendtime"').value = obj.endTime;
 
-		}, false);
+			}, false);
+		}
 		cell.querySelectorAll('button[name="deleteevent"]').forEach(el =>{
 			el.addEventListener("click", function(e){deleteEvent(e);}, false);
 		});

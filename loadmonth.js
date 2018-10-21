@@ -99,17 +99,18 @@ function populate(){
 			monthy = '0' + monthy;
 		}
 		let date = cell.id.substring(1, cell.id.length);
+		let cellin = cell.querSelector('div');
 
 		if (eventList[monthy] !== undefined && eventList[monthy][date] !== undefined){
 			const entries = Object.entries(eventList[monthy][date]);
 
 			for (const [id, object] of entries){
 				if (document.querySelector('input[id="' + object.tag + '"]').checked){
-					cell.innerHTML += "<span";
+					cellin.innerHTML += " <span";
 					if (type == 'd'){
-						cell.innerHTML += " class = '" + object.tag + "'";
+						cellin.innerHTML += " class = '" + object.tag + "'";
 					}
-					cell.innerHTML += ">&bull; " + object.startTime.substring(0, object.startTime.length - 3) + ": " + object.title + "</span><br>"; 
+					cellin.innerHTML += ">&bull; " + object.startTime.substring(0, object.startTime.length - 3) + ": " + object.title + "</span><br>"; 
 				}
 			}
 		}

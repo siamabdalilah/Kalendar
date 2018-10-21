@@ -138,3 +138,7 @@ document.querySelectorAll("input[type='checkbox']").forEach(element =>{
 		populate();
 	}, false);
 });
+
+document.querySelector('#back').addEventListener("click", function(){
+	document.querySelector('#view').display = "none";
+}

@@ -184,8 +184,8 @@ function populateEventView(e){
 				document.querySelector('#view').style.display = "none";
 				document.querySelector('#edit').style.display = "block";
 				let vals = e.target.id.split('.');
-				let obj = eventList[vas[1]][vals[2]][vals[3];
-				document.querySelector('input[name="editevtitle"').value = eventList[vas[1]][vals[2]][vals[3].title;
+				let obj = eventList[vas[1]][vals[2]][vals[3]];
+				document.querySelector('input[name="editevtitle"').value = obj.title;
 
 			}, false);
 			cell.querySelector('button[name="deleteevent"]').addEventListener("click", function(e){deleteEvent(e);}, false);

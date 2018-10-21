@@ -64,8 +64,8 @@ function editEvent(){
 	const tag = document.querySelector("select[id=tagg]").value;
 	const desc = document.querySelector("#desc").innerHTML;
 	const endTime = document.querySelector('input[name="endtime"]').value;
-	const endDate = document.querySelector('input[name="enddate"]').value
-
+	const endDate = document.querySelector('input[name="enddate"]').value;
+	const id = document.querySelector('#evid').value;
 
 	if (title == ""){
 		alert("Title cannot be empty");
@@ -80,8 +80,8 @@ function editEvent(){
 	let monthy = vals[1] + '-' + vals[0];
 	let dateOfMonth = vals[2];
 
-	const data = {'title' : title, 'monthy' : monthy, 'date' : dateOfMonth,
-		'time' : time, 'endTime' : endTime, 'endDate' = endDate, 'tag' : tag, 'token' : document.querySelector("#csrf").value};
+	const data = {'title' : title, 'monthy' : monthy, 'startdate' : dateOfMonth,
+		'starttime' : time, 'description' : desc 'endtime' : endTime, 'enddate' : endDate, 'tag' : tag, 'eventid' : id, 'token' : document.querySelector("#csrf").value};
 
 	fetch('editEvent.php', {
 		method: 'POST',

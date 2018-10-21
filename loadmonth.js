@@ -217,7 +217,7 @@ function populateEventView(e){
 				document.querySelector('input[name="editenddate"').value = obj.endDate;
 				document.querySelector('input[name="editendtime"').value = obj.endTime;
 				document.querySelector('select[id="edittagg"]').value = obj.tag;
-				document.querSelect('#evid').value = obj.id;
+				document.querySelector('#evid').value = obj.id;
 
 			}, false);
 		});

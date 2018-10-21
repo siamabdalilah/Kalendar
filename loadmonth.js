@@ -146,7 +146,7 @@ function populateEventView(e){
 		document.querySelector('#events').innerHTML = "There are no events on this date";
 		return;
 	}
-	const entr = Object.entries(eventList[monthy][d]);
+	const entr = Object.entries(eventList[monthy][dat]);
 	let cell = document.querySelector('#events')
 	cell.innerHTML = "";
 	for (const [id, object] of entr){

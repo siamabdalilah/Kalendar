@@ -80,7 +80,7 @@ function editEvent(){
 	let monthy = vals[1] + '-' + vals[0];
 	let dateOfMonth = vals[2];
 
-	const data = {'title' : title, 'monthy' : monthy, 'startdate' : date,
+	const data = {'title' : title, 'monthy' : monthy, 'date' : dateOfMonth,
 		'starttime' : time, 'description' : desc, 'endtime' : endTime, 'enddate' : endDate, 'tag' : tag, 'eventid' : id, 'token' : document.querySelector("#csrf").value};
 
 	fetch('editEvent.php', {
@@ -111,18 +111,11 @@ function editEvent(){
 	.catch(err => console.log(err));
 }
 
-function deleteEvent(){
-	const title = document.querySelector("input[name='evtitle']").value;
-	const date = document.querySelector("input[name='date']").value;
-	const time = document.querySelector("input[name='time']").value + ":00";
-	const tag = document.querySelector("select").value;
+function deleteEvent(e){
+	const id = e.target.id.substring(1, e.target.id.length);
+	console.log(id);
 
-	let vals = date.split('-');
-	let monthy = vals[1] + '-' + vals[0];
-	let dateOfMonth = vals[2];
-
-	const data = {'title' : title, 'monthy' : monthy, 'date' : dateOfMonth,
-		'time' : time, 'tag' : tag, 'token' : document.querySelector("#csrf").value};
+	const data = {'eventid' : id, 'token' : document.querySelector("#csrf").value};
 
 	fetch('deleteEvent.php', {
 		method: 'POST',
@@ -132,10 +125,9 @@ function deleteEvent(){
 	.then(response => response.json())
 	.then(resp => {
 		if (resp.success){
-			document.querySelector("input[name='evtitle']").value = "";
-			document.querySelector("input[name='date']").value = "";
-			document.querySelector("input[name='time']").value = "";
-			document.querySelector('#deleteevent').style.display = "none";
+			document.querySelector('#edit').style.display = "none";
+			fill();
+			loadEvents();
 		}
 		else{
 			alert(resp.message);
@@ -171,5 +163,5 @@ function deleteEvent(){
 
 document.querySelector("#submitevent").addEventListener("click", addEvent,false);
 document.querySelector('#editevent').addEventListener("click", editEvent, false);
-document.querySelector("#editevent").addEventListener("click", editEvent, false);
-// document.querySelector("#deleteevent").addEventListener("click". deleteEvent, false);
+//document.querySelector("#editevent").addEventListener("click", editEvent, false);
+//document.querySelector("#deleteevent").addEventListener("click". deleteEvent, false);

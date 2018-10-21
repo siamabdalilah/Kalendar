@@ -134,6 +134,7 @@ function addCellListeners(){
 }
 
 function populateEventView(e){
+	console.log("fml")
 	if (e.nodeName !== "TD"){
 		return;
 	}

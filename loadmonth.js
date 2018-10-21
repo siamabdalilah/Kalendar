@@ -115,13 +115,14 @@ function addCellListeners(){
 		}, false);
 		element.lastChild.addEventListener("click", function(e){
 			populateEventView(e.target.parentNode);
-			console.log(e.target.parentNode);
 		}, false);
 	});
 }
 
 function populateEventView(e){
-	console.log(e);
+	if (e.nodeName === "DIV"){
+		return;
+	}
 	document.querySelector('#view').style.display = "block";
 	let id = e.id;
 

@@ -108,12 +108,12 @@ function populate(){
 				if (document.querySelector('input[id="' + object.tag + '"]').checked){
 					
 					if (type === 'd'){
-						cellin.innerHTML += "<span class = '" + object.tag + "'";
+						cellin.innerHTML += "<span class = '" + object.tag + "'>&bull; " + object.startTime.substring(0, object.startTime.length - 3) + ": " + object.title + "</span><br>";
 					}
 					else{
-						cellin.innerHTML += "<span";
+						cellin.innerHTML += "<span>&bull; " + object.startTime.substring(0, object.startTime.length - 3) + ": " + object.title + "</span><br>";
 					}
-					cellin.innerHTML += ">&bull; " + object.startTime.substring(0, object.startTime.length - 3) + ": " + object.title + "</span><br>"; 
+					//cellin.innerHTML += ">&bull; " + object.startTime.substring(0, object.startTime.length - 3) + ": " + object.title + "</span><br>"; 
 				}
 			}
 		}

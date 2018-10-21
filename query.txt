@@ -1,3 +1,0 @@
-alter table events add column description text;
-alter table events add column enddate date;
-alter table events add column endtime time;

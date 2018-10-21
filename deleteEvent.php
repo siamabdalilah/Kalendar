@@ -19,7 +19,7 @@ $json_obj = json_decode($json_str,true);
 
 
 
-$event_id = $json_obj['eventid'];
+$event_id = addslashes($json_obj['eventid']);
 
 
 // deleting event

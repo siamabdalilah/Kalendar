@@ -10,16 +10,16 @@ $json_str = file_get_contents('php://input');
 $json_obj = json_decode($json_str, true);
 
 
-$title = $json_obj['title'];
-$monthy = $json_obj['monthy'];
-$startdate = $json_obj['date'];
-$starttime = $json_obj['starttime'];
-$description = $json_obj['description'];
-$endttime = $json_obj['endttime'];
-$enddate = $json_obj['enddate'];
-$category = $json_obj['tag'];
-$eventid = $json_obj['eventid'];
-$token = $json_obj['token'];
+$title = addslashes($json_obj['title']);
+$monthy = addslashes($json_obj['monthy']);
+$startdate = addslashes($json_obj['date']);
+$starttime = addslashes($json_obj['starttime']);
+$description = addslashes($json_obj['description']);
+$endttime = addslashes($json_obj['endttime']);
+$enddate = addslashes($json_obj['enddate']);
+$category = addslashes($json_obj['tag']);
+$eventid = addslashes($json_obj['eventid']);
+$token = addslashes($json_obj['token']);
 
 
 

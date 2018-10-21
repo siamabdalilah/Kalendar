@@ -1,6 +1,9 @@
 <?php
 
 require 'database.php';
+ini_set("session.cookie_httponly", 1);
+
+
 
 header("Content-Type: application/json"); 
 
@@ -10,8 +13,8 @@ $json_str = file_get_contents('php://input');
 // exit;
 $json_obj = json_decode($json_str, true);
 
-$username = $json_obj['username'];
-$password = $json_obj['password'];
+$username = addslashes($json_obj['username']);
+$password = addslashes($json_obj['password']);
 
 
 $stmt = $mysqli->prepare("SELECT COUNT(*) FROM users WHERE username=?");

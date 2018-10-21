@@ -217,7 +217,7 @@ function gotoMonth(event){
 function addeventprefill(e){
 	document.querySelector('#view').style.display = "none";
 	document.querySelector('#addevent').style.display = "block";
-	document.querySelector('#date').value = document.querySelector("#addevondate").date;
+	document.querySelector('input[name="date"]').value = document.querySelector("#addevondate").date;
 }
 
 

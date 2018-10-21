@@ -139,7 +139,7 @@ function exportcsv(){
 		let d = monthy.split('-');
 		let monthform = d[1] + '-' +d[0] + '-';
 		for (const [date, events] of entr){
-			const dat = monthform;
+			let dat = monthform;
 			if (date < 10){
 				dat += '0' + date;
 			}

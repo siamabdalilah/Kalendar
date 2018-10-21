@@ -102,7 +102,12 @@ function editEvent(){
 		else{
 			alert(resp.message);
 	}
-	}).catch(err => console.log(err));
+	})
+	.then(() => {
+		document.querySelector('#edit').style.display = none;
+		loadEvents();
+	})
+	.catch(err => console.log(err));
 }
 
 function deleteEvent(){

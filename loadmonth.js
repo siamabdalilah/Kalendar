@@ -100,8 +100,8 @@ function populate(){
 		}
 		let date = cell.id.substring(1, cell.id.length);
 
-		if (eventList[monthy] !== undefined && eventList[monthy][dat] !== undefined){
-			const entries = Object.entries(eventList[monthy][dat]);
+		if (eventList[monthy] !== undefined && eventList[monthy][date] !== undefined){
+			const entries = Object.entries(eventList[monthy][date]);
 
 			for (const [id, object] of entries){
 				if (document.querySelector('input[id="' + object.tag + '"]').checked){

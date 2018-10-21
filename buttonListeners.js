@@ -141,4 +141,4 @@ document.querySelectorAll("input[type='checkbox']").forEach(element =>{
 
 document.querySelector('#back').addEventListener("click", function(){
 	document.querySelector('#view').display = "none";
-}
+}, false);

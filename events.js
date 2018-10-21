@@ -122,7 +122,7 @@ function populateEventView(e){
 	}
 
 	let monthy = m.month + "-" + m.year;
-	if (eventList[monthy][d]) == null){
+	if (eventList[monthy][d] === null){
 		// DO SOMETHING
 		return;
 	}

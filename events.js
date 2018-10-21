@@ -144,7 +144,7 @@ function deleteEvent(e){
 		let ddd2 = null;
 		do{
 			ddd2 = new Date();
-		}while(ddd2-ddd<200);
+		}while(ddd2-ddd<400);
 		document.querySelector(idd).click();
 		console.log(document.querySelector(idd));
 }

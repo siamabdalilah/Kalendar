@@ -189,7 +189,8 @@ function populateEventView(e){
 				let vals = e.target.id.split('.');
 				let obj = eventList[vals[1]][vals[2]][vals[3]];
 				document.querySelector('input[name="editevtitle"').value = obj.title;
-				document.querySelector('input[name="editdate"').value = vals[2]+'-'+'monthy'; //This probably won't work
+				let mo = monthy.split('-');
+				document.querySelector('input[name="editdate"').value = mo[1] + '-' + mo[0] + '-'+vals[2]; //This probably won't work
 				document.querySelector('input[name="edittime"').value = obj.startTime;
 				document.querySelector('input[name="editdescription"').value = obj.description;
 				document.querySelector('input[name="editenddate"').value = obj.endDate;

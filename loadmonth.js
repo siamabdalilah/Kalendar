@@ -121,7 +121,7 @@ function populateEventView(e){
 	let id = e.target.id;
 
 	let type = id[0];
-	let m = new Month(month.year, month.day);
+	let m = new Month(month.year, month.month);
 	if (type ==='n'){
 		m = m.prevMonth();
 	}

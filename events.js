@@ -136,19 +136,17 @@ function deleteEvent(e){
 	.then(() => {
 		fill();
 		loadEvents();
-	}).then(() => {
-		let ddd = new Date();
-		let ddd2 = null;
-		do{
-			ddd2 = new Date();
-		}while(ddd2-ddd<50);
-		document.querySelector(idd).click();
-		console.log(document.querySelector(idd));
 	})
 	.catch(err => console.log(err));
 
 	
-	
+	let ddd = new Date();
+		let ddd2 = null;
+		do{
+			ddd2 = new Date();
+		}while(ddd2-ddd<100);
+		document.querySelector(idd).click();
+		console.log(document.querySelector(idd));
 }
 
 

@@ -13,8 +13,8 @@ $title = $json_obj['title'];
 $startMonth = $json_obj['monthy'];
 $startDate = $json_obj['date'];
 $startTime = $json_obj["time"];
-$endTime = $json_obj['endtime'];
-$endDate = $json_obj['enddate'];
+$endTime = $json_obj['endTime'];
+$endDate = $json_obj['endDate'];
 $description = $json_obj['description'];
 $category = $json_obj['tag'];
 $token = $json_obj['token'];
@@ -24,11 +24,18 @@ if (!preg_match('/(0[1-9]|1[0-2])-(\d{4})/m', $startMonth) || !preg_match('/(0[1
 
 	echo json_encode(array(
 		"success" => false,
-		"message" => "Invalid timeg format"
+		"message" => "Invalid time format"
 	));
 	exit;
 }
 
+if ($endTime !== "" && !preg_match('/(0[1-9]|1[0-2])-(\d{4})/m', $startMonth) || !preg_match('/(0[1-9]|[1-2]\d|3[0-1])/m', $startDate) || !preg_match('/(\d|1\d|2[0-3]):([0-5]\d|):00/m', $endTime){
+	echo json_encode(array(
+		"success" => false,
+		"message" => "Invalid time format"
+	));
+	exit;
+}
 
 if(htmlentities($title) === ""){
 	echo json_encode(array(

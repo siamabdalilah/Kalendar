@@ -15,6 +15,10 @@ function addEvent(){
 		alert("Title cannot be empty");
 		return;
 	}
+	if (date == ""){
+		alert("Invalid Date");
+		return;
+	}
 
 	// CHECK FOR EMPTINESS OF OTHER REQUIRED ELEMENTS
 

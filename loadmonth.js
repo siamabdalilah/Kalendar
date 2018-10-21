@@ -139,8 +139,7 @@ function populateEventView(e){
 
 
 
-	document.querySelector('#view').querySelector('#date').innerHTML = dat
-		+" " + monthsOfYear[m.month] + ", " + m.year;
+	document.querySelector('#view').querySelector('#date').innerHTML = dat +" " + monthsOfYear[m.month] + ", " + m.year;
 	let monthy = mformat + "-" + m.year;
 	if (eventList[monthy][dat] === null){
 		document.querySelector('#events').innerHTML = "There are no events on this date";

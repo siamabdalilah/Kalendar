@@ -120,7 +120,7 @@ function addCellListeners(){
 }
 
 function populateEventView(e){
-	if (e.nodeName === "DIV"){
+	if (e.nodeName !== "TD"){
 		return;
 	}
 	document.querySelector('#view').style.display = "block";

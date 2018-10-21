@@ -111,14 +111,17 @@ function populate(){
 function addCellListeners(){
 	document.querySelector('#caltable').querySelectorAll('td').forEach(element =>{
 		element.addEventListener("click", function(e){
-			populateEventView(e);
+			populateEventView(e.target);
+		}, false);
+		element.parent.addEventListener("click", function(e){
+			populateEventView(e.target);
 		}, false);
 	});
 }
 
 function populateEventView(e){
 	document.querySelector('#view').style.display = "block";
-	let id = e.target.id;
+	let id = e.id;
 
 	let type = id[0];
 	let m = new Month(month.year, month.month);
@@ -128,7 +131,7 @@ function populateEventView(e){
 	else if(type === 'p'){
 		m = m.nextMonth();
 	}
-	let dat = e.target.id.substring(1, e.target.id.length);
+	let dat = e.id.substring(1, e.id.length);
 	
 	let mformat = "" + (m.month + 1);
 	if (m.month < 9){

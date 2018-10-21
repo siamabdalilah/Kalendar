@@ -117,6 +117,13 @@
 			<option name = "tag" value = "Holiday"> Holiday </option>
 			<option name = "tag" value = "Other"> Other </option>
 			</select>
+			<br>
+			Optional:<br>
+			Description:<br>
+			<input class = 'inp' type = 'textarea'/><br>
+			End Date: <br>
+			<input class = "inp" type = "date" name = "enddate"><br>
+			End Time:<br><input class = "inp" type = "time" name = "endtime">
 			<br><br><button class = "button" id = "submitevent">Add Event</button> <button class = "button" id = "cancelev">Cancel</button>
 
 		</div>
@@ -132,14 +139,30 @@
 		</div>
 	</div>
 
-	<!-- <div class = "modal" id = "viewEvent">
+	<div class = "modal" id = "edit">
 		<div class = "modal-content">
-			<span id = "date"></span><br>
-			<div id = "events"></div><br>
-			<button class = "button" id = "edit">A</button> <button class = "button" id = "edit">Edit</button>
-			<button class = "button" id = "back">A</button> <button class = "button" id = "back">Cancel</button>
+			<span id = "r">Add New Event</span><br><br>
+			Title:<br> <input class = "inp" type = "text" name = "editevtitle"><br>
+			Date:<br><input class = "inp" type = "date" name = "editdate"><br>
+			Time:<br><input class = "inp" type = "time" name = "edittime"><br>
+			Tag:
+			<select>
+			<option name = "edittag" value = "Personal" > Personal </option>
+			<option name = "edittag" value = "Work"> Work </option>
+			<option name = "edittag" value = "Holiday"> Holiday </option>
+			<option name = "edittag" value = "Other"> Other </option>
+			</select>
+			<br>
+			Optional:<br>
+			Description:<br>
+			<input class = 'inp' type = 'edittextarea'/><br>
+			End Date: <br>
+			<input class = "inp" type = "date" name = "editenddate"><br>
+			End Time:<br><input class = "inp" type = "time" name = "editendtime">
+			<br><br><button class = "button" id = "editevent">Submit</button> <button class = "button" id = "canceledit">Cancel</button>
+
 		</div>
-	</div> -->
+	</div>
 
 	<input type = "hidden" id = "csrf"/>
 	

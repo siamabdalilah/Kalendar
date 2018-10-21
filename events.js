@@ -1,7 +1,6 @@
 // Functions for updating events
 
 function addEvent(){
-	console.log("vdsvdvd");
 	const title = document.querySelector("input[name='evtitle']").value;
 	const date = document.querySelector("input[name='date']").value;
 	const time = document.querySelector("input[name='time']").value + ":00";

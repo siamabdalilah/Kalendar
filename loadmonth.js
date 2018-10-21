@@ -177,10 +177,15 @@ function populateEventView(e){
 			if (object.description != ""){
 				cell.innerHTML += "<br>Description: " + object.description;
 			}
-			cell.innerHTML += "<br><button name='editevent' class = 'button' id = 'e" + object.id + "'> Edit</button> "
+			cell.innerHTML += "<br><button name='editevent' class = 'button' id = 'e" + id + "'> Edit</button> "
 			cell.innerHTML += "<button name = 'deleteevent' class = 'button' id = 'e" + object.id + "'>Delete</button></div><br><br>";
 
-			cell.querySelector('button[name="editevent"]').addEventListener("click", function(e){editEvent(e);}, false);
+			cell.querySelector('button[name="editevent"]').addEventListener("click", function(e){
+				document.querySelector('#view').style.display = "none";
+				document.querySelector('#edit').style.display = "block";
+				document.querySelector('#editevtitle').value = evetList[monthy][dat].title;
+
+			}, false);
 			cell.querySelector('button[name="deleteevent"]').addEventListener("click", function(e){deleteEvent(e);}, false);
 		}
 	}

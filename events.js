@@ -135,12 +135,11 @@ function deleteEvent(e){
 		fill();
 		loadEvents();
 	})
-	.then(() =>{
-		let id = '#' + e.target.getAttribute('date');
+	.catch(err => console.log(err));
+
+	let id = '#' + e.target.getAttribute('date');
 		console.log(document.querySelector(id));
 		document.querySelector(id).click();
-	})
-	.catch(err => console.log(err));
 }
 
 

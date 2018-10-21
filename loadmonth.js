@@ -107,11 +107,11 @@ function populate(){
 			for (const [id, object] of entries){
 				if (document.querySelector('input[id="' + object.tag + '"]').checked){
 					
-					if (type == 'd'){
+					if (type === 'd'){
 						cellin.innerHTML += "<span class = '" + object.tag + "'";
 					}
 					else{
-						cellin.innerHTML += " <span";
+						cellin.innerHTML += "<span";
 					}
 					cellin.innerHTML += ">&bull; " + object.startTime.substring(0, object.startTime.length - 3) + ": " + object.title + "</span><br>"; 
 				}
@@ -219,7 +219,7 @@ function populateEventView(e){
 				cell.innerHTML += "End Date: " + object.endDate;
 			}
 			if (object.endTime != "00:00:00"){
-				cell.innerHTML += ", End Time: " + object.endTime.substring(0, object.endTime.length - 3);
+				cell.innerHTML += ", End Time: " + object.endTime;//.substring(0, object.endTime.length - 3);
 			}
 			if (object.description != ""){
 				cell.innerHTML += "<br>Description: " + object.description;

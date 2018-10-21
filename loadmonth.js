@@ -184,8 +184,13 @@ function populateEventView(e){
 				document.querySelector('#view').style.display = "none";
 				document.querySelector('#edit').style.display = "block";
 				let vals = e.target.id.split('.');
-				let obj = eventList[vas[1]][vals[2]][vals[3]];
+				let obj = eventList[vals[1]][vals[2]][vals[3]];
 				document.querySelector('input[name="editevtitle"').value = obj.title;
+				document.querySelector('input[name="editdate"').value = vals[2]+'-'+'monthy'; //This probably won't work
+				document.querySelector('input[name="edittime"').value = obj.startTime;
+				document.querySelector('input[name="editdescription"').value = obj.description;
+				document.querySelector('input[name="editenddate"').value = obj.endDate;
+				document.querySelector('input[name="editendtime"').value = obj.endTime;
 
 			}, false);
 			cell.querySelector('button[name="deleteevent"]').addEventListener("click", function(e){deleteEvent(e);}, false);

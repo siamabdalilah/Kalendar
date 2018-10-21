@@ -125,9 +125,8 @@ function deleteEvent(e){
 	.then(response => response.json())
 	.then(resp => {
 		if (resp.success){
-			document.querySelector('#edit').style.display = "none";
-			fill();
-			loadEvents();
+			// fill();
+			// loadEvents();
 		}
 		else{
 			alert(resp.message);

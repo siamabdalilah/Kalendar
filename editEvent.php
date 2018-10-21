@@ -37,7 +37,7 @@ $stmt = $mysqli->prepare("UPDATE events SET title=?, startdate=?, startmonthy=?,
       exit;
     }
 
-    $stmt->bind_param('sssssssi',$title,$startdate,$monthy,$starttime, $description, $endtime, $enddate, $category, $eventid);
+    $stmt->bind_param('ssssssssi',$title,$startdate,$monthy,$starttime, $description, $endtime, $enddate, $category, $eventid);
 
     $stmt->execute();
 

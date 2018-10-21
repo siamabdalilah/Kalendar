@@ -129,20 +129,19 @@ function populateEventView(e){
 		m = m.nextMonth();
 	}
 	let dat = e.target.id.substring(1, e.target.id.length);
-	let datformat = m.year +"-";
+	
+	let mformat = "" + (m.month + 1);
 	if (m.month < 9){
-		datformat += '0' + (m.month+1) + "-" + dat;
+		mformat += '0' + mformat;
 	}
-	else{
-		datformat += (m.month+1) + "-" + dat;
-	}
+	let datformat = m.year +"-" + mformat +"-" + dat;
 	document.querySelector("#addevondate").date = datformat;
 
 
 
-	document.querySelector('#view').querySelector('#date').innerHTML = dat
+	document.querySelector('#view').querySelector('#date').innerHTML = dat;
 		+" " + monthsOfYear[m] + ", " + m.year;
-	let monthy = m.month + "-" + m.year;
+	let monthy = mformat + "-" + m.year;
 	if (eventList[monthy][dat] === null){
 		document.querySelector('#events').innerHTML = "There are no events on this date";
 		return;

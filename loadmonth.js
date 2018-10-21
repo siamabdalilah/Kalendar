@@ -198,7 +198,7 @@ function gotoMonth(event){
 }
 
 function addeventprefill(e){
-	document.querySelector('#view').display = "none";
+	document.querySelector('#view').style.display = "none";
 	document.querySelector('#addevent').style.display = "block";
 	document.querySelector('#date').value = document.querySelector("#addevondate").date;
 }
@@ -235,4 +235,5 @@ for (let i = 0; i < 12; i++){
 	let id = '#m' + i;
 	document.querySelector(id).addEventListener("click", function (e) {gotoMonth(e)}, false);
 }
+document.querySelector('#addevondate').addEventListener("click", function(e){addeventprefill(e)}, false);
 

@@ -137,7 +137,7 @@ function deleteEvent(e){
 		loadEvents();
 	})
 	.then(() =>{
-		let id = '#' + e.target.class;
+		let id = '#' + e.target.getAttribute('class');
 		document.querySelector(id).click();
 	})
 	.catch(err => console.log(err));

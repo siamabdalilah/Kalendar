@@ -140,7 +140,7 @@ function populateEventView(e){
 	
 	let mformat = "" + (m.month + 1);
 	if (m.month < 9){
-		mformat += '0' + mformat;
+		mformat = '0' + mformat;
 	}
 	let datformat = m.year +"-" + mformat +"-";
 	if (dat<10){

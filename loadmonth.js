@@ -117,7 +117,7 @@ function addCellListeners(){
 }
 
 function populateEventView(e){
-	document.querySelector(#view).display = "block";
+	document.querySelector('#view').display = "block";
 	let id = e.target.id;
 
 	let type = id[0];

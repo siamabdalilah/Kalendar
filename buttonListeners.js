@@ -148,7 +148,8 @@ function exportcsv(){
 			}
 			const details = Object.entries(events);
 			for (const [id, object] of details){
-				if (document.querySelector('select[id="tagg"]').checked){
+				let t = "input[id = '" + object.tag + "']"; 
+				if (document.querySelector(t).checked){
 					csvinput += object.title + ", " + dat + ", " + object.startTime;
 					csvinput += ", " + object.endDate + ", " + object.endTime + ", ";
 					csvinput += object.description + "\n";

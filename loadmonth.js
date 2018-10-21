@@ -180,7 +180,10 @@ function populateEventView(e){
 			cell.innerHTML += "<br><button name='editevent' class = 'button' id = 'eventList."+monthy+"."+dat+"." + id + "'> Edit</button> "
 			cell.innerHTML += "<button name = 'deleteevent' class = 'button' id = 'e" + object.id + "'>Delete</button></div><br><br>";
 
-			cell.querySelector('button[name="editevent"]').addEventListener("click", function(e){
+			
+		}
+		cell.querySelectorAll('button[name="editevent"]').forEach(el => {
+			el.addEventListener("click", function(e){
 				document.querySelector('#view').style.display = "none";
 				document.querySelector('#edit').style.display = "block";
 				let vals = e.target.id.split('.');
@@ -192,8 +195,9 @@ function populateEventView(e){
 				document.querySelector('input[name="editenddate"').value = obj.endDate;
 				document.querySelector('input[name="editendtime"').value = obj.endTime;
 
-			}, false);
-			cell.querySelector('button[name="deleteevent"]').addEventListener("click", function(e){deleteEvent(e);}, false);
+		}, false);
+		cell.querySelectorAll('button[name="deleteevent"]').forEach(el =>{
+			el.addEventListener("click", function(e){deleteEvent(e);}, false);
 		}
 	}
 	if (cell.innerHTML == ""){

@@ -138,8 +138,9 @@ function deleteEvent(e){
 		loadEvents();
 	}).then(() => {
 		let ddd = new Date();
+		let ddd2 = null;
 		do{
-			let ddd2 = new Date();
+			ddd2 = new Date();
 		}while(ddd2-ddd<50);
 		document.querySelector(idd).click();
 	})

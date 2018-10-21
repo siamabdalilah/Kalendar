@@ -13,10 +13,14 @@ $title = $json_obj['title'];
 $monthy = $json_obj['startdate'];
 $startdate = $json_obj['startmonthy'];
 $starttime = $json_obj['starttime'];
+$description = $json_obj['description']
+$endttime = $json_obj['endttime']
+$enddate = $json_obj['enddate']
 $category = $json_obj['tags'];
 
 
-$stmt = $mysqli->prepare("UPDATE events SET title=?, startdate=?, startmonthy=?, starttime=?, tags=?  WHERE event_id=?");
+$stmt = $mysqli->prepare("UPDATE events SET title=?, startdate=?, startmonthy=?, starttime=?, startdate=?
+    description=?, endttime=?, enddate=?, category=?, tags=?  WHERE event_id=?");
 
     if(!$stmt){
       printf("Query Prep Failed: %s\n", $mysqli->error);

@@ -75,6 +75,8 @@ function fill(){
 }
 
 function populate(){
+
+	// THIS NEEDS FIXING. DOESNT TRIGGER ADDCELLLISTENERS WHERE THERE ARE NO EVENTS
 	// get the monthy object to match the data in the json object
 	let monthy = (month.month+1) + "-" + month.year;
 	if (month.month + 1 < 10){
@@ -129,10 +131,10 @@ function populateEventView(e){
 	let type = id[0];
 	let m = new Month(month.year, month.month);
 	if (type ==='n'){
-		m = m.prevMonth();
+		m = m.nextMonth();
 	}
 	else if(type === 'p'){
-		m = m.nextMonth();
+		m = m.prevMonth();
 	}
 	let dat = e.id.substring(1, e.id.length);
 	

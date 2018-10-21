@@ -58,13 +58,13 @@ function addEvent(){
 }
 
 function editEvent(){
-	const title = document.querySelector("input[name='evtitle']").value;
-	const date = document.querySelector("input[name='date']").value;
-	const time = document.querySelector("input[name='time']").value + ":00";
-	const tag = document.querySelector("select[id=tagg]").value;
-	const desc = document.querySelector("#desc").innerHTML;
-	const endTime = document.querySelector('input[name="endtime"]').value;
-	const endDate = document.querySelector('input[name="enddate"]').value;
+	const title = document.querySelector("input[name='editevtitle']").value;
+	const date = document.querySelector("input[name='editdate']").value;
+	const time = document.querySelector("input[name='edittime']").value + ":00";
+	const tag = document.querySelector("select[id=edittagg]").value;
+	const desc = document.querySelector("#editdesc").innerHTML;
+	const endTime = document.querySelector('input[name="editendtime"]').value;
+	const endDate = document.querySelector('input[name="editenddate"]').value;
 	const id = document.querySelector('#evid').value;
 
 	if (title == ""){
@@ -81,7 +81,7 @@ function editEvent(){
 	let dateOfMonth = vals[2];
 
 	const data = {'title' : title, 'monthy' : monthy, 'startdate' : dateOfMonth,
-		'starttime' : time, 'description' : desc 'endtime' : endTime, 'enddate' : endDate, 'tag' : tag, 'eventid' : id, 'token' : document.querySelector("#csrf").value};
+		'starttime' : time, 'description' : desc, 'endtime' : endTime, 'enddate' : endDate, 'tag' : tag, 'eventid' : id, 'token' : document.querySelector("#csrf").value};
 
 	fetch('editEvent.php', {
 		method: 'POST',

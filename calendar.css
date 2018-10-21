@@ -181,12 +181,14 @@ td:hover{
 }
 
 .modal-content{
-	margin:auto;
+	/*margin:auto;*/
+	text-align:center;
 	background-color:#333;/*#fff;*/
 	color: lightgray;
 	position:relative;
 	outline: 0;
 	max-height: 400px;
+	overflow: 
 	overflow-y: scroll
 	padding:10px;
 	text-align: center;

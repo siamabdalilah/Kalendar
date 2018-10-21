@@ -184,6 +184,9 @@ function populateEventView(e){
 			cell.querySelector('button[name="deleteevent"]').addEventListener("click", function(e){deleteEvent(e);}, false);
 		}
 	}
+	if (cell.innerHTML == ""){
+		cell.innerHTML = "There are no events on this date for selected categories"
+	}
 }
 
 // functions for navigation buttons

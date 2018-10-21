@@ -113,6 +113,8 @@ function editEvent(){
 
 function deleteEvent(e){
 	const id = e.target.id.substring(1, e.target.id.length);
+	let idd = '#' + e.target.getAttribute('date');
+	console.log(document.querySelector(idd));
 
 	const data = {'eventid' : id, 'token' : document.querySelector("#csrf").value};
 
@@ -134,14 +136,10 @@ function deleteEvent(e){
 	.then(() => {
 		fill();
 		loadEvents();
-	})
-	.then(() =>{
-		let idd = '#' + e.target.getAttribute('date');
-		console.log(document.querySelector(idd));
-		document.querySelector(idd).click();
-	})
+	}).then(() => {document.querySelector(idd).click();})
 	.catch(err => console.log(err));
 
+	
 	
 }
 

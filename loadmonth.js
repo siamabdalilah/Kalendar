@@ -140,7 +140,13 @@ function populateEventView(e){
 	if (m.month < 9){
 		mformat += '0' + mformat;
 	}
-	let datformat = m.year +"-" + mformat +"-" + dat;
+	let datformat = m.year +"-" + mformat +"-";
+	if (dat<10){
+		datformat += '0'+dat;
+	}
+	else{
+		datformat += dat;
+	}
 	document.querySelector("#addevondate").date = datformat;
 
 

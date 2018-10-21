@@ -110,7 +110,9 @@ function populate(){
 
 function addCellListeners(){
 	document.querySelector('#caltable').querySelectorAll('td').forEach(element =>{
-		element.addEventListener("click", funciton(e){populateEventView(e);}, false);
+		element.addEventListener("click", function(e){
+			populateEventView(e);
+		}, false);
 	});
 }
 

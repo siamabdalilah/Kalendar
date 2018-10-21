@@ -120,9 +120,9 @@ function populateEventView(e){
 	else if(type === 'p'){
 		m = m.nextMonth();
 	}
-	
+
 	let monthy = m.month + "-" + m.year;
-	if (eventList[monthy][d]) == null{
+	if (eventList[monthy][d]) == null){
 		// DO SOMETHING
 		return;
 	}

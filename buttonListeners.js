@@ -148,4 +148,82 @@ document.querySelector('#canceledit').addEventListener("click", function(){
 }, false);
 
 
+function export(){
+	
+	// Some parts taken from: 
+	// https://ourcodeworld.com/articles/read/189/how-to-create-a-file-and-generate-a-download-with-javascript-in-the-browser-without-a-server
+	if (eventList === null || eventList === undefined){
+		return;
+	}
+
+	let element = document.createElement('a');
+
+	let csvinput = "Subject, Start date, Start time, End date, End time, Description\n"
+	let list = Object.entries(eventList);
+
+	for (const [monthy, entries] of list){
+		let entr = Object.entries(entries);
+
+		let d = monthy.split('-');
+		let monthform = d[1] + '-' +d[0] + '-';
+		for (const [date, events] of entr){
+			const dat = monthform;
+			if (date < 10){
+				dat += '0' + date;
+			}
+			else{
+				dat += date;
+			}
+			const details = Object.entries(events);
+			for (const [id, object] of details){
+				if (document.querySelector('select[id="tagg"]').checked){
+					csvinput += object.title ", " + dat + ", " + object.startTime;
+					csvinput += ", " + object.endDate + ", " + object.endTime + ", ";
+					csvinput += object.description + "\n";
+				}
+			}
+		}
+	}
+
+	//dcs
+
+	element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent());
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -140,7 +140,7 @@ function populateEventView(e){
 
 
 	document.querySelector('#view').querySelector('#date').innerHTML = dat
-		+" " + monthsOfYear[m] + ", " + m.year;
+		+" " + monthsOfYear[m.month] + ", " + m.year;
 	let monthy = mformat + "-" + m.year;
 	if (eventList[monthy][dat] === null){
 		document.querySelector('#events').innerHTML = "There are no events on this date";
@@ -167,7 +167,7 @@ function populateEventView(e){
 		}
 		cell.innerHTML += "<br><button name='editevent' class = 'button' id = 'e" + object.id + 
 		+ "'>Edit</button> <button name = 'deleteevent' class = 'button' id = 'e" + object.id
-		+ ">Delete</button><br> </div>";
+		+ "'>Delete</button><br> </div>";
 
 		cell.querySelector('button[name="editevent"]').addEventListener("click", function(e){editEvent(e);}, false);
 		cell.querySelector('button[name="deleteevent"]').addEventListener("click", function(e){deleteEvent(e);}, false);

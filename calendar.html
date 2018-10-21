@@ -109,7 +109,7 @@
 			<span id = "r">Add New Event</span><br><br>
 			Title:<br> <input class = "inp" type = "text" name = "evtitle"><br>
 			Date:<br><input class = "inp" type = "date" name = "date"><br>
-			Time:<br><input class = "inp" type = "time" name = "time"><br><br>
+			Time:<br><input class = "inp" type = "time" name = "time"><br>
 			Tag:
 			<select>
 			<option name = "tag" value = "Personal" > Personal </option>
@@ -117,12 +117,12 @@
 			<option name = "tag" value = "Holiday"> Holiday </option>
 			<option name = "tag" value = "Other"> Other </option>
 			</select>
-			<br><button class = "button" id = "submitevent">Add Event</button> <button class = "button" id = "cancelev">Cancel</button>
+			<br><br><button class = "button" id = "submitevent">Add Event</button> <button class = "button" id = "cancelev">Cancel</button>
 
 		</div>
 	</div>
 
-	<div class = "modal" id = "view">
+	<div class = "modal" id = "view" style = "display: block">
 		<div class = "modal-content">
 			<span id = "date">23 October, 2018</span><br>
 			<div id = "events"></div><br>
@@ -131,14 +131,14 @@
 		</div>
 	</div>
 
-<div class = "modal" id = "viewEvent">
+	<!-- <div class = "modal" id = "viewEvent">
 		<div class = "modal-content">
 			<span id = "date"></span><br>
 			<div id = "events"></div><br>
 			<button class = "button" id = "edit">A</button> <button class = "button" id = "edit">Edit</button>
 			<button class = "button" id = "back">A</button> <button class = "button" id = "back">Cancel</button>
 		</div>
-	</div>
+	</div> -->
 
 	<input type = "hidden" id = "csrf"/>
 	

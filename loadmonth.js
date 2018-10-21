@@ -104,7 +104,72 @@ function populate(){
 			
 		}
 	}
+	addCellListeners();
 	
+}
+
+function addCellListeners(){
+	document.querySelector('#caltable').querySelectorAll('td').forEach(element =>{
+		element.addEventListener("click", funciton(e){populateEventView(e);}, false);
+	});
+}
+
+function populateEventView(e){
+	let id = e.target.id;
+
+	let type = id[0];
+	let m = new Month(month.year, month.day);
+	if (type ==='n'){
+		m = m.prevMonth();
+	}
+	else if(type === 'p'){
+		m = m.nextMonth();
+	}
+	let dat = e.target.id.substring(1, e.target.id.length);
+	let datformat = m.year +"-";
+	if (m.month < 9){
+		datformat += '0' + (m.month+1) + "-" + dat;
+	}
+	else{
+		datformat += (m.month+1) + "-" + dat;
+	}
+	document.querySelector("#addevondate").date = datformat;
+
+
+
+	document.querySelector('#view').querySelector('#date').innerHTML = dat
+		+" " + monthsOfYear[m] + ", " + m.year;
+	let monthy = m.month + "-" + m.year;
+	if (eventList[monthy][d]) == null{
+		document.querySelector('#events').innerHTML = "There are no events on this date";
+		return;
+	}
+	const entr = Object.entries(eventList[monthy][d]);
+	let cell = document.querySelector('#events')
+	cell.innerHTML = "";
+	for (const [id, object] of entr){
+		cell.innerHTML += "<div id = 'e" + object.id +
+					// "description = '" + object.description + "' endtime = '" + object.endtime +
+					// "' enddate = '" + object.enddate +
+					"' class='evcontent " + object.tag + "'>&bull; " 
+					+ object.startTime.substring(0, object.startTime.length - 3) 
+					+ ": " + object.title + "<br>";
+		if (object.endDate != ""){
+			cell.innerHTML += "End Date: " + object.endDate;
+		}
+		if (object.endTime != ""){
+			cell.innerHTML += ", End Time: " + object.endTime;
+		}
+		if (object.description != ""){
+			cell.innerHTML += "<br>Description: " + object.description;
+		}
+		cell.innerHTML += "<br><button name='editevent' class = 'button' id = 'e" + object.id + 
+		+ "'>Edit</button> <button name = 'deleteevent' class = 'button' id = 'e" + object.id
+		+ ">Delete</button><br> </div>";
+
+		cell.querySelector('button[name="editevent"]').addEventListener("click", function(e){editEvent(e);}, false);
+		cell.querySelector('button[name="deleteevent"]').addEventListener("click", function(e){deleteEvent(e);}, false);
+	}
 }
 
 // functions for navigation buttons
@@ -130,6 +195,12 @@ function gotoMonth(event){
 	month = new Month(navYear, parseInt(event.target.id.substring(1,event.target.id.size)));
 	fill();
 	populate();
+}
+
+function addeventprefill(e){
+	document.querySelector('#view').display = "none";
+	document.querySelector('#addevent').style.display = "block";
+	document.querySelector('#date').value = document.querySelector("#addevondate").date;
 }
 
 

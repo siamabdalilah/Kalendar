@@ -109,13 +109,28 @@ function deleteEvent(){
 	}).catch(err => console.log(err));
 }
 
-function populateEventView(m, d){
+function populateEventView(e){
+	let id = e.target.id;
+
+	let type = id[0];
+	let m = new Month(month.year, month.day);
+	if (type ==='n'){
+		m = m.prevMonth();
+	}
+	else if(type === 'p'){
+		m = m.nextMonth();
+	}
+	
 	let monthy = m.month + "-" + m.year;
+	if (eventList[monthy][d]) == null{
+		// DO SOMETHING
+		return;
+	}
 	const entr = Object.entries(eventList[monthy][d]);
 	let cell = document.querySelector('#events')
 	for (const [id, object] of entr){
 		cell.innerHtml += "<div class='evcontent " + object.tag + "'>&bull; " 
-					+ object.startTime.substring(0, object.startTime.size - 3) 
+					+ object.startTime.substring(0, object.startTime.length - 3) 
 					+ ": " + object.title + "</div>"; 
 	}
 }

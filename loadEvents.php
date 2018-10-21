@@ -17,7 +17,7 @@ if (!$stmt) {
 $stmt->bind_param('s',$_SESSION['username']);
 
 $stmt->execute();
-$stmt->bind_result($id, $tag, $u, $title, $startdate, $startmonthy, $starttime);
+$stmt->bind_result($id, $tag, $u, $title, $startdate, $startmonthy, $starttime, $desc, $enddate, $endtime);
 
 $monthsEvents = array();
 
@@ -39,7 +39,10 @@ while ($stmt->fetch()){
 		"id" => $id, 
 		"tag" => $tag,
 		"title" => $title,
-		"startTime" => $starttime
+		"startTime" => $starttime,
+		"description" => $desc,
+		"endDate" => $enddate,
+		"endTime" => $endtime
 	));
 }
 

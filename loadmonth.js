@@ -192,7 +192,7 @@ function populateEventView(e){
 				cell.innerHTML += "<br>Description: " + object.description;
 			}
 			cell.innerHTML += "<br><button name='editevent' class = 'button' id = 'eventList."+monthy+"."+dat+"." + id + "'> Edit</button> "
-			cell.innerHTML += "<button class = '" + e.id + "'' name = 'deleteevent' class = 'button' id = 'e" + object.id + "'>Delete</button></div><br><br>";
+			cell.innerHTML += "<button date = '" + e.id + "'' name = 'deleteevent' class = 'button' id = 'e" + object.id + "'>Delete</button></div><br><br>";
 
 			
 		}

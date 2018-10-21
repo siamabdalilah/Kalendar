@@ -1,11 +1,12 @@
 <?php
 require 'database.php';
+
 header("Content-Type: application/json");
 ini_set("session.cookie_httponly", 1);
 session_start();
 
 $json_str = file_get_contents("php://input");
-$json_obj = json_encode($json_str,true);
+$json_obj = json_decode($json_str,true);
 
 
 // if (!($token === $_SESSION['token'])){
@@ -30,13 +31,13 @@ if (!$stmt3){
 	));
 	exit;
 }
-$stmt3->bind_param('i',$event_id);
+$stmt3->bind_param('s',$event_id);
 $stmt3->execute();
 $stmt3->close();
 
 echo json_encode(array(
-    "success" => false,
-    "message" => $event_id
+    "success" => sucess,
+    "message" => "Sucessfully deleted event!"
 ));
 exit;
 

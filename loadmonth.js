@@ -197,7 +197,7 @@ function populateEventView(e){
 				else{
 					dateformat += vals[2];
 				}
-				document.querySelector('input[name="editdate"').value = mo[1] + '-' + mo[0] + '-'+vals[2]; //This probably won't work
+				document.querySelector('input[name="editdate"').value = dateformat;
 				document.querySelector('input[name="edittime"').value = obj.startTime;
 				document.querySelector('input[name="editdescription"').value = obj.description;
 				document.querySelector('input[name="editenddate"').value = obj.endDate;

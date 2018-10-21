@@ -1,10 +1,14 @@
 // Functions for updating events
 
 function addEvent(){
+	// add slashes
 	const title = document.querySelector("input[name='evtitle']").value;
 	const date = document.querySelector("input[name='date']").value;
 	const time = document.querySelector("input[name='time']").value + ":00";
-	const tag = document.querySelector("select").value;
+	const tag = document.querySelector("select[id=tagg]").value;
+	const desc = document.querySelector("#desc").innerHTML;
+	const endTime = document.querySelector('#endtime').value;
+	const endDate = document.querySelector('#enddate').value
 
 
 	if (title == ""){
@@ -20,7 +24,8 @@ function addEvent(){
 
 
 	const data = {'title' : title, 'monthy' : monthy, 'date' : dateOfMonth,
-		'time' : time, 'tag' : tag, 'token' : document.querySelector("#csrf").value};
+		'time' : time, 'tag' : tag, 'description' : desc, 'endDate' : endDate,
+		'endTime' : endTime, 'token' : document.querySelector("#csrf").value};
 	
 	fetch('addEvent.php', {
 		method: 'POST',

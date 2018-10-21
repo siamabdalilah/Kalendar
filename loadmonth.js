@@ -78,6 +78,47 @@ function populate(){
 
 	// THIS NEEDS FIXING. DOESNT TRIGGER ADDCELLLISTENERS WHERE THERE ARE NO EVENTS
 	// get the monthy object to match the data in the json object
+
+	// if (eventList === undefined || eventList === null){
+	// 	return;
+	// }
+	// let dates = document.querySelector('#caltable').querySelector('td');
+
+	// dates.forEach(cell => {
+	// 	let m = new Month(month.year, month.month);
+	// 	let type = cell.id[0];
+	// 	if (type == 'p'){
+	// 		m = m.prevMonth();
+	// 	}
+	// 	else if (type == 'n'){
+	// 		m = m.nextMonth();
+	// 	}
+
+	// 	let monthy = (m.month+1) + '-' + m.year;
+	// 	if (m.month < 9){
+	// 		monthy = '0' + monthy;
+	// 	}
+	// 	let date = cell.id.substring(1, cell.id.length);
+
+	// 	if (eventList[monthy] !== undefined && eventList[monthy][dat] !== undefined){
+	// 		const entries = Object.entries(eventList[monthy][dat]);
+
+	// 		for (const [id, object] of entries){
+	// 			if (document.querySelector('input[id="' + object.tag + '"]').checked){
+	// 				cell.innerHTML += "<span";
+	// 				if (type == 'd'){
+	// 					cell.innerHTML += " class = '" + object.tag + "'";
+	// 				}
+	// 				cell.innerHTML += ">&bull; " + object.startTime.substring(0, object.startTime.length - 3) + ": " + object.title + "</span><br>"; 
+	// 			}
+	// 		}
+	// 	}
+	// });
+	// addCellListeners();
+
+
+
+
 	let monthy = (month.month+1) + "-" + month.year;
 	if (month.month + 1 < 10){
 		monthy = '0' + monthy;
@@ -201,9 +242,11 @@ function populateEventView(e){
 				}
 				document.querySelector('input[name="editdate"').value = dateformat;
 				document.querySelector('input[name="edittime"').value = obj.startTime;
-				document.querySelector('input[name="editdescription"').value = obj.description;
+				document.querySelector('#editdesc').innerHTML = obj.description;
 				document.querySelector('input[name="editenddate"').value = obj.endDate;
 				document.querySelector('input[name="editendtime"').value = obj.endTime;
+				document.querySelector('select[id="edittagg"]').value = obj.tag;
+				document.querSelect('#evid').value = obj.id;
 
 			}, false);
 		});

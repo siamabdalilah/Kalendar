@@ -111,7 +111,7 @@
 			Date:<br><input class = "inp" type = "date" name = "date"><br>
 			Time:<br><input class = "inp" type = "time" name = "time"><br>
 			Tag:
-			<select>
+			<select id = "tagg">
 			<option name = "tag" value = "Personal" > Personal </option>
 			<option name = "tag" value = "Work"> Work </option>
 			<option name = "tag" value = "Holiday"> Holiday </option>
@@ -120,7 +120,7 @@
 			<br>
 			Optional:<br>
 			Description:<br>
-			<input class = 'inp' type = 'textarea'/><br>
+			<textarea id = 'desc'></textarea><br>
 			End Date: <br>
 			<input class = "inp" type = "date" name = "enddate"><br>
 			End Time:<br><input class = "inp" type = "time" name = "endtime">
@@ -146,7 +146,7 @@
 			Date:<br><input class = "inp" type = "date" name = "editdate"><br>
 			Time:<br><input class = "inp" type = "time" name = "edittime"><br>
 			Tag:
-			<select>
+			<select id = 'edittagg'>
 			<option name = "edittag" value = "Personal" > Personal </option>
 			<option name = "edittag" value = "Work"> Work </option>
 			<option name = "edittag" value = "Holiday"> Holiday </option>
@@ -155,10 +155,11 @@
 			<br>
 			Optional:<br>
 			Description:<br>
-			<input class = 'inp' type = 'textarea' name = 'editdescription'/><br>
+			<textarea id = 'editdesc'></textarea><br><br>
 			End Date: <br>
 			<input class = "inp" type = "date" name = "editenddate"/><br>
 			End Time:<br><input class = "inp" type = "time" name = "editendtime"/>
+			<input type = "hidden" id = "evid"/>
 			<br><br><button class = "button" id = "editevent">Submit</button> <button class = "button" id = "canceledit">Cancel</button>
 
 		</div>

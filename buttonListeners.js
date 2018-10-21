@@ -156,7 +156,7 @@ function exportcsv(){
 			}
 		}
 	}
-
+	
 
 
 
@@ -197,7 +197,7 @@ document.querySelector('#canceledit').addEventListener("click", function(){
 	document.querySelector('#edit').style.display = "none";
 }, false);
 
-// document.querySelector("#downloadcsv").addEventListener("click", export, false);
+document.querySelector("#downloadcsv").addEventListener("click", export, false);
 
 
 

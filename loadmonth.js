@@ -106,9 +106,12 @@ function populate(){
 
 			for (const [id, object] of entries){
 				if (document.querySelector('input[id="' + object.tag + '"]').checked){
-					cellin.innerHTML += " <span";
+					
 					if (type == 'd'){
-						cellin.innerHTML += " class = '" + object.tag + "'";
+						cellin.innerHTML += "<span class = '" + object.tag + "'";
+					}
+					else{
+						cellin.innerHTML += " <span";
 					}
 					cellin.innerHTML += ">&bull; " + object.startTime.substring(0, object.startTime.length - 3) + ": " + object.title + "</span><br>"; 
 				}

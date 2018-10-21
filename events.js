@@ -43,6 +43,9 @@ function addEvent(){
 			document.querySelector("input[name='date']").value = "";
 			document.querySelector("input[name='time']").value = "";
 			document.querySelector('#addevent').style.display = "none";
+			document.querySelector("#desc").innerHTML = "";
+			document.querySelector('input[name="endtime"]').value = "";
+			document.querySelector('input[name="enddate"]').value = "";
 			
 		}
 		else{

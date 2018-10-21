@@ -130,7 +130,7 @@ function export(){
 
 	let element = document.createElement('a');
 
-	let csvinput = "Subject, Start date, Start time, End date, End time, Description\n"
+	let csvinput = "Subject, Start date, Start time, End date, End time, Description\n";
 	let list = Object.entries(eventList);
 
 	for (const [monthy, entries] of list){

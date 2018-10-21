@@ -132,6 +132,14 @@ function deleteEvent(e){
 		else{
 			alert(resp.message);
 	}
+	.then(() => {
+		fill();
+		loadEvents();
+	})
+	.then(() =>{
+		let id = '#' + e.target.date;
+		document.querySelector(id).click();
+	})
 	}).catch(err => console.log(err));
 }
 

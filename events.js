@@ -105,6 +105,7 @@ function editEvent(){
 	})
 	.then(() => {
 		document.querySelector('#edit').style.display = none;
+		fill();
 		loadEvents();
 	})
 	.catch(err => console.log(err));

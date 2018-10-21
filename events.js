@@ -7,8 +7,8 @@ function addEvent(){
 	const time = document.querySelector("input[name='time']").value + ":00";
 	const tag = document.querySelector("select[id=tagg]").value;
 	const desc = document.querySelector("#desc").innerHTML;
-	const endTime = document.querySelector('#endtime').value;
-	const endDate = document.querySelector('#enddate').value
+	const endTime = document.querySelector('input[name="endtime"]').value;
+	const endDate = document.querySelector('input[name="enddate"]').value
 
 
 	if (title == ""){

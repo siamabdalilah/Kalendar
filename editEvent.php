@@ -21,7 +21,11 @@ $category = addslashes($json_obj['tag']);
 $eventid = addslashes($json_obj['eventid']);
 $token = addslashes($json_obj['token']);
 
-
+echo json_encode(array(
+        "success" => false,
+        "message" => "Illegal token"
+    ));
+    exit;
 
 
 if (!($token === $_SESSION['token'])){

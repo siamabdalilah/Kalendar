@@ -100,6 +100,7 @@ button:focus{
 	margin-top: 100px;
 	margin-left: 160px;
 	position: fixed;
+	width: -moz-calc(100% - 160px);
 	width: calc(100% - 160px);
 	height: 100px;
 	background-color: #DEE6EC;
@@ -123,6 +124,7 @@ button:focus{
 	margin-top: 200px;
 	margin-left: 160px;
 	position: fixed;
+	width: -moz-calc(100% - 160px);
 	width: calc(100%-160px);
 	height: 100px;
 	/*background-color: #DEE6EC;*/

@@ -18,12 +18,13 @@ $starttime = $json_obj['starttime'];//addslashes($json_obj['starttime']);
 $description = $json_obj['description'];//addslashes($json_obj['description']);
 
 $endttime = $json_obj['endttime'];//addslashes($json_obj['endttime']);
-$enddate = $json_obj['enddate'];//addslashes($json_obj['enddate']);
 echo json_encode(array(
         "success" => false,
         "message" => "Illegal token"
     ));
     exit;
+$enddate = $json_obj['enddate'];//addslashes($json_obj['enddate']);
+
 $category = $json_obj['tag'];//addslashes($json_obj['tag']);
 $eventid = $json_obj['eventid'];//addslashes($json_obj['eventid']);
 

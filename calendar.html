@@ -7,7 +7,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-	
+
 	<div class = "header">
 		<div id = "title">
 			Kalendar
@@ -60,10 +60,10 @@
 			<br>
 			<br>
 
-			<button id = "downloadcsv">Export to CSV</button>
+			<button class ="button" id = "downloadcsv">Export to CSV</button>
 		</div>
 	</div>
-	
+
 	<div class = "calendar-nav">
 		<div id = 'textbox'>
 			<button class = "button" id = "prevm">< Previous Month</button> <span id = "curMonth"></span> <button class = "button" id = "nextm">Next Month ></button>
@@ -87,7 +87,7 @@
 			<tr></tr>
 			<tr></tr>
 			<tr></tr>
-			
+
 		</table>
 	</div>
 
@@ -135,7 +135,7 @@
 
 	<div class = "modal" id = "view">
 		<div class = "modal-content">
-			
+
 			<span id = "currdate"></span><br><br>
 			<button class = "button" id = "addevondate">Add Event</button> <button class = "button" id = "back">Back</button><br><br>
 
@@ -170,15 +170,10 @@
 	</div>
 
 	<input type = "hidden" id = "csrf"/>
-	
-    
+
+
     <script type="text/javascript" src = "loadmonth.js"></script>
     <script type="text/javascript" src = "buttonListeners.js"></script>
     <script type="text/javascript" src = "events.js"></script>
 </body>
 </html>
-
-
-
-
-

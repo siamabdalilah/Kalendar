@@ -6,14 +6,7 @@ ini_set("session.cookie_httponly", 1);
 session_start();
  
 
-$json_str = file_get_contents('php://input');
-$json_obj = json_decode($json_str, true);
 
-echo json_encode(array(
-        "success" => false,
-        "message" => "Illegal token"
-    ));
-    exit;
 
 $title = addslashes($json_obj['title']);
 $monthy = addslashes($json_obj['monthy']);
@@ -26,7 +19,14 @@ $category = addslashes($json_obj['tag']);
 $eventid = addslashes($json_obj['eventid']);
 $token = addslashes($json_obj['token']);
 
+$json_str = file_get_contents('php://input');
+$json_obj = json_decode($json_str, true);
 
+echo json_encode(array(
+        "success" => false,
+        "message" => "Illegal token"
+    ));
+    exit;
 
 
 if (!($token === $_SESSION['token'])){

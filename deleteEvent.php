@@ -8,18 +8,16 @@ session_start();
 $json_str = file_get_contents("php://input");
 $json_obj = json_decode($json_str,true);
 
-
-// if (!($token === $_SESSION['token'])){
-//     echo json_encode(array(
-//         "success" => false,
-//         "message" => "Illegal token"
-//     ));
-//     exit;
-// }
-
-
-
 $event_id = addslashes($json_obj['eventid']);
+$token = addslashes($json_obj['token']);
+
+if (!($token === $_SESSION['token'])){
+    echo json_encode(array(
+        "success" => false,
+        "message" => "Illegal token"
+    ));
+    exit;
+}
 
 
 // deleting event

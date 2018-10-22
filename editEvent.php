@@ -11,16 +11,16 @@ $json_obj = json_decode($json_str, true);
 
 
 
-$title = addslashes($json_obj['title']);
-$monthy = addslashes($json_obj['monthy']);
-$startdate = addslashes($json_obj['date']);
-$starttime = addslashes($json_obj['starttime']);
-$description = addslashes($json_obj['description']);
-$endttime = addslashes($json_obj['endttime']);
-$enddate = addslashes($json_obj['enddate']);
-$category = addslashes($json_obj['tag']);
-$eventid = addslashes($json_obj['eventid']);
-$token = addslashes($json_obj['token']);
+$title =$json_obj['title']; //addslashes($json_obj['title']);
+$monthy = $json_obj['monthy'];//addslashes($json_obj['monthy']);
+$startdate = $json_obj['date'];//addslashes($json_obj['date']);
+$starttime = $json_obj['starttime'];//addslashes($json_obj['starttime']);
+$description = $json_obj['description'];//addslashes($json_obj['description']);
+$endttime = $json_obj['endttime'];//addslashes($json_obj['endttime']);
+$enddate = $json_obj['enddate'];//addslashes($json_obj['enddate']);
+$category = $json_obj['tag'];//addslashes($json_obj['tag']);
+$eventid = $json_obj['eventid'];//addslashes($json_obj['eventid']);
+$token = $json_obj['token'];//addslashes($json_obj['token']);
 
 
 echo json_encode(array(

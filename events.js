@@ -61,7 +61,7 @@ function editEvent(){
 	const title = document.querySelector("input[name='editevtitle']").value;
 	const date = document.querySelector("input[name='editdate']").value;
 	const time = document.querySelector("input[name='edittime']").value + ":00";
-	const tag = document.querySelector("select[id=edittagg]").value;
+	const tag = document.querySelector("select[id='edittagg']").value;
 	const desc = document.querySelector("#editdesc").innerHTML;
 	const endTime = document.querySelector('input[name="editendtime"]').value;
 	const endDate = document.querySelector('input[name="editenddate"]').value;
@@ -82,6 +82,7 @@ function editEvent(){
 
 	const data = {'title' : title, 'monthy' : monthy, 'date' : dateOfMonth,
 		'starttime' : time, 'description' : desc, 'endtime' : endTime, 'enddate' : endDate, 'tag' : tag, 'eventid' : id, 'token' : document.querySelector("#csrf").value};
+	
 
 	fetch('editEvent.php', {
 		method: 'POST',

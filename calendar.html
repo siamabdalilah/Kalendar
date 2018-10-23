@@ -28,7 +28,7 @@
 
 	<div class = "sidenav">
 		<div id = "monthnav">
-			<button class = "button" id = "left"> < </button> <span id = "y"></span> <button class = "button" id = "right"> > </button>
+			<button class = "button" id = "left"> &lt; </button> <span id = "y"></span> <button class = "button" id = "right"> &gt; </button>
 		</div>
 		<div id = "monthview">
 			<table id = 'mv'>
@@ -66,7 +66,7 @@
 
 	<div class = "calendar-nav">
 		<div id = 'textbox'>
-			<button class = "button" id = "prevm">< Previous Month</button> <span id = "curMonth"></span> <button class = "button" id = "nextm">Next Month ></button>
+			<button class = "button" id = "prevm">&lt; Previous Month</button> <span id = "curMonth"></span> <button class = "button" id = "nextm">Next Month &gt;</button>
 		</div>
 	</div>
 
@@ -110,16 +110,16 @@
 
 	<div class = "modal" id = "addevent">
 		<div class = "modal-content">
-			<span id = "r">Add New Event</span><br><br>
+			<span>Add New Event</span><br><br>
 			Title:<br> <input class = "inp" type = "text" name = "evtitle"><br>
 			Date:<br><input class = "inp" type = "date" name = "date"><br>
 			Time:<br><input class = "inp" type = "time" name = "time"><br>
 			Tag:
 			<select id = "tagg">
-			<option name = "tag" value = "Personal" > Personal </option>
-			<option name = "tag" value = "Work"> Work </option>
-			<option name = "tag" value = "Holiday"> Holiday </option>
-			<option name = "tag" value = "Other"> Other </option>
+			<option value = "Personal" > Personal </option>
+			<option value = "Work"> Work </option>
+			<option value = "Holiday"> Holiday </option>
+			<option value = "Other"> Other </option>
 			</select>
 			<br>
 			Optional:<br>
@@ -145,16 +145,16 @@
 
 	<div class = "modal" id = "edit">
 		<div class = "modal-content">
-			<span id = "r">Edit</span><br><br>
+			<span>Edit</span><br><br>
 			Title:<br> <input class = "inp" type = "text" name = "editevtitle"><br>
 			Date:<br><input class = "inp" type = "date" name = "editdate"><br>
 			Time:<br><input class = "inp" type = "time" name = "edittime"><br>
 			Tag:
 			<select id = 'edittagg'>
-			<option name = "edittag" value = "Personal" > Personal </option>
-			<option name = "edittag" value = "Work"> Work </option>
-			<option name = "edittag" value = "Holiday"> Holiday </option>
-			<option name = "edittag" value = "Other"> Other </option>
+			<option value = "Personal" > Personal </option>
+			<option value = "Work"> Work </option>
+			<option value = "Holiday"> Holiday </option>
+			<option value = "Other"> Other </option>
 			</select>
 			<br>
 			Optional:<br>
@@ -172,8 +172,8 @@
 	<input type = "hidden" id = "csrf"/>
 
 
-    <script type="text/javascript" src = "loadmonth.js"></script>
-    <script type="text/javascript" src = "buttonListeners.js"></script>
-    <script type="text/javascript" src = "events.js"></script>
+    <script src = "loadmonth.js"></script>
+    <script src = "buttonListeners.js"></script>
+    <script src = "events.js"></script>
 </body>
 </html>

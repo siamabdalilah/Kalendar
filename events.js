@@ -30,7 +30,7 @@ function addEvent(){
 	const data = {'title' : title, 'monthy' : monthy, 'date' : dateOfMonth,
 		'time' : time, 'tag' : tag, 'description' : desc, 'endDate' : endDate,
 		'endTime' : endTime, 'token' : document.querySelector("#csrf").value};
-	
+
 	fetch('addEvent.php', {
 		method: 'POST',
         body: JSON.stringify(data),
@@ -46,12 +46,12 @@ function addEvent(){
 			document.querySelector("#desc").innerHTML = "";
 			document.querySelector('input[name="endtime"]').value = "";
 			document.querySelector('input[name="enddate"]').value = "";
-			
+
 		}
 		else{
 			alert(resp.message);
 		}
-		
+
 	})
 	.then(() => {fill(); loadEvents();})
 	.catch(err => console.log(err));
@@ -60,7 +60,7 @@ function addEvent(){
 function editEvent(){
 	const title = document.querySelector("input[name='editevtitle']").value;
 	const date = document.querySelector("input[name='editdate']").value;
-	const time = document.querySelector("input[name='edittime']").value + ":00";
+	const time = document.querySelector("input[name='edittime']").value;//+ ":00";
 	const tag = document.querySelector("select[id='edittagg']").value;
 	const desc = document.querySelector("#editdesc").innerHTML;
 	const endTime = document.querySelector('input[name="editendtime"]').value;
@@ -82,7 +82,7 @@ function editEvent(){
 
 	const data = {'title' : title, 'monthy' : monthy, 'date' : dateOfMonth,
 		'starttime' : time, 'description' : desc, 'endtime' : endTime, 'enddate' : endDate, 'tag' : tag, 'eventid' : id, 'token' : document.querySelector("#csrf").value};
-	
+
 
 	fetch('editEvent.php', {
 		method: 'POST',
@@ -115,7 +115,7 @@ function editEvent(){
 function deleteEvent(e){
 	const id = e.target.id.substring(1, e.target.id.length);
 	let idd = '#' + e.target.getAttribute('date');
-	
+
 
 	const data = {'eventid' : id, 'token' : document.querySelector("#csrf").value};
 
@@ -141,7 +141,7 @@ function deleteEvent(e){
 	})
 	.catch(err => console.log(err));
 
-	
+
 	// let ddd = new Date();
 	// 	let ddd2 = null;
 	// 	do{
@@ -154,4 +154,3 @@ function deleteEvent(e){
 
 document.querySelector("#submitevent").addEventListener("click", addEvent,false);
 document.querySelector('#editevent').addEventListener("click", editEvent, false);
-

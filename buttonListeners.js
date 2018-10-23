@@ -97,6 +97,7 @@ function register(){
 			document.querySelector('#userinfo').style.display = "block";
 			document.querySelector('#status').style.display = "block";
 			document.querySelector('#csrf').value = resp.token;
+			populate();
 		}
 		else{
 			alert(resp.message);

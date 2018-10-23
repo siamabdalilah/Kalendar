@@ -186,7 +186,7 @@ function populateEventView(e){
 				cell.innerHTML += "End Date: " + object.endDate;
 			}
 			if (object.endTime != "00:00:00"){
-				cell.innerHTML += ", End Time: " + object.endTime;//.substring(0, object.endTime.length - 3);
+				cell.innerHTML += ", End Time: " + object.endTime.substring(0, object.endTime.length - 3);
 			}
 			if (object.description != ""){
 				cell.innerHTML += "<br>Description: " + object.description;

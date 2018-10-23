@@ -126,30 +126,16 @@ function deleteEvent(e){
 	})
 	.then(response => response.json())
 	.then(resp => {
-		if (resp.success){
-			// fill();
-			// loadEvents();
-		}
-		else{
+		if (!resp.success){
 			alert(resp.message);
 		}
 	})
 	.then(() => {
 		fill();
 		loadEvents();
-		e.target.parentNode.parentNode.removeChild(e.target.parentNode);
-		//document.querySelector('#view').style.display ="none";
+		document.querySelector('#view').style.display ="none";
 	})
 	.catch(err => console.log(err));
-
-
-	// let ddd = new Date();
-	// 	let ddd2 = null;
-	// 	do{
-	// 		ddd2 = new Date();
-	// 	}while(ddd2-ddd<400);
-	// 	document.querySelector(idd).click();
-	// 	console.log(document.querySelector(idd));
 }
 
 

@@ -137,7 +137,8 @@ function deleteEvent(e){
 	.then(() => {
 		fill();
 		loadEvents();
-		document.querySelector('#view').style.display ="none";
+		e.target.parentNode.parentNode.removeChild(e.target.parentNode);
+		//document.querySelector('#view').style.display ="none";
 	})
 	.catch(err => console.log(err));
 

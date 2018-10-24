@@ -1,7 +1,6 @@
 // Functions for updating events
 
 function addEvent(){
-	// add slashes
 	const title = document.querySelector("input[name='evtitle']").value;
 	const date = document.querySelector("input[name='date']").value;
 	const time = document.querySelector("input[name='time']").value + ":00";
@@ -20,7 +19,6 @@ function addEvent(){
 		return;
 	}
 
-	// CHECK FOR EMPTINESS OF OTHER REQUIRED ELEMENTS
 
 	let vals = date.split('-');
 	let monthy = vals[1] + '-' + vals[0];
@@ -112,7 +110,8 @@ function editEvent(){
 	.catch(err => console.log(err));
 }
 
-function deleteEvent(e){
+function deleteEvent(e){	
+	// get the id of the event, which is stored as a part of the target's id
 	const id = e.target.id.substring(1, e.target.id.length);
 	let idd = '#' + e.target.getAttribute('date');
 

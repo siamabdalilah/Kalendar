@@ -20,6 +20,7 @@ const monthsOfYear = {
 };
 
 
+// Fills in the table to represent the month
 function fill(){
 	document.querySelector('#curMonth').innerHTML = monthsOfYear[month.month] + ", " + month.year;
 
@@ -74,9 +75,8 @@ function fill(){
 	}
 }
 
+// This populates month with existing events
 function populate(){
-
-	// THIS NEEDS FIXING. DOESNT TRIGGER ADDCELLLISTENERS WHERE THERE ARE NO EVENTS
 	// get the monthy object to match the data in the json object
 
 	if (eventList === undefined || eventList === null){
@@ -122,6 +122,7 @@ function populate(){
 	
 }
 
+// Adds event listeners too all cells
 function addCellListeners(){
 	document.querySelector('#caltable').querySelectorAll('td').forEach(element =>{
 		element.addEventListener("click", function(e){
@@ -133,6 +134,7 @@ function addCellListeners(){
 	});
 }
 
+// Populates the popup that appears on the on clicking a cell
 function populateEventView(e){
 	if (e.nodeName !== "TD"){
 		return;

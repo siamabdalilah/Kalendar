@@ -17,3 +17,9 @@ The link to the project can be found [here](http://ec2-52-15-37-3.us-east-2.comp
 The HTML page does not validate because of having empty <tr> tags in the file. We decided to have it that way because the number of rows can change depending on the month and removing and adding tr tags each time would seemed to unnecessarily complicate the logic. The empty tr tags have no effect on the visual.  
 
 Another warning we get is for using date and time type inputs, which the validator says might not work on all browsers. We checked the latest versions of Chrome and Firefox and it works fine.
+
+
+
+
+
+Note: The table cells scroll in case of overflow. The cells are not clickable until a user is logged in. Clicking will not work when the text selector cursor is visible.

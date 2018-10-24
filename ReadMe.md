@@ -19,7 +19,9 @@ The HTML page does not validate because of having empty <tr> tags in the file. W
 Another warning we get is for using date and time type inputs, which the validator says might not work on all browsers. We checked the latest versions of Chrome and Firefox and it works fine.
 
 
-
+Sample User with preloaded events:
+Username: testing
+Password: testing
 
 
 Note: The table cells scroll in case of overflow. The cells are not clickable until a user is logged in. Clicking will not work when the text selector cursor is visible.

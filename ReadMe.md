@@ -8,6 +8,8 @@ See the project [here](http://ec2-52-15-37-3.us-east-2.compute.amazonaws.com/~si
 
 A calendar webapp made with JavaScript and PHP. The communication with the back end is done with AJAX requests and uses MySQL for the database. Users can register add/edit/delete events and separate them in categorized them with four different tags. Logged in users can click on cells and view event details or add events on that date. Users can also export selected categories to a CSV file which can be imported into Google Calendar.
 
+![Screenshor of calendar](calendar_screenshot.png)
+
 <!-- ### Creative portion involves:
 * Being able to separate events into 4 different tags.  
 * Year view navigation on the side bar to enable   faster switching between months and years.  

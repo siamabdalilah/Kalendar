@@ -27,7 +27,7 @@ $token = addslashes($json_obj['token']);
 
  if ($cnt == 1) {
      echo json_encode(array(
-         "sucess" => true;
+         "sucess" => true,
          "title" => htmlentities($title),
          "monthy" => htmlentities($startMonth),
          "date" => htmlentities($startDate),
